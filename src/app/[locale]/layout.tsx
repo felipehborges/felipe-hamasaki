@@ -4,19 +4,9 @@ import { NextIntlClientProvider } from 'next-intl'
 import { getMessages } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
-import { Geist, Geist_Mono, Poppins } from 'next/font/google'
+import { Poppins } from 'next/font/google'
 import type { ReactNode } from 'react'
 import '@/styles/globals.css'
-
-// const geistSans = Geist({
-//   variable: '--font-geist-sans',
-//   subsets: ['latin']
-// })
-
-// const geistMono = Geist_Mono({
-//   variable: '--font-geist-mono',
-//   subsets: ['latin']
-// })
 
 const poppins = Poppins({
   variable: '--font-poppins',
@@ -49,12 +39,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body
-        className={
-          // `${geistSans.variable}${geistMono.variable}`
-          `${poppins.className} antialiased`
-        }
-      >
+      <body className={`${poppins.className} antialiased`}>
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
             attribute="class"

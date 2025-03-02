@@ -1,17 +1,24 @@
 'use client'
 
 import { cn } from '@/lib/utils'
+import { Domine } from 'next/font/google'
 
 interface TypographyProps {
   children: React.ReactNode
   className?: string
 }
 
+const domine = Domine({
+  variable: '--font-poppins',
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700']
+})
+
 export function H1({ children, className }: TypographyProps) {
   return (
     <h1
       className={cn(
-        'scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl',
+        `scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl ${domine.className}`,
         className
       )}
     >
