@@ -1,0 +1,39 @@
+{
+  "pages": {
+    "home": {
+      "title": "Greetings!",
+      "message": "Welcome to the home page"
+    },
+    "portfolio": {
+      "title": "Portfolio",
+      "message": "Welcome to the portfolio page"
+    },
+    "about": {
+      "title": "About",
+      "message": "Welcome to the about page"
+    },
+    "contact": {
+      "title": "Contact",
+      "message": "Welcome to the contact page"
+    }
+  },
+  "components": {
+    "navbar": {
+      "home": "Home",
+      "portfolio": "Portfolio",
+      "about": "About",
+      "contact": "Contact"
+    },
+    "button-change-theme": {
+      "title": "Theme",
+      "light": "Light",
+      "dark": "Dark",
+      "system": "System"
+    },
+    "button-change-lang": {
+      "title": "Language",
+      "pt": "Portuguese",
+      "en": "English"
+    }
+  }
+}
