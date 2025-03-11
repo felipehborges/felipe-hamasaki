@@ -28,7 +28,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "src/app/[locale]/section-footer",
-    "src/app/[locale]/section-history",
+    "src/app/[locale]/section-about",
     "src/app/[locale]/section-home"
   ],
   "exclude": ["node_modules"]
