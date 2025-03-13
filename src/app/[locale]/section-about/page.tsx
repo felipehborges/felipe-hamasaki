@@ -1,79 +1,24 @@
-import { Button } from '@/components/ui/button'
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-  CardFooter
-} from '@/components/ui/card'
-import { H1, P } from '@/components/ui/typography'
+import { P } from '@/components/ui/typography'
 
 export default function SectionAbout() {
   return (
-    <section className="pt-17 h-screen border-2 border-yellow-400">
-      <H1 className="font-bold text-2xl">This is a title</H1>
+    <section className="pt-17 h-screen grid grid-cols-2 gap-10 border-2 border-red-500">
+      <div className="flex flex-col justify-center items-end gap-2">Image</div>
 
-      <P>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci nulla
-        non ut, quas veritatis sequi eaque animi facilis enim similique placeat
-        repellendus rerum? Consectetur sequi ipsum inventore alias odit eum.
-      </P>
-
-      <div className="flex gap-4 mx-20 my-10">
-        <Card>
-          <CardHeader>
-            <CardTitle>This is a card</CardTitle>
-            <CardDescription>Card description</CardDescription>
-          </CardHeader>
-
-          <CardContent>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-            nulla non ut, quas veritatis sequi eaque animi facilis enim
-            similique placeat repellendus rerum? Consectetur sequi ipsum
-            inventore alias odit eum.
-          </CardContent>
-
-          <CardFooter>
-            <Button>Send</Button>
-          </CardFooter>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>This is a card</CardTitle>
-            <CardDescription>Card description</CardDescription>
-          </CardHeader>
-
-          <CardContent>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-            nulla non ut, quas veritatis sequi eaque animi facilis enim
-            similique placeat repellendus rerum? Consectetur sequi ipsum
-            inventore alias odit eum.
-          </CardContent>
-
-          <CardFooter>
-            <Button>Send</Button>
-          </CardFooter>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle>This is a card</CardTitle>
-            <CardDescription>Card description</CardDescription>
-          </CardHeader>
-
-          <CardContent>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-            nulla non ut, quas veritatis sequi eaque animi facilis enim
-            similique placeat repellendus rerum? Consectetur sequi ipsum
-            inventore alias odit eum.
-          </CardContent>
-
-          <CardFooter>
-            <Button>Send</Button>
-          </CardFooter>
-        </Card>
+      <div className="flex flex-col justify-center items-start ">
+        <P className="md:w-2/3 lg:w-1/2">
+          Born in December 1994, I was immersed in technology from a young age
+          thanks to my father — a web designer and journalist — whose passion
+          for computers naturally influenced my early interests. Although I was
+          always drawn to games and PCs, my true calling in the tech industry
+          only emerged later. I initially carved out a successful six-year
+          career in human resources, a journey that honed my people skills and
+          strategic thinking. At the onset of the pandemic, I discovered
+          programming, and its creative and problem-solving aspects ignited a
+          profound passion within me. Since then, I have dedicated myself to
+          continuous learning and professional growth, eager to contribute
+          innovative solutions and drive digital transformation.
+        </P>
       </div>
     </section>
   )

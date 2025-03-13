@@ -1,12 +1,9 @@
-import type { Metadata } from 'next'
 import { ThemeProvider } from '@/components/theme-provider'
-import { NextIntlClientProvider } from 'next-intl'
-import { getMessages } from 'next-intl/server'
-import { notFound } from 'next/navigation'
-import { routing } from '@/i18n/routing'
-import { Poppins } from 'next/font/google'
-import type { ReactNode } from 'react'
 import '@/styles/globals.css'
+import type { Metadata } from 'next'
+import { Poppins } from 'next/font/google'
+import { notFound } from 'next/navigation'
+import type { ReactNode } from 'react'
 
 const poppins = Poppins({
   variable: '--font-poppins',
@@ -28,28 +25,18 @@ export default async function RootLayout({
 }>) {
   // Ensure that the incoming `locale` is valid
   const { locale } = await params
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-  if (!routing.locales.includes(locale as any)) {
-    notFound()
-  }
-
-  // Providing all messages to the client
-  // side is the easiest way to get started
-  const messages = await getMessages()
 
   return (
     <html lang={locale} suppressHydrationWarning>
       <body className={`${poppins.className} antialiased`}>
-        <NextIntlClientProvider messages={messages}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-          </ThemeProvider>
-        </NextIntlClientProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )
