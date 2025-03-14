@@ -3,19 +3,18 @@ import SectionFooter from './section-footer/page'
 import SectionAbout from './section-about/page'
 import SectionHome from './section-home/page'
 import SectionStacks from './section-stacks/page'
+import SectionExperience from './section-experience/page'
 
 export default function Home() {
   return (
-    <div
-      className="h-screen overflow-y-scroll bg-background-page"
-      // scroll-smooth
-    >
+    <main className="h-screen">
       <Navbar />
 
       <SectionHome />
       <SectionAbout />
       <SectionStacks />
+      <SectionExperience />
       <SectionFooter />
-    </div>
+    </main>
   )
 }

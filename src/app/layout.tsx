@@ -2,7 +2,6 @@ import { ThemeProvider } from '@/components/theme-provider'
 import '@/styles/globals.css'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
-import { notFound } from 'next/navigation'
 import type { ReactNode } from 'react'
 
 const poppins = Poppins({
@@ -17,17 +16,12 @@ export const metadata: Metadata = {
 }
 
 export default async function RootLayout({
-  children,
-  params
+  children
 }: Readonly<{
   children: ReactNode
-  params: Promise<{ locale: string }>
 }>) {
-  // Ensure that the incoming `locale` is valid
-  const { locale } = await params
-
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <body className={`${poppins.className} antialiased`}>
         <ThemeProvider
           attribute="class"

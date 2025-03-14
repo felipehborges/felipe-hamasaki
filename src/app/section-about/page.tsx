@@ -2,10 +2,13 @@ import { P } from '@/components/ui/typography'
 
 export default function SectionAbout() {
   return (
-    <section className="pt-17 h-screen grid grid-cols-2 gap-10 border-2 border-red-500">
+    <section
+      id="about"
+      className="h-screen grid grid-cols-2 gap-10 border-2 border-red-500"
+    >
       <div className="flex flex-col justify-center items-end gap-2">Image</div>
 
-      <div className="flex flex-col justify-center items-start ">
+      <div className="flex flex-col justify-center items-start">
         <P className="md:w-2/3 lg:w-1/2">
           Born in December 1994, I was immersed in technology from a young age
           thanks to my father — a web designer and journalist — whose passion
