@@ -68,7 +68,7 @@ export function H4({ children, className }: TypographyProps) {
 
 export function P({ children, className }: TypographyProps) {
   return (
-    <p className={cn('leading-7 [&:not(:first-child)]:mt-6', className)}>
+    <p className={cn('leading-6 [&:not(:first-child)]:mt-6', className)}>
       {children}
     </p>
   )

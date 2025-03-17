@@ -1,19 +1,12 @@
-import { Button } from '@/components/ui/button'
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-  CardFooter
-} from '@/components/ui/card'
+'use client'
+
 import { H1, P } from '@/components/ui/typography'
 
 export default function SectionExperience() {
   return (
     <section
       id="experience"
-      className="h-screen grid grid-cols-2 gap-10 border-2 border-orange-400"
+      className="h-screen bg-background-page grid grid-cols-2 gap-10"
     >
       <H1 className="font-bold text-2xl">Experience</H1>
 

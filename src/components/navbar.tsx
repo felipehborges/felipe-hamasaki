@@ -49,9 +49,9 @@ export default function Navbar(props: { className?: string }) {
   return (
     <nav
       className={cn(
-        'lg:p-4 p-2 z-20',
+        'p-4 z-10',
         'bg-card-secondary border-b-4 border-black',
-        'w-full flex justify-between items-center',
+        'w-full hidden md:flex justify-between items-center',
         'fixed left-0 top-0',
         'transition-transform duration-300',
         `${showNavbar ? 'translate-y-0' : '-translate-y-full'}`,
@@ -77,19 +77,19 @@ export default function Navbar(props: { className?: string }) {
           </Button>
         </Link>
 
+        <Link onClick={handleNavButtonClick} href="#projects">
+          <Button type="button" variant="outline">
+            Projects
+          </Button>
+        </Link>
+
         {/* Modal with form? */}
         <Button type="button" variant="link">
           Hire me
         </Button>
       </div>
 
-      <div className="flex gap-4">
-        <Button type="button">
-          <Download />
-          Download Resume
-        </Button>
-        <ButtonTheme />
-      </div>
+      <ButtonTheme />
     </nav>
   )
 }
