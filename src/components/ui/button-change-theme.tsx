@@ -4,11 +4,12 @@ import { Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
 import { Button } from './button'
 
-export function ButtonTheme() {
+export function ButtonTheme(props: { className?: string }) {
   const { setTheme } = useTheme()
 
   return (
     <Button
+      className={props.className}
       variant="outline"
       size="icon"
       onClick={() => setTheme((theme) => (theme === 'dark' ? 'light' : 'dark'))}

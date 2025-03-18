@@ -11,7 +11,7 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: 'Hamasaki',
+  title: 'Felipe Hamasaki',
   description: 'Welcome to my website!'
 }
 
@@ -22,7 +22,7 @@ export default async function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${poppins.className} antialiased`}>
+      <body className={`${poppins.className} overflow-x-hidden antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
