@@ -1,6 +1,6 @@
 'use client'
 
-import { H1, P } from '@/components/ui/typography'
+import { H1, P } from '@/components/ui/custom/typography'
 import { motion } from 'motion/react'
 
 export default function SectionHome() {
@@ -14,7 +14,7 @@ export default function SectionHome() {
     >
       <section
         id="home"
-        className="h-screen bg-background-page grid grid-cols-2 gap-10"
+        className="min-h-screen bg-background-page grid grid-cols-2 gap-10"
       >
         <div className="flex flex-col justify-center items-end gap-2">
           <H1 className="">Greetings!</H1>

@@ -1,7 +1,7 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
-import { H1, P } from '@/components/ui/typography'
+import { Button } from '@/components/ui/custom/button'
+import { H1, P } from '@/components/ui/custom/typography'
 import { Download } from 'lucide-react'
 
 export default function SectionFooter() {

@@ -1,16 +1,64 @@
 'use client'
 
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger
+} from '@/components/ui/drawer'
 import { cn } from '@/lib/utils'
-import { Button } from './ui/button'
-import { ButtonTheme } from './ui/button-change-theme'
-import { Download } from 'lucide-react'
+import { Download, Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import { Button } from './ui/custom/button'
+import { ButtonTheme } from './ui/custom/button-change-theme'
 
 export default function Navbar(props: { className?: string }) {
   const [showNavbar, setShowNavbar] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
   const [navButtonClicked, setNavButtonClicked] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+
+  const navigationLinks = [
+    { href: '#about', label: 'About' },
+    { href: '#stacks', label: 'Stacks' },
+    { href: '#experience', label: 'Experience' },
+    { href: '#projects', label: 'Projects' }
+  ]
+
+  // Handler for navbar button clicks
+  function handleNavButtonClick() {
+    setShowNavbar(false)
+    setNavButtonClicked(true)
+
+    // Reset the clicked state after some time to restore normal scrolling behavior
+    setTimeout(() => {
+      setNavButtonClicked(false)
+    }, 1000) // Adjust timeout as needed
+  }
+
+  // Function to handle screen size check
+  const handleResize = () => {
+    setIsMobile(window.innerWidth <= 768) // Adjust the breakpoint as needed
+  }
+
+  // Set up event listener for window resize
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  useEffect(() => {
+    handleResize() // Check initial screen size
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  // Close drawer when switching to desktop view
+  useEffect(() => {
+    if (!isMobile && isOpen) setIsOpen(false)
+  }, [isMobile, isOpen])
 
   useEffect(() => {
     function handleScroll() {
@@ -35,61 +83,82 @@ export default function Navbar(props: { className?: string }) {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [lastScrollY, navButtonClicked])
 
-  // Handler for navbar button clicks
-  function handleNavButtonClick() {
-    setShowNavbar(false)
-    setNavButtonClicked(true)
-
-    // Reset the clicked state after some time to restore normal scrolling behavior
-    setTimeout(() => {
-      setNavButtonClicked(false)
-    }, 1000) // Adjust timeout as needed
-  }
-
   return (
     <nav
       className={cn(
-        'p-4 z-10',
-        'bg-card-secondary border-b-4 border-black',
-        'w-full hidden md:flex justify-between items-center',
-        'fixed left-0 top-0',
+        'fixed left-0 top-0 right-0 z-10',
         'transition-transform duration-300',
         `${showNavbar ? 'translate-y-0' : '-translate-y-full'}`,
         props.className
       )}
     >
-      <div className="flex gap-4 justify-center w-full">
-        <Link onClick={handleNavButtonClick} href="#about">
-          <Button type="button" variant="outline">
-            About
+      <section className="w-full hidden sm:flex justify-between p-4 bg-card-secondary border-b-4 border-black">
+        <div className="mx-auto flex gap-4">
+          {navigationLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              onClick={handleNavButtonClick}
+            >
+              <Button
+                type="button"
+                variant="outline"
+                className="text-xs md:text-sm"
+              >
+                {link.label}
+              </Button>
+            </Link>
+          ))}
+
+          {/* Modal with form? */}
+          <Button type="button" variant="link" className="text-xs md:text-sm">
+            Hire me
           </Button>
-        </Link>
+        </div>
 
-        <Link onClick={handleNavButtonClick} href="#stacks">
-          <Button type="button" variant="outline">
-            Stacks
+        <ButtonTheme />
+      </section>
+
+      <Drawer direction="top" open={isOpen} onOpenChange={setIsOpen}>
+        <DrawerTrigger asChild>
+          <Button className="sm:hidden flex absolute top-4 left-4" size="icon">
+            <Menu />
           </Button>
-        </Link>
+        </DrawerTrigger>
 
-        <Link onClick={handleNavButtonClick} href="#experience">
-          <Button type="button" variant="outline">
-            Experience
-          </Button>
-        </Link>
+        <DrawerContent className="border-b-2 border-black bg-card shadow-[4px_4px_0px_#000]">
+          <DrawerHeader>
+            <DrawerTitle className="">Enjoy!</DrawerTitle>
 
-        <Link onClick={handleNavButtonClick} href="#projects">
-          <Button type="button" variant="outline">
-            Projects
-          </Button>
-        </Link>
+            <DrawerClose asChild className="absolute top-2 right-2">
+              <Button variant="ghost" size="icon">
+                <X />
+              </Button>
+            </DrawerClose>
+          </DrawerHeader>
 
-        {/* Modal with form? */}
-        <Button type="button" variant="link">
-          Hire me
-        </Button>
-      </div>
+          <div className="p-4 flex flex-col gap-2">
+            {navigationLinks.map((link) => (
+              <DrawerClose key={link.label} asChild>
+                <Link href={link.href} onClick={handleNavButtonClick}>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="w-full py-5"
+                  >
+                    {link.label}
+                  </Button>
+                </Link>
+              </DrawerClose>
+            ))}
 
-      <ButtonTheme />
+            {/* Modal with form? */}
+            <Button type="button" variant="link" className="w-full py-5">
+              Hire me
+            </Button>
+          </div>
+        </DrawerContent>
+      </Drawer>
     </nav>
   )
 }
