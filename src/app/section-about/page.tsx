@@ -1,7 +1,12 @@
 'use client'
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { P } from '@/components/ui/typography'
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle
+} from '@/components/ui/custom/card'
+import { P } from '@/components/ui/custom/typography'
 import { motion } from 'motion/react'
 import Image from 'next/image'
 
@@ -11,7 +16,7 @@ export default function SectionAbout() {
   return (
     <section
       id="about"
-      className="h-screen bg-background-page flex flex-col lg:flex-row justify-center items-center lg:gap-10"
+      className="min-h-screen bg-background-page flex flex-col lg:flex-row justify-center items-center lg:gap-10"
     >
       <div className="p-4 lg:w-1/2 flex justify-center items-center lg:justify-end">
         <motion.div

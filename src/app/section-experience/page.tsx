@@ -1,12 +1,12 @@
 'use client'
 
-import { H1, P } from '@/components/ui/typography'
+import { H1, P } from '@/components/ui/custom/typography'
 
 export default function SectionExperience() {
   return (
     <section
       id="experience"
-      className="h-screen bg-background-page grid grid-cols-2 gap-10"
+      className="min-h-screen bg-background-page grid grid-cols-2 gap-10"
     >
       <H1 className="font-bold text-2xl">Experience</H1>
 
