@@ -128,9 +128,9 @@ export default function Navbar(props: { className?: string }) {
 
         <DrawerContent className="border-b-2 border-black bg-card shadow-[4px_4px_0px_#000]">
           <DrawerHeader>
-            <DrawerTitle>Enjoy!</DrawerTitle>
+            <DrawerTitle className="text-xl">Enjoy!</DrawerTitle>
 
-            <DrawerClose asChild className="absolute top-2 right-2">
+            <DrawerClose asChild className="absolute top-3 right-3">
               <Button variant="ghost" size="icon">
                 <X />
               </Button>
