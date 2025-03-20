@@ -128,7 +128,7 @@ export default function Navbar(props: { className?: string }) {
 
         <DrawerContent className="border-b-2 border-black bg-card shadow-[4px_4px_0px_#000]">
           <DrawerHeader>
-            <DrawerTitle className="">Enjoy!</DrawerTitle>
+            <DrawerTitle>Enjoy!</DrawerTitle>
 
             <DrawerClose asChild className="absolute top-2 right-2">
               <Button variant="ghost" size="icon">
@@ -137,7 +137,7 @@ export default function Navbar(props: { className?: string }) {
             </DrawerClose>
           </DrawerHeader>
 
-          <div className="p-4 flex flex-col gap-2">
+          <div className="p-4 flex flex-col gap-2 mb-2">
             {navigationLinks.map((link) => (
               <DrawerClose key={link.label} asChild>
                 <Link href={link.href} onClick={handleNavButtonClick}>
@@ -153,12 +153,14 @@ export default function Navbar(props: { className?: string }) {
             ))}
 
             {/* Modal with form? */}
-            <Button type="button" variant="link" className="w-full py-5">
+            <Button type="button" variant="default" className="w-full py-5">
               Hire me
             </Button>
           </div>
         </DrawerContent>
       </Drawer>
+
+      <ButtonTheme className="sm:hidden flex absolute right-4 top-4 !bg-background" />
     </nav>
   )
 }
