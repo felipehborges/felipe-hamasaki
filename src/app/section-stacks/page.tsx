@@ -10,32 +10,20 @@ export default function SectionStacks() {
       {/* bg-background-page */}
       <H1 className="font-bold text-2xl">Stacks</H1>
 
-      <div className="">
+      <div className="flex flex-col w-full gap-4">
         <motion.div
-          viewport={{ once: true, amount: 'all' }}
+          // animate={{ rotate: 360 }}
+          // transition={{ duration: 1 }}
+          className="w-fit"
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
           initial={{
             opacity: 0,
-            rotate: '0deg'
-
-            // scale: 0
-            // y: 0
+            scale: 0
           }}
           whileInView={{
             opacity: 1,
-            rotate: '360deg'
-            // scale: 1
-            // y: [0, 150, -150, -150, 0]
-          }}
-          variants={{
-            onscreen: {
-              y: 50,
-              rotate: -10,
-              transition: {
-                type: 'spring',
-                bounce: 0.4,
-                duration: 0.8
-              }
-            }
+            scale: 1
           }}
         >
           <Image
@@ -47,7 +35,11 @@ export default function SectionStacks() {
           />
         </motion.div>
 
-        <motion.div>
+        <motion.div
+          animate={{ rotate: 720 }}
+          transition={{ duration: 1 }}
+          className="w-fit"
+        >
           <Image
             src="/stacks/logo-react.png"
             alt="react"
@@ -57,7 +49,11 @@ export default function SectionStacks() {
           />
         </motion.div>
 
-        <motion.div>
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 1 }}
+          className="w-fit"
+        >
           <Image
             src="/stacks/logo-nextjs.png"
             alt="nextjs"
@@ -67,7 +63,11 @@ export default function SectionStacks() {
           />
         </motion.div>
 
-        <motion.div>
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 1 }}
+          className="w-fit"
+        >
           <Image
             src="/stacks/logo-tailwind.png"
             alt="tailwind"
@@ -77,7 +77,11 @@ export default function SectionStacks() {
           />
         </motion.div>
 
-        <motion.div>
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 1 }}
+          className="w-fit"
+        >
           <Image
             src="/stacks/logo-js.png"
             alt="javascript"
@@ -87,7 +91,11 @@ export default function SectionStacks() {
           />
         </motion.div>
 
-        <motion.div>
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 1 }}
+          className="w-fit"
+        >
           <Image
             src="/stacks/logo-nodejs.png"
             alt="nodejs"
@@ -97,7 +105,11 @@ export default function SectionStacks() {
           />
         </motion.div>
 
-        <motion.div>
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 1 }}
+          className="w-fit"
+        >
           <Image
             src="/stacks/logo-git.png"
             alt="nodejs"
@@ -107,7 +119,11 @@ export default function SectionStacks() {
           />
         </motion.div>
 
-        <motion.div>
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{ duration: 1 }}
+          className="w-fit"
+        >
           <Image
             src="/stacks/logo-github.png"
             alt="nodejs"

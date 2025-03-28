@@ -8,13 +8,13 @@ import SectionExperience from './section-experience/page'
 export default function Home() {
   return (
     <main className="h-screen">
-      <Navbar />
+      {/* <Navbar /> */}
 
-      <SectionHome />
-      <SectionAbout />
+      {/* <SectionHome />
+      <SectionAbout /> */}
       <SectionStacks />
-      <SectionExperience />
-      <SectionFooter />
+      {/* <SectionExperience />
+      <SectionFooter /> */}
     </main>
   )
 }
