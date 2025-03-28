@@ -13,10 +13,13 @@ export default function SectionStacks() {
       <div className="flex flex-col w-full gap-4">
         <motion.div
           // animate={{ rotate: 360 }}
-          // transition={{ duration: 1 }}
           className="w-fit"
           viewport={{ once: true }}
-          transition={{ duration: 1 }}
+          transition={{
+            type: 'spring',
+            bounce: 0.5,
+            duration: 1
+          }}
           initial={{
             opacity: 0,
             scale: 0
@@ -37,7 +40,19 @@ export default function SectionStacks() {
 
         <motion.div
           animate={{ rotate: 720 }}
-          transition={{ duration: 1 }}
+          transition={{
+            type: 'spring',
+            bounce: 0.5,
+            duration: 1
+          }}
+          initial={{
+            opacity: 0,
+            scale: 0
+          }}
+          whileInView={{
+            opacity: 1,
+            scale: 1
+          }}
           className="w-fit"
         >
           <Image
