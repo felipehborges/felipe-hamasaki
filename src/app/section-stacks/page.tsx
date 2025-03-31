@@ -10,9 +10,8 @@ export default function SectionStacks() {
       {/* bg-background-page */}
       <H1 className="font-bold text-2xl">Stacks</H1>
 
-      <div className="flex flex-col w-full gap-4">
+      <div className="w-full flex flex-col gap-4">
         <motion.div
-          // animate={{ rotate: 360 }}
           className="w-fit"
           viewport={{ once: true }}
           transition={{
@@ -43,7 +42,7 @@ export default function SectionStacks() {
           transition={{
             type: 'spring',
             bounce: 0.5,
-            duration: 1
+            duration: 1.5
           }}
           initial={{
             opacity: 0,
@@ -65,8 +64,16 @@ export default function SectionStacks() {
         </motion.div>
 
         <motion.div
-          animate={{ rotate: 360 }}
+          animate={{ rotate: -360 }}
           transition={{ duration: 1 }}
+          initial={{
+            opacity: 0
+            // scale: 0
+          }}
+          whileInView={{
+            opacity: 1
+            // scale: 1
+          }}
           className="w-fit"
         >
           <Image
@@ -79,8 +86,15 @@ export default function SectionStacks() {
         </motion.div>
 
         <motion.div
-          animate={{ rotate: 360 }}
           transition={{ duration: 1 }}
+          initial={{
+            opacity: 0,
+            translateX: -50
+          }}
+          whileInView={{
+            opacity: 1,
+            translateX: 0
+          }}
           className="w-fit"
         >
           <Image
@@ -93,8 +107,19 @@ export default function SectionStacks() {
         </motion.div>
 
         <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 1 }}
+          transition={{
+            type: 'spring',
+            bounce: 0.5,
+            duration: 1
+          }}
+          initial={{
+            opacity: 0,
+            scale: 2
+          }}
+          whileInView={{
+            opacity: 1,
+            scale: 1
+          }}
           className="w-fit"
         >
           <Image
@@ -107,8 +132,15 @@ export default function SectionStacks() {
         </motion.div>
 
         <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 1 }}
+          transition={{
+            duration: 1
+          }}
+          initial={{
+            opacity: 0
+          }}
+          whileInView={{
+            opacity: 1
+          }}
           className="w-fit"
         >
           <Image
@@ -121,8 +153,19 @@ export default function SectionStacks() {
         </motion.div>
 
         <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 1 }}
+          transition={{
+            type: 'spring',
+            bounce: 0.5,
+            duration: 1
+          }}
+          initial={{
+            opacity: 0,
+            translateY: 50
+          }}
+          whileInView={{
+            opacity: 1,
+            translateY: 0
+          }}
           className="w-fit"
         >
           <Image
@@ -135,8 +178,19 @@ export default function SectionStacks() {
         </motion.div>
 
         <motion.div
-          animate={{ rotate: 360 }}
-          transition={{ duration: 1 }}
+          transition={{
+            type: 'spring',
+            bounce: 0.5,
+            duration: 1
+          }}
+          initial={{
+            opacity: 0,
+            translateY: -50
+          }}
+          whileInView={{
+            opacity: 1,
+            translateY: 0
+          }}
           className="w-fit"
         >
           <Image

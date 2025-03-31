@@ -20,16 +20,16 @@ export default function SectionAbout() {
     >
       <div className="p-4 lg:w-1/2 flex justify-center items-center lg:justify-end">
         <motion.div
+          viewport={{ once: true, amount: 'all' }}
+          initial={{
+            opacity: 0,
+            translateY: 100
+          }}
           whileInView={{
             opacity: 1,
             translateY: 0,
             transition: { duration: 1 }
           }}
-          initial={{
-            opacity: 0,
-            translateY: 100
-          }}
-          viewport={{ once: true, amount: 'all' }}
         >
           <Image
             alt="Hamasaki Child Picture"
@@ -42,16 +42,16 @@ export default function SectionAbout() {
       </div>
 
       <motion.div
+        viewport={{ once: true, amount: 'some' }}
+        initial={{
+          opacity: 0,
+          translateX: 100
+        }}
         whileInView={{
           opacity: 1,
           translateX: 0,
           transition: { duration: 1 }
         }}
-        initial={{
-          opacity: 0,
-          translateX: 100
-        }}
-        viewport={{ once: true, amount: 'some' }}
         className="p-4 lg:w-1/2 flex justify-center items-center lg:justify-start overflow-hidden"
       >
         <Card className="w-full sm:w-5/6 md:w-2/3 lg:w-5/6 2xl:w-2/3">
