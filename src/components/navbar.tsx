@@ -4,14 +4,12 @@ import {
   Drawer,
   DrawerClose,
   DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger
 } from '@/components/ui/drawer'
 import { cn } from '@/lib/utils'
-import { Download, Menu, X } from 'lucide-react'
+import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { Button } from './ui/custom/button'
@@ -26,7 +24,7 @@ export default function Navbar(props: { className?: string }) {
 
   const navigationLinks = [
     { href: '#about', label: 'About' },
-    { href: '#stacks', label: 'Stacks' },
+    { href: '#skills', label: 'Skills' },
     { href: '#experience', label: 'Experience' },
     { href: '#projects', label: 'Projects' }
   ]
