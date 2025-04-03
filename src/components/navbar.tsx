@@ -14,6 +14,8 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import { Button } from './ui/custom/button'
 import { ButtonTheme } from './ui/custom/button-change-theme'
+import HireMe from './hire-me/hire-me-button'
+import HireMeButton from './hire-me/hire-me-button'
 
 export default function Navbar(props: { className?: string }) {
   const [showNavbar, setShowNavbar] = useState(true)
@@ -108,10 +110,11 @@ export default function Navbar(props: { className?: string }) {
             </Link>
           ))}
 
-          {/* Modal with form? */}
-          <Button type="button" variant="link" className="text-xs md:text-sm">
-            Hire me
-          </Button>
+          <HireMeButton>
+            <Button type="button" variant="link" className="text-xs md:text-sm">
+              Hire me
+            </Button>
+          </HireMeButton>
         </div>
 
         <ButtonTheme />
@@ -150,15 +153,16 @@ export default function Navbar(props: { className?: string }) {
               </DrawerClose>
             ))}
 
-            {/* Modal with form? */}
-            <Button
-              type="button"
-              variant="default"
-              className="w-full py-5"
-              onClick={() => {}}
-            >
-              Hire me
-            </Button>
+            <HireMeButton>
+              <Button
+                type="button"
+                variant="default"
+                className="w-full py-5"
+                onClick={handleNavButtonClick}
+              >
+                Hire me
+              </Button>
+            </HireMeButton>
           </div>
         </DrawerContent>
       </Drawer>
