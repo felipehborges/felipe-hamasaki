@@ -151,7 +151,12 @@ export default function Navbar(props: { className?: string }) {
             ))}
 
             {/* Modal with form? */}
-            <Button type="button" variant="default" className="w-full py-5">
+            <Button
+              type="button"
+              variant="default"
+              className="w-full py-5"
+              onClick={() => {}}
+            >
               Hire me
             </Button>
           </div>

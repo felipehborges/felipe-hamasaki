@@ -31,6 +31,7 @@ export default function SectionSkills() {
               className="w-fit m-4 self-center"
               viewport={{ once: true }}
               transition={{
+                // delay: 0,
                 type: 'spring',
                 bounce: 0.5,
                 duration: 1.5
@@ -57,9 +58,10 @@ export default function SectionSkills() {
               animate={{ rotate: 720 }}
               viewport={{ once: true }}
               transition={{
+                // delay: 0.2,
                 type: 'spring',
                 bounce: 0.5,
-                duration: 1.5
+                duration: 2
               }}
               initial={{
                 opacity: 0,
@@ -83,7 +85,10 @@ export default function SectionSkills() {
             <motion.div
               animate={{ rotate: -360 }}
               viewport={{ once: true }}
-              transition={{ duration: 1.5 }}
+              transition={{
+                delay: 0.4,
+                duration: 1.5
+              }}
               initial={{
                 opacity: 0
                 // scale: 0
@@ -105,7 +110,10 @@ export default function SectionSkills() {
 
             <motion.div
               viewport={{ once: true }}
-              transition={{ duration: 1.5 }}
+              transition={{
+                delay: 0.6,
+                duration: 1.5
+              }}
               initial={{
                 opacity: 0,
                 translateX: -50
@@ -128,6 +136,7 @@ export default function SectionSkills() {
             <motion.div
               viewport={{ once: true }}
               transition={{
+                delay: 0.8,
                 type: 'spring',
                 bounce: 0.5,
                 duration: 1.5
@@ -154,6 +163,7 @@ export default function SectionSkills() {
             <motion.div
               viewport={{ once: true }}
               transition={{
+                delay: 1,
                 duration: 1.5
               }}
               initial={{
@@ -176,6 +186,7 @@ export default function SectionSkills() {
             <motion.div
               viewport={{ once: true }}
               transition={{
+                delay: 1.2,
                 type: 'spring',
                 bounce: 0.5,
                 duration: 1.5
@@ -202,6 +213,7 @@ export default function SectionSkills() {
             <motion.div
               viewport={{ once: true }}
               transition={{
+                delay: 1.4,
                 type: 'spring',
                 bounce: 0.5,
                 duration: 1.5
