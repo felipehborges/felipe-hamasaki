@@ -1,24 +1,21 @@
 'use client'
 
-import { Button } from '@/components/ui/custom/button'
-import { H1, P } from '@/components/ui/custom/typography'
-import { Download } from 'lucide-react'
+import DownloadResumeButton from '@/components/download-resume-button'
+import { P } from '@/components/ui/custom/typography'
 
 export default function SectionFooter() {
   return (
-    <footer className="">
-      <H1 className="font-bold text-2xl">FOOTER</H1>
+    <footer className="p-10 flex flex-col justify-center items-center">
+      <div className="mb-4">
+        <P>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+          nulla non ut, quas veritatis sequi eaque animi facilis enim similique
+          placeat repellendus rerum? Consectetur sequi ipsum inventore alias
+          odit eum.
+        </P>
+      </div>
 
-      <P>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci nulla
-        non ut, quas veritatis sequi eaque animi facilis enim similique placeat
-        repellendus rerum? Consectetur sequi ipsum inventore alias odit eum.
-      </P>
-
-      <Button type="button">
-        <Download />
-        Download Resume
-      </Button>
+      <DownloadResumeButton />
     </footer>
   )
 }

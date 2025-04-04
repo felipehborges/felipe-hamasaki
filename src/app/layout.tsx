@@ -3,6 +3,7 @@ import '@/styles/globals.css'
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import type { ReactNode } from 'react'
+import { Toaster } from '@/components/ui/sonner'
 
 const poppins = Poppins({
   variable: '--font-poppins',
@@ -31,6 +32,7 @@ export default async function RootLayout({
         >
           {children}
         </ThemeProvider>
+        <Toaster />
       </body>
     </html>
   )
