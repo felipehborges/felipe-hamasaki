@@ -11,6 +11,7 @@ import {
 import { H1 } from '@/components/ui/custom/typography'
 import { Building2, MapPin } from 'lucide-react'
 import { motion } from 'motion/react'
+import Image from 'next/image'
 import Link from 'next/link'
 
 export default function SectionExperience() {
@@ -20,7 +21,7 @@ export default function SectionExperience() {
         <H1>Experience</H1>
       </header>
 
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center gap-4">
         <motion.div
           viewport={{ once: true, amount: 'all' }}
           transition={{
@@ -39,6 +40,14 @@ export default function SectionExperience() {
         >
           <Card className="my-2 w-[30rem] flex flex-col items-center">
             <CardHeader className="flex flex-col items-center">
+              <Image
+                alt="Hamasaki in Anime"
+                src="/me-anime-mid.png"
+                width={500}
+                height={500}
+                className="mb-2 rounded-lg border-black border-2"
+              />
+
               <CardTitle>Mid-Level Front-End Developer</CardTitle>
               <CardDescription>2023 - Present (1.5 years)</CardDescription>
             </CardHeader>
@@ -82,6 +91,13 @@ export default function SectionExperience() {
         >
           <Card className="my-2 w-[30rem] flex flex-col items-center">
             <CardHeader className="flex flex-col items-center">
+              <Image
+                alt="Hamasaki in Anime"
+                src="/me-anime-jr.png"
+                width={500}
+                height={500}
+                className="mb-2 rounded-lg border-black border-2"
+              />
               <CardTitle>Junior Front-End Developer</CardTitle>
               <CardDescription>2022 - 2023 (2 years)</CardDescription>
             </CardHeader>
@@ -125,6 +141,13 @@ export default function SectionExperience() {
         >
           <Card className="my-2 w-[30rem] flex flex-col items-center">
             <CardHeader className="flex flex-col items-center">
+              <Image
+                alt="Hamasaki in Anime"
+                src="/me-anime-hr.png"
+                width={500}
+                height={500}
+                className="mb-2 rounded-lg border-black border-2"
+              />
               <CardTitle>Human Resources Analyst</CardTitle>
               <CardDescription>2015 - 2021 (6 years)</CardDescription>
             </CardHeader>
@@ -168,6 +191,13 @@ export default function SectionExperience() {
         >
           <Card className="my-2 w-[30rem] flex flex-col items-center">
             <CardHeader className="flex flex-col items-center">
+              <Image
+                alt="Hamasaki in Anime"
+                src="/me-anime-teacher.png"
+                width={500}
+                height={500}
+                className="mb-2 rounded-lg border-black border-2"
+              />
               <CardTitle>English Teacher</CardTitle>
               <CardDescription>2012 - 2014 (2 years)</CardDescription>
             </CardHeader>
