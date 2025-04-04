@@ -29,7 +29,8 @@
     ".next/types/**/*.ts",
     "src/app/[locale]/section-footer",
     "src/app/[locale]/section-about",
-    "src/app/[locale]/section-home"
+    "src/app/[locale]/section-home",
+    "src/api/hire-me/index.js"
   ],
   "exclude": ["node_modules"]
 }

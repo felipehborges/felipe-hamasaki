@@ -1,27 +1,37 @@
-import { z } from 'zod'
-import { useForm } from 'react-hook-form'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { Button } from '@/components/ui/custom/button'
+'use client'
+
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage
 } from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+import { z } from 'zod'
+import { LoaderCircle } from 'lucide-react'
+import { toast } from 'sonner'
 
 const formSchema = z.object({
-  name: z.string().min(2).max(50)
+  name: z.string().min(2).max(50),
+  email: z.string().email(),
+  subject: z.string().min(2).max(50),
+  message: z.string().min(2).max(500)
 })
 
 export default function HireMeForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: ''
+      name: '',
+      email: '',
+      subject: '',
+      message: ''
     }
   })
 
@@ -33,24 +43,92 @@ export default function HireMeForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="flex flex-col gap-4"
+      >
         <FormField
           control={form.control}
           name="name"
           render={({ field }) => (
-            <FormItem>
+            <FormItem className="col-span-1">
               <FormLabel>Name/Company</FormLabel>
+
               <FormControl>
-                <Input placeholder="shadcn" {...field} />
+                <Input placeholder="Tech Recruiter" {...field} />
               </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
+
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem className="col-span-1">
+              <FormLabel>Email</FormLabel>
+
+              <FormControl>
+                <Input placeholder="recruiter@company.com" {...field} />
+              </FormControl>
+
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="subject"
+          render={({ field }) => (
+            <FormItem className="col-span-2">
+              <FormLabel>Subject</FormLabel>
+
+              <FormControl>
+                <Input placeholder="Software Developer" {...field} />
+              </FormControl>
+
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="message"
+          render={({ field }) => (
+            <FormItem className="col-span-2">
+              <FormLabel>Message</FormLabel>
+
+              <FormControl>
+                <Textarea
+                  className="max-h-80"
+                  placeholder="Type your message here."
+                  {...field}
+                />
+              </FormControl>
+
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <div className="flex justify-end col-span-2">
+          <Button
+            type="submit"
+            disabled={!form.formState.isDirty || form.formState.isSubmitting}
+            className="w-20"
+            onClick={() => toast('Event has been created.')}
+          >
+            {form.formState.isSubmitting ? (
+              <LoaderCircle className="animate-spin" />
+            ) : (
+              'Send'
+            )}
+          </Button>
+        </div>
       </form>
     </Form>
   )

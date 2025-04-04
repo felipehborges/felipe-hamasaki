@@ -1,11 +1,6 @@
 'use client'
 
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle
-} from '@/components/ui/custom/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { H1, P } from '@/components/ui/custom/typography'
 import { motion } from 'motion/react'
 import Image from 'next/image'

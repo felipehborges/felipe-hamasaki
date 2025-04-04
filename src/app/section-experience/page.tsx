@@ -7,7 +7,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle
-} from '@/components/ui/custom/card'
+} from '@/components/ui/card'
 import { H1 } from '@/components/ui/custom/typography'
 import { Building2, MapPin } from 'lucide-react'
 import { motion } from 'motion/react'

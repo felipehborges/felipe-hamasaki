@@ -1,7 +1,7 @@
 'use client'
 
 import { Download } from 'lucide-react'
-import { Button } from './ui/custom/button'
+import { Button } from './ui/button'
 
 export default function DownloadResumeButton() {
   return (
