@@ -24,8 +24,10 @@ const formSchema = z.object({
   message: z.string().min(2).max(500)
 })
 
-export default function HireMeForm() {
-  const form = useForm<z.infer<typeof formSchema>>({
+type FormSchemaType = z.infer<typeof formSchema>
+
+export default function ContactMeForm() {
+  const form = useForm<FormSchemaType>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: '',
@@ -35,10 +37,8 @@ export default function HireMeForm() {
     }
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values)
+  async function onSubmit(formData: FormSchemaType) {
+    console.log(formData)
   }
 
   return (

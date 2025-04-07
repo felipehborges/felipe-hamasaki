@@ -1,4 +1,4 @@
-export interface HireMeFormProps {
+export interface ContactMeFormProps {
   name: string
   email: string
   subject: string
