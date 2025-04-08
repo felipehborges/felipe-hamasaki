@@ -1,7 +1,7 @@
 'use client'
 
 import DownloadResumeButton from '@/components/download-resume-button'
-import ExperienceCard from '@/components/experience-card'
+import ExperienceCard from '@/app/section-experience/components/card'
 import { H1 } from '@/components/typography'
 
 export default function SectionExperience() {
@@ -37,7 +37,7 @@ export default function SectionExperience() {
         <ExperienceCard
           jobTitle="Human Resources Analyst"
           jobPeriod="2015 - 2021 (6 years)"
-          company="Tower International (Acquired by Autokiniton)"
+          company="Tower International (Autokiniton)"
           location="Arujá, São Paulo - Brazil"
           imageUrl="/me-anime-hr.png"
           companyUrl="https://www.autokiniton.com/"
@@ -46,7 +46,7 @@ export default function SectionExperience() {
         <ExperienceCard
           jobTitle="English Teacher"
           jobPeriod="2012 - 2014 (2 years)"
-          company="Skill Idiomas (Closed)"
+          company="Skill Idiomas"
           location="Arujá, São Paulo - Brazil"
           imageUrl="/me-anime-teacher.png"
           companyUrl="https://www.linkedin.com/company/skill-idiomas?originalSubdomain=br"
