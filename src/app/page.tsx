@@ -16,6 +16,7 @@ export default function Home() {
       <SectionSkills />
       <SectionExperience />
       <SectionProjects />
+
       <SectionFooter />
     </main>
   )
