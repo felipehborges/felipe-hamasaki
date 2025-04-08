@@ -3,8 +3,11 @@
 import { H1, P } from '@/components/typography'
 import { motion } from 'motion/react'
 import Image from 'next/image'
+import { useState } from 'react'
 
 export default function SectionHome() {
+  const [isHovered, setIsHovered] = useState(false)
+
   return (
     <motion.div
       style={{ height: '100vh' }}
@@ -18,13 +21,15 @@ export default function SectionHome() {
         className="flex min-h-screen flex-col items-center justify-center gap-10 bg-background-page md:flex-row md:gap-6 xl:gap-20"
       >
         <div className="flex justify-end md:w-1/2">
-          {/* TODO: Hover: Face animations */}
           <Image
             alt="Hamasaki in Anime"
-            src="/me-anime.png"
-            width={1000}
-            height={1000}
-            className="w-80 rounded-full border-2 border-black lg:w-96 xl:w-120"
+            // src="/me-anime-smile1.png"
+            src={isHovered ? '/me-anime-smile2.png' : '/me-anime-smile1.png'}
+            width={500}
+            height={500}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            className="w-80 transition-all duration-500 lg:w-96 xl:w-120"
           />
         </div>
 

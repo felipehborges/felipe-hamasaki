@@ -41,7 +41,7 @@ export default function SectionSkills() {
               }}
             >
               <Image
-                src="/skills/logo-ts.png"
+                src="/logos/logo-ts.png"
                 alt="typescript"
                 width={100}
                 height={100}
@@ -69,7 +69,7 @@ export default function SectionSkills() {
               className="m-4 w-fit self-center"
             >
               <Image
-                src="/skills/logo-react.png"
+                src="/logos/logo-react.png"
                 alt="react"
                 width={100}
                 height={100}
@@ -95,7 +95,7 @@ export default function SectionSkills() {
               className="m-4 w-fit self-center"
             >
               <Image
-                src="/skills/logo-nextjs.png"
+                src="/logos/logo-nextjs.png"
                 alt="nextjs"
                 width={100}
                 height={100}
@@ -120,7 +120,7 @@ export default function SectionSkills() {
               className="m-4 w-fit self-center"
             >
               <Image
-                src="/skills/logo-tailwind.png"
+                src="/logos/logo-tailwind.png"
                 alt="tailwind"
                 width={100}
                 height={100}
@@ -147,7 +147,7 @@ export default function SectionSkills() {
               className="m-4 w-fit self-center"
             >
               <Image
-                src="/skills/logo-js.png"
+                src="/logos/logo-js.png"
                 alt="javascript"
                 width={100}
                 height={100}
@@ -170,7 +170,7 @@ export default function SectionSkills() {
               className="m-4 w-fit self-center"
             >
               <Image
-                src="/skills/logo-nodejs.png"
+                src="/logos/logo-nodejs.png"
                 alt="nodejs"
                 width={100}
                 height={100}
@@ -197,8 +197,8 @@ export default function SectionSkills() {
               className="m-4 w-fit self-center"
             >
               <Image
-                src="/skills/logo-git.png"
-                alt="nodejs"
+                src="/logos/logo-git.png"
+                alt="git"
                 width={100}
                 height={100}
                 className="w-20"
@@ -224,8 +224,8 @@ export default function SectionSkills() {
               className="m-4 w-fit self-center"
             >
               <Image
-                src="/skills/logo-github.png"
-                alt="nodejs"
+                src="/logos/logo-github.png"
+                alt="github"
                 width={100}
                 height={100}
                 className="w-20"
