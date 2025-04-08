@@ -19,12 +19,7 @@ export default function ContactMeDialog(props: ContactMeDialogProps) {
 
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Contact Me</DialogTitle>
-
-          <DialogDescription>
-            This form will send an email to me (felipehama@gmail.com).
-            <br />I will get back to you as soon as possible!
-          </DialogDescription>
+          <DialogTitle>Contact me</DialogTitle>
         </DialogHeader>
 
         <ContactMeForm />

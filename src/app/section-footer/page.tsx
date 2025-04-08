@@ -48,6 +48,16 @@ export default function SectionFooter() {
             className={logoStyle}
           />
         </Link>
+
+        <Link href="https://wa.me/+5511976120038" target="_blank">
+          <Image
+            src="/logos/logo-whatsapp.png"
+            alt="WhatsApp Logo"
+            width={50}
+            height={50}
+            className={logoStyle}
+          />
+        </Link>
       </div>
 
       <div className="mb-4">
