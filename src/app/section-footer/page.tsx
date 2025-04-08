@@ -17,7 +17,7 @@ export default function SectionFooter() {
     'size-6 mx-2 hover:scale-110 transition-transform duration-300 ease-in-out'
 
   return (
-    <footer className="py-10 flex flex-col justify-center items-center">
+    <footer className="flex flex-col items-center justify-center py-10">
       <div className="mb-4 flex items-center">
         <Link href="https://github.com/felipehborges " target="_blank">
           <Image

@@ -1,6 +1,6 @@
 'use client'
 
-import { H1, P } from '@/components/ui/custom/typography'
+import { H1, P } from '@/components/typography'
 import { motion } from 'motion/react'
 import Image from 'next/image'
 
@@ -15,16 +15,16 @@ export default function SectionHome() {
     >
       <section
         id="home"
-        className="min-h-screen bg-background-page flex flex-col items-center justify-center gap-10 md:gap-6 xl:gap-20 md:flex-row"
+        className="flex min-h-screen flex-col items-center justify-center gap-10 bg-background-page md:flex-row md:gap-6 xl:gap-20"
       >
-        <div className="md:w-1/2 flex justify-end">
+        <div className="flex justify-end md:w-1/2">
           {/* TODO: Hover: Face animations */}
           <Image
             alt="Hamasaki in Anime"
             src="/me-anime.png"
             width={1000}
             height={1000}
-            className="rounded-full border-black border-2 w-80 lg:w-96 xl:w-120"
+            className="w-80 rounded-full border-2 border-black lg:w-96 xl:w-120"
           />
         </div>
 
@@ -37,7 +37,7 @@ export default function SectionHome() {
             </H1>
           </div>
 
-          <div className="flex flex-col text-center px-20 md:px-0 md:text-start md:w-3/4">
+          <div className="flex flex-col px-20 text-center md:w-3/4 md:px-0 md:text-start">
             <P>
               I'm a Brazilian passionate software developer and a tech
               enthusiast. I love learning new things and sharing knowledge with

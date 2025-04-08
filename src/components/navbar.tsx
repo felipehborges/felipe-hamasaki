@@ -14,7 +14,7 @@ import Link from 'next/link'
 import { useEffect, useState } from 'react'
 import ContactMeDialog from './contact-me/contact-me-dialog'
 import { Button } from './ui/button'
-import { ButtonTheme } from './ui/custom/button-change-theme'
+import { ButtonTheme } from './button-change-theme'
 
 export default function Navbar(props: { className?: string }) {
   const [showNavbar, setShowNavbar] = useState(true)
@@ -87,13 +87,13 @@ export default function Navbar(props: { className?: string }) {
     <>
       <nav
         className={cn(
-          'fixed left-0 top-0 right-0 z-10',
+          'fixed top-0 right-0 left-0 z-10',
           'transition-transform duration-300',
           `${showNavbar ? 'translate-y-0' : '-translate-y-full'}`,
           props.className
         )}
       >
-        <section className="w-full hidden sm:flex justify-between p-4 bg-card-secondary border-b-4 border-black">
+        <section className="hidden w-full justify-between border-black border-b-4 bg-card-secondary p-4 sm:flex">
           <div className="mx-auto flex gap-4">
             {navigationLinks.map((link) => (
               <Link
@@ -134,14 +134,14 @@ export default function Navbar(props: { className?: string }) {
         >
           <DrawerTrigger asChild>
             <Button
-              className="sm:hidden flex absolute top-4 left-4"
+              className="absolute top-4 left-4 flex sm:hidden"
               size="icon"
             >
               <Menu />
             </Button>
           </DrawerTrigger>
 
-          <DrawerContent className="border-b-2 border-black bg-card shadow-[4px_4px_0px_#000]">
+          <DrawerContent className="border-black border-b-2 bg-card shadow-[4px_4px_0px_#000]">
             <DrawerHeader>
               <DrawerTitle className="text-xl">Enjoy!</DrawerTitle>
 
@@ -152,7 +152,7 @@ export default function Navbar(props: { className?: string }) {
               </DrawerClose>
             </DrawerHeader>
 
-            <div className="p-4 flex flex-col gap-2 mb-2">
+            <div className="mb-2 flex flex-col gap-2 p-4">
               {navigationLinks.map((link) => (
                 <DrawerClose key={link.label} asChild>
                   <Link href={link.href} onClick={handleNavButtonClick}>
@@ -182,7 +182,7 @@ export default function Navbar(props: { className?: string }) {
           </DrawerContent>
         </Drawer>
 
-        <ButtonTheme className="sm:hidden flex absolute right-4 top-4 !bg-background" />
+        <ButtonTheme className="!bg-background absolute top-4 right-4 flex sm:hidden" />
       </nav>
 
       <ContactMeDialog

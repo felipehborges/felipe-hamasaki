@@ -25,6 +25,16 @@
       },
       "suspicious": {
         "noExplicitAny": "warn"
+      },
+      "nursery": {
+        "useSortedClasses": {
+          "fix": "safe",
+          "level": "info",
+          "options": {
+            "attributes": ["classList", "className"],
+            "functions": ["clsx", "cva", "tw", "cn"]
+          }
+        }
       }
     }
   },

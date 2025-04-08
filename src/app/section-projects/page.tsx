@@ -1,13 +1,13 @@
 'use client'
 
-import { H1 } from '@/components/ui/custom/typography'
+import { H1 } from '@/components/typography'
 import { Hammer } from 'lucide-react'
 
 export default function SectionProjects() {
   return (
     <section
       id="projects"
-      className="min-h-screen bg-background-page flex flex-col items-center justify-center"
+      className="flex min-h-screen flex-col items-center justify-center bg-background-page"
     >
       <header className="flex items-center justify-center py-8">
         <H1>Projects</H1>

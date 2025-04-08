@@ -115,7 +115,7 @@ export default function ContactMeForm() {
           )}
         />
 
-        <div className="flex justify-end col-span-2">
+        <div className="col-span-2 flex justify-end">
           <Button
             type="submit"
             disabled={!form.formState.isDirty || form.formState.isSubmitting}

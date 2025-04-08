@@ -1,8 +1,8 @@
 'use client'
 
 import DownloadResumeButton from '@/components/download-resume-button'
-import ExperienceCard from '@/components/ui/custom/experience-card'
-import { H1 } from '@/components/ui/custom/typography'
+import ExperienceCard from '@/components/experience-card'
+import { H1 } from '@/components/typography'
 
 export default function SectionExperience() {
   return (
@@ -11,7 +11,7 @@ export default function SectionExperience() {
         <H1>Experience</H1>
       </header>
 
-      <div className="flex items-center justify-center mb-8">
+      <div className="mb-8 flex items-center justify-center">
         <DownloadResumeButton />
       </div>
 

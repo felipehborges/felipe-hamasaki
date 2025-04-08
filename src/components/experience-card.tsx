@@ -37,7 +37,7 @@ export default function ExperienceCard(props: ExperienceCardProps) {
         scale: 1
       }}
     >
-      <Card className="w-[28rem] sm:w-full flex flex-col items-center">
+      <Card className="flex w-[28rem] flex-col items-center sm:w-full">
         <CardHeader className="flex flex-col items-center">
           <CardTitle>{props.jobTitle}</CardTitle>
           <CardDescription>{props.jobPeriod}</CardDescription>
@@ -49,10 +49,10 @@ export default function ExperienceCard(props: ExperienceCardProps) {
             alt="Hamasaki in Anime"
             width={500}
             height={500}
-            className="rounded-lg border-black border-2"
+            className="rounded-lg border-2 border-black"
           />
 
-          <div className="flex flex-col items-center gap-2 mt-4">
+          <div className="mt-4 flex flex-col items-center gap-2">
             <p className="flex items-center gap-2">
               <Building2 className="size-5" />
 

@@ -1,7 +1,7 @@
 'use client'
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { P } from '@/components/ui/custom/typography'
+import { P } from '@/components/typography'
 import { motion } from 'motion/react'
 import Image from 'next/image'
 
@@ -11,9 +11,9 @@ export default function SectionAbout() {
   return (
     <section
       id="about"
-      className="min-h-screen bg-background-page flex flex-col lg:flex-row justify-center items-center lg:gap-10"
+      className="flex min-h-screen flex-col items-center justify-center bg-background-page lg:flex-row lg:gap-10"
     >
-      <div className="p-4 lg:w-1/2 flex justify-center items-center lg:justify-end">
+      <div className="flex items-center justify-center p-4 lg:w-1/2 lg:justify-end">
         <motion.div
           viewport={{ once: true, amount: 'all' }}
           initial={{
@@ -31,7 +31,7 @@ export default function SectionAbout() {
             src="/oldme.png"
             width={400}
             height={400}
-            className="xl:w-[500px] rounded-lg border-2 border-black shadow-[4px_4px_0px_#000]"
+            className="rounded-lg border-2 border-black shadow-[4px_4px_0px_#000] xl:w-[500px]"
           />
         </motion.div>
       </div>
@@ -47,14 +47,14 @@ export default function SectionAbout() {
           translateX: 0,
           transition: { duration: 1 }
         }}
-        className="p-4 mx-4 lg:w-1/2 flex justify-center items-center lg:justify-start overflow-hidden"
+        className="mx-4 flex items-center justify-center overflow-hidden p-4 lg:w-1/2 lg:justify-start"
       >
         <Card className="w-full sm:w-5/6 md:w-2/3 lg:w-5/6 2xl:w-2/3">
           <CardHeader>
             <CardTitle className="text-lg lg:text-2xl">About Me</CardTitle>
           </CardHeader>
 
-          <CardContent className="px-8 text-sm xl:text-base text-justify">
+          <CardContent className="px-8 text-justify text-sm xl:text-base">
             <P className="leading-4.5 xl:leading-6">
               Born in December 1994, I was immersed in technology from a young
               age thanks to my father — a web designer and journalist — whose
