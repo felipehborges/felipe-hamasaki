@@ -12,17 +12,16 @@ import { cn } from '@/lib/utils'
 import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import ContactMeDialog from './contact-me/contact-me-dialog'
 import { Button } from './ui/button'
 import { ButtonTheme } from './ui/custom/button-change-theme'
-import HireMe from './hire-me/hire-me-dialog'
-import HireMeDialog from './hire-me/hire-me-dialog'
 
 export default function Navbar(props: { className?: string }) {
   const [showNavbar, setShowNavbar] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
   const [navButtonClicked, setNavButtonClicked] = useState(false)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
-  const [isHireMeDialogOpen, setIsHireMeDialogOpen] = useState(false)
+  const [isContactMeDialogOpen, setIsContactMeDialogOpen] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
 
   const navigationLinks = [
@@ -118,10 +117,10 @@ export default function Navbar(props: { className?: string }) {
               className="text-xs md:text-sm"
               onClick={() => {
                 setIsDrawerOpen(false)
-                setIsHireMeDialogOpen(true)
+                setIsContactMeDialogOpen(true)
               }}
             >
-              Hire me
+              Contact me
             </Button>
           </div>
 
@@ -174,10 +173,10 @@ export default function Navbar(props: { className?: string }) {
                 className="w-full py-5"
                 onClick={() => {
                   setIsDrawerOpen(false)
-                  setIsHireMeDialogOpen(true)
+                  setIsContactMeDialogOpen(true)
                 }}
               >
-                Hire me
+                Contact me
               </Button>
             </div>
           </DrawerContent>
@@ -186,9 +185,9 @@ export default function Navbar(props: { className?: string }) {
         <ButtonTheme className="sm:hidden flex absolute right-4 top-4 !bg-background" />
       </nav>
 
-      <HireMeDialog
-        open={isHireMeDialogOpen}
-        onOpenChange={setIsHireMeDialogOpen}
+      <ContactMeDialog
+        open={isContactMeDialogOpen}
+        onOpenChange={setIsContactMeDialogOpen}
       />
     </>
   )

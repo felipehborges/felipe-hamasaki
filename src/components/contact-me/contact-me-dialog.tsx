@@ -5,21 +5,21 @@ import {
   DialogHeader,
   DialogTitle
 } from '../ui/dialog'
-import HireMeForm from './hire-me-form'
+import ContactMeForm from './contact-me-form'
 
-interface HireMeDialogProps {
+interface ContactMeDialogProps {
   open: boolean
   onOpenChange: (open: boolean) => void
 }
 
-export default function HireMeDialog(props: HireMeDialogProps) {
+export default function ContactMeDialog(props: ContactMeDialogProps) {
   return (
     <Dialog open={props.open} onOpenChange={props.onOpenChange}>
       {/* <DialogTrigger asChild></DialogTrigger> */}
 
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Hire Me</DialogTitle>
+          <DialogTitle>Contact Me</DialogTitle>
 
           <DialogDescription>
             This form will send an email to me (felipehama@gmail.com).
@@ -27,7 +27,7 @@ export default function HireMeDialog(props: HireMeDialogProps) {
           </DialogDescription>
         </DialogHeader>
 
-        <HireMeForm />
+        <ContactMeForm />
       </DialogContent>
     </Dialog>
   )
