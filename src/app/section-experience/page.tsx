@@ -15,7 +15,7 @@ export default function SectionExperience() {
         <DownloadResumeButton />
       </div>
 
-      <div className="flex flex-col items-center gap-4">
+      <div className="flex flex-col items-center gap-8">
         <ExperienceCard
           jobTitle="Mid-Level Front-End Developer"
           jobPeriod="2023 - Present (1.5 years)"
