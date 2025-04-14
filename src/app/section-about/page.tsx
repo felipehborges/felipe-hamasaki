@@ -17,12 +17,12 @@ export default function SectionAbout() {
         <motion.div
           viewport={{ once: true, amount: 'all' }}
           initial={{
-            opacity: 0,
-            translateY: 100
+            opacity: 0
+            // translateY: 100
           }}
           whileInView={{
             opacity: 1,
-            translateY: 0,
+            // translateY: 0,
             transition: { duration: 1 }
           }}
         >
@@ -39,12 +39,12 @@ export default function SectionAbout() {
       <motion.div
         viewport={{ once: true, amount: 'some' }}
         initial={{
-          opacity: 0,
-          translateX: 100
+          opacity: 0
+          // translateX: 100
         }}
         whileInView={{
           opacity: 1,
-          translateX: 0,
+          // translateX: 0,
           transition: { duration: 1 }
         }}
         className="mx-4 flex items-center justify-center overflow-hidden p-4 lg:w-1/2 lg:justify-start"

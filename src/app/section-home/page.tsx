@@ -23,13 +23,12 @@ export default function SectionHome() {
         <div className="flex justify-end md:w-1/2">
           <Image
             alt="Hamasaki in Anime"
-            // src="/me-anime-smile1.png"
             src={isHovered ? '/me-anime-smile2.png' : '/me-anime-smile1.png'}
             width={500}
             height={500}
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            className="w-80 transition-all duration-500 lg:w-96 xl:w-120"
+            className="w-60 transition-all duration-500 md:w-80 lg:w-96 xl:w-120"
           />
         </div>
 
@@ -42,7 +41,7 @@ export default function SectionHome() {
             </H1>
           </div>
 
-          <div className="flex flex-col px-20 text-center md:w-3/4 md:px-0 md:text-start">
+          <div className="flex flex-col px-10 text-center md:w-3/4 md:px-0 md:text-start">
             <P>
               I'm a Brazilian passionate software developer and a tech
               enthusiast. I love learning new things and sharing knowledge with
