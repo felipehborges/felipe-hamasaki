@@ -36,8 +36,9 @@ export default function ExperienceCard(props: ExperienceCardProps) {
         opacity: 1,
         scale: 1
       }}
+      className="px-4"
     >
-      <Card className="flex w-[28rem] flex-col items-center gap-6 px-2 sm:px-4 md:w-185 md:flex-row md:gap-4 lg:w-220 lg:gap-6 lg:px-6">
+      <Card className="flex flex-col items-center gap-6 px-4 sm:px-4 md:w-185 md:flex-row md:gap-4 lg:w-220 lg:gap-6 lg:px-6">
         <Image
           src={props.imageUrl}
           alt="Hamasaki in Anime"
@@ -48,23 +49,23 @@ export default function ExperienceCard(props: ExperienceCardProps) {
 
         <div>
           <CardHeader className="flex flex-col items-center md:items-start md:p-0">
-            <CardTitle className="text-xl lg:text-2xl">
+            <CardTitle className="text-base md:text-lg lg:text-xl xl:text-2xl">
               {props.jobTitle}
             </CardTitle>
 
-            <CardDescription className="lg:text-base">
+            <CardDescription className="text-xs md:text-sm lg:text-base xl:text-lg">
               {props.jobPeriod}
             </CardDescription>
           </CardHeader>
 
-          <CardContent className="mt-4 flex flex-col items-center gap-2 md:items-start md:p-0 md:text-xs">
+          <CardContent className="mt-4 flex flex-col items-center gap-2 md:items-start md:p-0">
             <div className="flex items-center gap-2">
               <Building2 className="size-4 lg:size-5" />
 
               <Link
                 href={props.companyUrl}
                 target="_blank"
-                className="text-sm hover:underline lg:text-base"
+                className="text-xs hover:underline md:text-sm lg:text-base"
               >
                 {props.company}
               </Link>
@@ -73,7 +74,9 @@ export default function ExperienceCard(props: ExperienceCardProps) {
             <div className="flex items-center gap-2">
               <MapPin className="size-4 lg:size-5" />
 
-              <p className="text-sm lg:text-base">{props.location}</p>
+              <p className="text-xs md:text-sm lg:text-base">
+                {props.location}
+              </p>
             </div>
           </CardContent>
         </div>
