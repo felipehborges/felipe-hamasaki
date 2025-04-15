@@ -28,7 +28,7 @@ export default function SectionAbout() {
         >
           <Image
             alt="Hamasaki Child Picture"
-            src="/oldme.png"
+            src="/hamasaki/child.png"
             width={400}
             height={400}
             className="rounded-lg border-2 border-black shadow-[4px_4px_0px_#000] xl:w-[500px]"
@@ -54,7 +54,7 @@ export default function SectionAbout() {
             <CardTitle className="text-lg lg:text-2xl">About Me</CardTitle>
           </CardHeader>
 
-          <CardContent className="px-8 text-justify text-sm xl:text-base">
+          <CardContent className="mb-2 px-8 text-justify text-sm xl:text-base">
             <P className="leading-4.5 xl:leading-6">
               Born in December 1994, I was immersed in technology from a young
               age thanks to my father — a web designer and journalist — whose

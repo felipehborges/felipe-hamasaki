@@ -38,7 +38,7 @@ export default function ExperienceCard(props: ExperienceCardProps) {
       }}
       className="px-4"
     >
-      <Card className="flex flex-col items-center gap-6 px-4 sm:px-4 md:w-185 md:flex-row md:gap-4 lg:w-220 lg:gap-6 lg:px-6">
+      <Card className="flex flex-col items-center gap-6 px-4 md:w-185 md:flex-row md:gap-4 lg:w-220 lg:gap-6 lg:px-6">
         <Image
           src={props.imageUrl}
           alt="Hamasaki in Anime"

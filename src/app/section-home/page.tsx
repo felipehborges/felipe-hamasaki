@@ -23,7 +23,11 @@ export default function SectionHome() {
         <div className="flex justify-end md:w-1/2">
           <Image
             alt="Hamasaki in Anime"
-            src={isHovered ? '/me-anime-smile2.png' : '/me-anime-smile1.png'}
+            src={
+              isHovered
+                ? '/hamasaki/anime-smile2.png'
+                : '/hamasaki/anime-smile1.png'
+            }
             width={500}
             height={500}
             onMouseEnter={() => setIsHovered(true)}
