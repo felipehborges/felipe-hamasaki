@@ -17,21 +17,12 @@ export default function SectionExperience() {
 
       <div className="flex flex-col items-center gap-8">
         <ExperienceCard
-          jobTitle="Mid-Level Front-End Developer"
-          jobPeriod="2023 - Present (1.5 years)"
-          company="ODEEN - Intelligence for Security"
-          location="Mogi das Cruzes, São Paulo - Brazil"
-          imageUrl="/me-anime-mid.png"
-          companyUrl="https://www.odeen.com.br/"
-        />
-
-        <ExperienceCard
-          jobTitle="Junior Front-End Developer"
-          jobPeriod="2022 - 2023 (2 years)"
-          company="ODEEN - Intelligence for Security"
-          location="Mogi das Cruzes, São Paulo - Brazil"
-          imageUrl="/me-anime-jr.png"
-          companyUrl="https://www.odeen.com.br/"
+          jobTitle="English Teacher"
+          jobPeriod="2012 - 2014 (2 years)"
+          company="Skill Idiomas"
+          location="Arujá, São Paulo - Brazil"
+          imageUrl="/hamasaki/anime-teacher.png"
+          companyUrl="https://www.linkedin.com/company/skill-idiomas?originalSubdomain=br"
         />
 
         <ExperienceCard
@@ -39,17 +30,26 @@ export default function SectionExperience() {
           jobPeriod="2015 - 2021 (6 years)"
           company="Tower International (Autokiniton)"
           location="Arujá, São Paulo - Brazil"
-          imageUrl="/me-anime-hr.png"
+          imageUrl="/hamasaki/anime-hr.png"
           companyUrl="https://www.autokiniton.com/"
         />
 
         <ExperienceCard
-          jobTitle="English Teacher"
-          jobPeriod="2012 - 2014 (2 years)"
-          company="Skill Idiomas"
-          location="Arujá, São Paulo - Brazil"
-          imageUrl="/me-anime-teacher.png"
-          companyUrl="https://www.linkedin.com/company/skill-idiomas?originalSubdomain=br"
+          jobTitle="Junior Front-End Developer"
+          jobPeriod="2022 - 2023 (2 years)"
+          company="ODEEN - Intelligence for Security"
+          location="Mogi das Cruzes, São Paulo - Brazil"
+          imageUrl="/hamasaki/anime-jr-dev.png"
+          companyUrl="https://www.odeen.com.br/"
+        />
+
+        <ExperienceCard
+          jobTitle="Mid-Level Front-End Developer"
+          jobPeriod="2023 - Present (1.5 years)"
+          company="ODEEN - Intelligence for Security"
+          location="Mogi das Cruzes, São Paulo - Brazil"
+          imageUrl="/hamasaki/anime-mid-dev.png"
+          companyUrl="https://www.odeen.com.br/"
         />
       </div>
     </section>
