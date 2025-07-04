@@ -21,7 +21,7 @@ export default function SectionExperience() {
           jobPeriod="2012 - 2014 (2 years)"
           company="Skill Idiomas"
           location="Arujá, São Paulo - Brazil"
-          imageUrl="/hamasaki/anime-teacher.png"
+          imageUrl="/hamasaki/exp-teacher.png"
           companyUrl="https://www.linkedin.com/company/skill-idiomas?originalSubdomain=br"
         />
 
@@ -30,7 +30,7 @@ export default function SectionExperience() {
           jobPeriod="2015 - 2021 (6 years)"
           company="Tower International (Autokiniton)"
           location="Arujá, São Paulo - Brazil"
-          imageUrl="/hamasaki/anime-hr.png"
+          imageUrl="/hamasaki/exp-hr.png"
           companyUrl="https://www.autokiniton.com/"
         />
 
@@ -39,16 +39,25 @@ export default function SectionExperience() {
           jobPeriod="2022 - 2023 (2 years)"
           company="ODEEN - Intelligence for Security"
           location="Mogi das Cruzes, São Paulo - Brazil"
-          imageUrl="/hamasaki/anime-jr-dev.png"
+          imageUrl="/hamasaki/exp-dev1.png"
           companyUrl="https://www.odeen.com.br/"
         />
 
         <ExperienceCard
           jobTitle="Mid-Level Front-End Developer"
-          jobPeriod="2023 - Present (1.5 years)"
+          jobPeriod="2023 - 2025 (1.5 years)"
           company="ODEEN - Intelligence for Security"
           location="Mogi das Cruzes, São Paulo - Brazil"
-          imageUrl="/hamasaki/anime-mid-dev.png"
+          imageUrl="/hamasaki/exp-dev2.png"
+          companyUrl="https://www.odeen.com.br/"
+        />
+
+        <ExperienceCard
+          jobTitle="Mid-Level Full Stack Developer"
+          jobPeriod="2025 - Present (3 months)"
+          company="ODEEN - Intelligence for Security"
+          location="Mogi das Cruzes, São Paulo - Brazil"
+          imageUrl="/hamasaki/exp-dev3.png"
           companyUrl="https://www.odeen.com.br/"
         />
       </div>

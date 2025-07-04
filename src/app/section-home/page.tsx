@@ -23,11 +23,7 @@ export default function SectionHome() {
         <div className="flex justify-end md:w-1/2">
           <Image
             alt="Hamasaki in Anime"
-            src={
-              isHovered
-                ? '/hamasaki/anime-smile2.png'
-                : '/hamasaki/anime-smile1.png'
-            }
+            src={'/hamasaki/home-me-anime.png'}
             width={500}
             height={500}
             onMouseEnter={() => setIsHovered(true)}
@@ -47,14 +43,19 @@ export default function SectionHome() {
 
           <div className="flex flex-col px-10 text-center md:w-3/4 md:px-0 md:text-start">
             <P>
-              I'm a Brazilian passionate software developer and a tech
-              enthusiast. I love learning new things and sharing knowledge with
-              others.
+              I'm a Brazilian passionate{' '}
+              <span className="font-bold text-secondary">
+                Full Stack Developer
+              </span>{' '}
+              with more than{' '}
+              <span className="font-bold text-secondary">3 years</span> of
+              experience and a tech enthusiast. I love learning new things and
+              sharing knowledge with others.
             </P>
 
             <P>
-              I'm currently working with React and Next.js, but I'm always open
-              to new opportunities and challenges.
+              I'm currently working with TypeScript, but I'm always open to new
+              opportunities and challenges.
             </P>
           </div>
         </div>
