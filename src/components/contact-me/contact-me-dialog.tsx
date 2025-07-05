@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import {
   Dialog,
@@ -9,6 +11,8 @@ import {
 import ContactMeForm from './contact-me-form'
 import Image from 'next/image'
 import { Button } from '../ui/button'
+import { useEffect, useState } from 'react'
+import { useTheme } from 'next-themes'
 
 interface ContactMeDialogProps {
   open: boolean
@@ -16,6 +20,15 @@ interface ContactMeDialogProps {
 }
 
 export default function ContactMeDialog(props: ContactMeDialogProps) {
+  const { theme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) return null
+
   const logoStyle = ''
 
   return (
@@ -68,12 +81,16 @@ export default function ContactMeDialog(props: ContactMeDialogProps) {
 
           <Button asChild variant="outline" size="lg">
             <Link
-              href="https://github.com/felipehborges "
+              href="https://github.com/felipehborges"
               target="_blank"
               className="flex items-center"
             >
               <Image
-                src="/logos/logo-github.png"
+                src={
+                  theme === 'dark'
+                    ? '/logos/logo-github-white.png'
+                    : '/logos/logo-github-black.png'
+                }
                 alt="GitHub Logo"
                 width={25}
                 height={25}

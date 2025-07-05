@@ -41,7 +41,7 @@ export default function SectionHome() {
             </H1>
           </div>
 
-          <div className="flex flex-col px-10 text-center md:w-3/4 md:px-0 md:text-start">
+          <div className="md: flex max-w-150 flex-col px-10 text-justify md:w-3/4 md:px-0 lg:max-w-120">
             <P>
               I'm a Brazilian passionate{' '}
               <span className="font-bold text-secondary">

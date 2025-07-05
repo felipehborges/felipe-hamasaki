@@ -19,7 +19,7 @@ export function H1({ children, className }: TypographyProps) {
   return (
     <h1
       className={cn(
-        `scroll-m-20 font-extrabold text-3xl tracking-tight md:text-4xl lg:text-5xl ${domine.className}`,
+        `scroll-m-20 font-extrabold text-3xl tracking-tight md:text-4xl xl:text-5xl ${domine.className}`,
         className
       )}
     >
