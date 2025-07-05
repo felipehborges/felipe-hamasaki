@@ -4,8 +4,20 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { H1, P } from '@/components/typography'
 import { motion } from 'motion/react'
 import Image from 'next/image'
+import { useTheme } from 'next-themes'
+import { useEffect, useState } from 'react'
+import SkillLogo from '@/components/skill-logo'
 
 export default function SectionSkills() {
+  const { theme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) return null
+
   return (
     <section
       id="skills"
@@ -22,215 +34,107 @@ export default function SectionSkills() {
           <P>Here are some of the technologies I am familiar with:</P>
 
           <div className="flex w-full flex-wrap justify-center gap-4 p-4">
-            <motion.div
-              className="m-4 w-fit self-center"
-              viewport={{ once: true }}
-              transition={{
-                // delay: 0,
-                type: 'spring',
-                bounce: 0.5,
-                duration: 1.5
-              }}
-              initial={{
-                opacity: 0,
-                scale: 0
-              }}
-              whileInView={{
-                opacity: 1,
-                scale: 1
-              }}
-            >
-              <Image
-                src="/logos/logo-ts.png"
-                alt="typescript"
-                width={100}
-                height={100}
-                className="w-20"
-              />
-            </motion.div>
+            <SkillLogo
+              imgAlt="javascript"
+              imgSrc="/logos/logo-js.png"
+              delay={0.1}
+              tooltipContent="JavaScript"
+            />
 
-            <motion.div
-              animate={{ rotate: 720 }}
-              viewport={{ once: true }}
-              transition={{
-                // delay: 0.2,
-                type: 'spring',
-                bounce: 0.5,
-                duration: 2
-              }}
-              initial={{
-                opacity: 0,
-                scale: 0
-              }}
-              whileInView={{
-                opacity: 1,
-                scale: 1
-              }}
-              className="m-4 w-fit self-center"
-            >
-              <Image
-                src="/logos/logo-react.png"
-                alt="react"
-                width={100}
-                height={100}
-                className="w-20"
-              />
-            </motion.div>
+            <SkillLogo
+              imgAlt="typescript"
+              imgSrc="/logos/logo-ts.png"
+              delay={0.25}
+              tooltipContent="TypeScript"
+            />
 
-            <motion.div
-              animate={{ rotate: -360 }}
-              viewport={{ once: true }}
-              transition={{
-                delay: 0.4,
-                duration: 1.5
-              }}
-              initial={{
-                opacity: 0
-                // scale: 0
-              }}
-              whileInView={{
-                opacity: 1
-                // scale: 1
-              }}
-              className="m-4 w-fit self-center"
-            >
-              <Image
-                src="/logos/logo-nextjs.png"
-                alt="nextjs"
-                width={100}
-                height={100}
-                className="w-20"
-              />
-            </motion.div>
+            <SkillLogo
+              imgAlt="python"
+              imgSrc="/logos/logo-python.png"
+              delay={0.5}
+              tooltipContent="Python"
+            />
 
-            <motion.div
-              viewport={{ once: true }}
-              transition={{
-                delay: 0.6,
-                duration: 1.5
-              }}
-              initial={{
-                opacity: 0,
-                translateX: -50
-              }}
-              whileInView={{
-                opacity: 1,
-                translateX: 0
-              }}
-              className="m-4 w-fit self-center"
-            >
-              <Image
-                src="/logos/logo-tailwind.png"
-                alt="tailwind"
-                width={100}
-                height={100}
-                className="w-20"
-              />
-            </motion.div>
+            <SkillLogo
+              imgAlt="react"
+              imgSrc="/logos/logo-react.png"
+              delay={0.75}
+              tooltipContent="React"
+            />
 
-            <motion.div
-              viewport={{ once: true }}
-              transition={{
-                delay: 0.8,
-                type: 'spring',
-                bounce: 0.5,
-                duration: 1.5
-              }}
-              initial={{
-                opacity: 0,
-                scale: 2
-              }}
-              whileInView={{
-                opacity: 1,
-                scale: 1
-              }}
-              className="m-4 w-fit self-center"
-            >
-              <Image
-                src="/logos/logo-js.png"
-                alt="javascript"
-                width={100}
-                height={100}
-                className="w-20"
-              />
-            </motion.div>
+            <SkillLogo
+              imgAlt="nextjs"
+              imgSrc="/logos/logo-nextjs.png"
+              delay={1}
+              tooltipContent="Next.js"
+            />
 
-            <motion.div
-              viewport={{ once: true }}
-              transition={{
-                delay: 1,
-                duration: 1.5
-              }}
-              initial={{
-                opacity: 0
-              }}
-              whileInView={{
-                opacity: 1
-              }}
-              className="m-4 w-fit self-center"
-            >
-              <Image
-                src="/logos/logo-nodejs.png"
-                alt="nodejs"
-                width={100}
-                height={100}
-                className="w-20"
-              />
-            </motion.div>
+            <SkillLogo
+              imgAlt="tailwind"
+              imgSrc="/logos/logo-tailwind.png"
+              delay={1.25}
+              tooltipContent="Tailwind CSS"
+            />
 
-            <motion.div
-              viewport={{ once: true }}
-              transition={{
-                delay: 1.2,
-                type: 'spring',
-                bounce: 0.5,
-                duration: 1.5
-              }}
-              initial={{
-                opacity: 0,
-                translateY: 50
-              }}
-              whileInView={{
-                opacity: 1,
-                translateY: 0
-              }}
-              className="m-4 w-fit self-center"
-            >
-              <Image
-                src="/logos/logo-git.png"
-                alt="git"
-                width={100}
-                height={100}
-                className="w-20"
-              />
-            </motion.div>
+            <SkillLogo
+              imgAlt="git"
+              imgSrc="/logos/logo-git.png"
+              delay={1.5}
+              tooltipContent="Git"
+            />
 
-            <motion.div
-              viewport={{ once: true }}
-              transition={{
-                delay: 1.4,
-                type: 'spring',
-                bounce: 0.5,
-                duration: 1.5
-              }}
-              initial={{
-                opacity: 0,
-                translateY: -50
-              }}
-              whileInView={{
-                opacity: 1,
-                translateY: 0
-              }}
-              className="m-4 w-fit self-center"
-            >
-              <Image
-                src="/logos/logo-github.png"
-                alt="github"
-                width={100}
-                height={100}
-                className="w-20"
-              />
-            </motion.div>
+            <SkillLogo
+              imgAlt="github"
+              imgSrc={
+                theme === 'dark'
+                  ? '/logos/logo-github-white.png'
+                  : '/logos/logo-github-black.png'
+              }
+              delay={1.75}
+              tooltipContent="GitHub"
+            />
+
+            <SkillLogo
+              imgAlt="nodejs"
+              imgSrc="/logos/logo-nodejs.png"
+              delay={2}
+              tooltipContent="Node.js"
+            />
+
+            <SkillLogo
+              imgAlt="mysql"
+              imgSrc="/logos/logo-mysql.png"
+              delay={2.25}
+              tooltipContent="MySQL"
+            />
+
+            <SkillLogo
+              imgAlt="postgresql"
+              imgSrc="/logos/logo-postgresql.png"
+              delay={2.5}
+              tooltipContent="PostgreSQL"
+            />
+
+            <SkillLogo
+              imgAlt="nestjs"
+              imgSrc="/logos/logo-nestjs.png"
+              delay={2.75}
+              tooltipContent="NestJS"
+            />
+
+            <SkillLogo
+              imgAlt="prisma"
+              imgSrc="/logos/logo-prisma.png"
+              delay={3}
+              tooltipContent="Prisma"
+            />
+
+            <SkillLogo
+              imgAlt="fastify"
+              imgSrc="/logos/logo-fastify.png"
+              delay={3.25}
+              tooltipContent="Fatisfy"
+            />
           </div>
         </CardContent>
       </Card>

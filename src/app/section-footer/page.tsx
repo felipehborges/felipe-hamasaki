@@ -4,8 +4,19 @@ import DownloadResumeButton from '@/components/download-resume-button'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useTheme } from 'next-themes'
+import { useEffect, useState } from 'react'
 
 export default function SectionFooter() {
+  const { theme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) return null
+
   const navigationLinks = [
     { href: '#about', label: 'About' },
     { href: '#skills', label: 'Skills' },
@@ -21,7 +32,11 @@ export default function SectionFooter() {
       <div className="mb-4 flex items-center">
         <Link href="https://github.com/felipehborges " target="_blank">
           <Image
-            src="/logos/logo-github.png"
+            src={
+              theme === 'dark'
+                ? '/logos/logo-github-white.png'
+                : '/logos/logo-github-black.png'
+            }
             alt="GitHub Logo"
             width={50}
             height={50}

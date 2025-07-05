@@ -18,7 +18,7 @@ export default function SectionExperience() {
       <div className="flex flex-col items-center gap-8">
         <ExperienceCard
           jobTitle="English Teacher"
-          jobPeriod="2012 - 2014 (2 years)"
+          jobPeriod="2012 - 2014"
           company="Skill Idiomas"
           location="Arujá, São Paulo - Brazil"
           imageUrl="/hamasaki/exp-teacher.png"
@@ -27,7 +27,7 @@ export default function SectionExperience() {
 
         <ExperienceCard
           jobTitle="Human Resources Analyst"
-          jobPeriod="2015 - 2021 (6 years)"
+          jobPeriod="2015 - 2021"
           company="Tower International (Autokiniton)"
           location="Arujá, São Paulo - Brazil"
           imageUrl="/hamasaki/exp-hr.png"
@@ -36,7 +36,7 @@ export default function SectionExperience() {
 
         <ExperienceCard
           jobTitle="Junior Front-End Developer"
-          jobPeriod="2022 - 2023 (2 years)"
+          jobPeriod="2022 - 2023"
           company="ODEEN - Intelligence for Security"
           location="Mogi das Cruzes, São Paulo - Brazil"
           imageUrl="/hamasaki/exp-dev1.png"
@@ -45,7 +45,7 @@ export default function SectionExperience() {
 
         <ExperienceCard
           jobTitle="Mid-Level Front-End Developer"
-          jobPeriod="2023 - 2025 (1.5 years)"
+          jobPeriod="2023 - 2025"
           company="ODEEN - Intelligence for Security"
           location="Mogi das Cruzes, São Paulo - Brazil"
           imageUrl="/hamasaki/exp-dev2.png"
@@ -54,7 +54,7 @@ export default function SectionExperience() {
 
         <ExperienceCard
           jobTitle="Mid-Level Full Stack Developer"
-          jobPeriod="2025 - Present (3 months)"
+          jobPeriod="2025 - Present"
           company="ODEEN - Intelligence for Security"
           location="Mogi das Cruzes, São Paulo - Brazil"
           imageUrl="/hamasaki/exp-dev3.png"
