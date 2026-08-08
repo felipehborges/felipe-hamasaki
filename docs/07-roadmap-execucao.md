@@ -312,11 +312,26 @@ imagens deletadas · legível em 360px.
 
 **Referência:** P0-4 · P2-3 · P2-5
 
-**Nota de execução:** bloco 2 do briefing (a parte de maior retorno de todo o projeto)
-ainda não foi respondido. Cargo, empresa, período e localização são fatos já existentes no
-site atual e foram preservados; a linha de "o que foi construído e com qual impacto" — que
-é justamente o que falta hoje (P0-4) — está marcada `TODO(content)` em cada entrada, nunca
-inventada. `card.tsx` e as cinco imagens `exp-*.png` foram deletados.
+**Nota de execução:** bloco 2 do briefing foi respondido pelo dono em 2026-08-08 e as três
+entradas da ODEEN já têm conteúdo real. `card.tsx` e as cinco imagens `exp-*.png` foram
+deletados.
+
+Duas ressalvas registradas explicitamente:
+
+1. **Sem métricas.** O dono não tem números e pediu para "usar da lábia". Não foi feito —
+   nenhum número foi inventado (regra de honestidade #1). Onde não há métrica, o texto
+   descreve o **efeito qualitativo e o escopo**, que é a saída prevista pela própria spec:
+   "rotas expostas sem middleware → passaram a ter camada de autenticação/autorização",
+   "service layer plano e misturado → arquitetura por feature". Isso sustenta entrevista
+   técnica; número inventado não.
+2. **Granularidade por cargo.** O dono forneceu um resumo consolidado da ODEEN, não uma
+   resposta separada por cargo, e não soube apontar entregas específicas do período júnior.
+   O material real foi distribuído pela natureza do trabalho (middleware e refatoração de
+   arquitetura de back-end → cargo full stack atual; câmeras em tempo real sobre mapa →
+   cargo front-end pleno; telas/tabelas/mapas → júnior), e a entrada júnior ficou
+   deliberadamente mais curta em vez de inflada. **Vale revisitar** com o dono para separar
+   melhor o que pertence a cada período — a pergunta 7 do bloco 2 ("o que mudou entre um
+   cargo e o outro?"), que é o que justifica as promoções, segue sem resposta detalhada.
 
 ### F3-T06 · `ContactSection` (só UI) ✅
 
@@ -572,7 +587,7 @@ Nenhum agente pode executar estas tarefas. Ver `05-estrategia-conteudo.md`, seç
 | # | Tarefa | Esforço | Desbloqueia | Status |
 |---|---|---|---|---|
 | F7-T01 | Responder bloco 1 do briefing (posicionamento) | 15 min | F3-T04 (hero) | ✅ |
-| F7-T02 | Responder bloco 2 do briefing (ODEEN) | 90 min | F3-T05 (timeline) | ⬜ |
+| F7-T02 | Responder bloco 2 do briefing (ODEEN) | 90 min | F3-T05 (timeline) | 🟡 |
 | F7-T03 | Responder blocos 3 e 4 | 50 min | F3-T07 (`/about`) | ⬜ |
 | F7-T04 | Responder bloco 5 | 15 min | F7-T07 | ⬜ |
 | F7-T05 | Escrever o primeiro case study | 3–4 h | Rota `/work` | ⬜ |

@@ -7,6 +7,8 @@ interface ExperienceEntry {
   companyUrl?: string
   period: string
   location: string
+  context?: string
+  body?: string[]
 }
 
 const experience: ExperienceEntry[] = [
@@ -15,21 +17,37 @@ const experience: ExperienceEntry[] = [
     company: 'ODEEN — Intelligence for Security',
     companyUrl: 'https://www.odeen.com.br/',
     period: '2025 — Present',
-    location: 'Mogi das Cruzes, SP'
+    location: 'Mogi das Cruzes, SP',
+    context:
+      'Same platform, now working end to end across the API instead of only the front-end.',
+    body: [
+      'Added an authentication and authorization middleware layer to the API, which until then exposed routes without it.',
+      'Restructured the back-end from a flat, mixed service layer into a feature-based architecture, so each feature owns its own routes, services and types.'
+    ]
   },
   {
     title: 'Mid-Level Front-End Developer',
     company: 'ODEEN — Intelligence for Security',
     companyUrl: 'https://www.odeen.com.br/',
     period: '2023 — 2025',
-    location: 'Mogi das Cruzes, SP'
+    location: 'Mogi das Cruzes, SP',
+    context:
+      'Security intelligence platform: interactive maps, vehicle tracking, advanced search and data cross-referencing.',
+    body: [
+      'Built the front-end for a real-time security camera system rendered on the same map surface as the tracking data — the hardest problem I worked on there.',
+      'Worked across screens, tables and map views that handle large volumes of data.'
+    ]
   },
   {
     title: 'Junior Front-End Developer',
     company: 'ODEEN — Intelligence for Security',
     companyUrl: 'https://www.odeen.com.br/',
     period: '2022 — 2023',
-    location: 'Mogi das Cruzes, SP'
+    location: 'Mogi das Cruzes, SP',
+    context: 'Where I started on the platform I still work on today.',
+    body: [
+      'Built screens, tables and map-based views, and the endpoints behind them.'
+    ]
   },
   {
     title: 'Human Resources Analyst',
@@ -80,11 +98,20 @@ export function ExperienceTimeline() {
               · {entry.location}
             </p>
 
-            {/* TODO(content): one to three lines on what was built and its impact.
-                See 05-estrategia-conteudo.md, briefing bloco 2. */}
-            <p className="mt-2 max-w-[65ch] text-muted-foreground text-sm italic">
-              TODO(content): what was built and what changed in this role.
-            </p>
+            {entry.context ? (
+              <p className="mt-3 max-w-[65ch] text-sm italic">
+                {entry.context}
+              </p>
+            ) : null}
+
+            {entry.body?.map((line) => (
+              <p
+                key={line}
+                className="mt-2 max-w-[65ch] text-muted-foreground text-sm"
+              >
+                {line}
+              </p>
+            ))}
           </li>
         ))}
       </ol>
