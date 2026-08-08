@@ -44,7 +44,7 @@ export default function ExperienceCard(props: ExperienceCardProps) {
           alt="Hamasaki in Anime"
           width={1000}
           height={1000}
-          className="w-100 rounded-lg border-2 border-black"
+          className="w-100 rounded-md border border-border"
         />
 
         <div>

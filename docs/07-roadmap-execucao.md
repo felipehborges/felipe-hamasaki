@@ -125,7 +125,7 @@ apenas a fundação visual.
 
 **Depende de:** F1.
 
-### F2-T01 · Tokens de cor ⬜
+### F2-T01 · Tokens de cor ✅
 
 Reescrever a camada de cores de `src/styles/globals.css` com os tokens da nova paleta,
 nos temas escuro e claro. Manter os aliases que os componentes shadcn consomem apontando
@@ -140,7 +140,7 @@ tabela de `03-design-system.md`.
 
 **Referência:** P1-6 · ADR-005 · ADR-009
 
-### F2-T02 · Fontes ⬜
+### F2-T02 · Fontes ✅
 
 Remover Poppins de `layout.tsx` e Domine de `typography.tsx`. Carregar Newsreader, Inter e
 JetBrains Mono via `next/font` no layout raiz, expostas como variáveis CSS. Remover as
@@ -152,7 +152,7 @@ carregamento de fonte fora de `layout.tsx` · a aba Network não mostra requisi�
 
 **Referência:** P1-4
 
-### F2-T03 · Reescrever `typography.tsx` ⬜
+### F2-T03 · Reescrever `typography.tsx` ✅
 
 Remover `'use client'`. Remover o carregamento de fonte de dentro do arquivo. Alinhar à
 escala de `03-design-system.md`. Aplicar `text-wrap: balance` em títulos e `pretty` em
@@ -163,7 +163,12 @@ vazio.
 
 **Referência:** P1-5
 
-### F2-T04 · Tokens estruturais e regras globais ⬜
+### F2-T04 · Tokens estruturais e regras globais ✅
+
+Nota: a escala de espaçamento (4·8·12·16·24·32·48·64·96·128) já corresponde exatamente à
+escala padrão do Tailwind 4 (base `--spacing: 0.25rem` = 4px), então não foram criados
+tokens CSS redundantes para isso — apenas raios, durações e curva de easing (que exigiam
+valores diferentes do padrão) foram declarados explicitamente em `globals.css`.
 
 Em `globals.css`: escala de espaçamento, raios, durações e curva de easing; regra global
 de `:focus-visible`; bloco de `prefers-reduced-motion`.
@@ -172,7 +177,7 @@ de `:focus-visible`; bloco de `prefers-reduced-motion`.
 com movimento reduzido ativado no SO, nenhuma transição visível ocorre e o scroll deixa
 de ser suave · nenhuma sombra permanece no projeto.
 
-### F2-T05 · Realinhar componentes `ui/` ⬜
+### F2-T05 · Realinhar componentes `ui/` ✅
 
 Ajustar `button`, `input`, `textarea`, `label`, `form`, `sonner` aos novos tokens.
 Remover variantes de botão não utilizadas. Eliminar toda `border-2 border-black` e
@@ -180,6 +185,16 @@ Remover variantes de botão não utilizadas. Eliminar toda `border-2 border-blac
 
 **Aceite:** `grep -rn "border-black\|shadow-\[" src/` vazio · botões e campos consistentes
 nos dois temas.
+
+**Nota de execução:** removida apenas a variante `destructive` do botão (confirmada sem
+nenhum uso no código). `03-design-system.md` também lista `outline` e `secondary` como
+variantes a remover ("Manter. Variantes: primary, ghost, link"), mas ambas seguem em uso
+ativo em `navbar.tsx`, `contact-me-dialog.tsx` e `download-resume-button.tsx` — componentes
+que só são substituídos/removidos na F3 (`SiteHeader`, exclusão do `ContactMeDialog`).
+Removê-las agora quebraria o build antes da hora. Revisitar a redução final do conjunto de
+variantes ao final de F3, quando os componentes antigos que as consomem já não existirem.
+`bg-red-500` hardcoded no `sonner.tsx` (bug: todo toast aparecia vermelho) também foi
+corrigido para `bg-popover`, por estar diretamente dentro do escopo desta tarefa.
 
 ### F2-T06 · Decisão sobre identidade visual ✅
 

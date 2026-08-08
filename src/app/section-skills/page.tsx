@@ -1,12 +1,12 @@
 'use client'
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { H1, P } from '@/components/typography'
-import { motion } from 'motion/react'
-import Image from 'next/image'
-import { useTheme } from 'next-themes'
-import { useEffect, useState } from 'react'
 import SkillLogo from '@/components/skill-logo'
+import { H1, P } from '@/components/typography'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { motion } from 'motion/react'
+import { useTheme } from 'next-themes'
+import Image from 'next/image'
+import { useEffect, useState } from 'react'
 
 export default function SectionSkills() {
   const { theme } = useTheme()
@@ -21,7 +21,7 @@ export default function SectionSkills() {
   return (
     <section
       id="skills"
-      className="flex min-h-screen items-center justify-center overflow-hidden bg-background-page p-4"
+      className="flex min-h-screen items-center justify-center overflow-hidden bg-background p-4"
     >
       <Card className="mx-4 w-full sm:w-5/6 md:w-2/3 lg:w-5/6 2xl:w-2/3">
         <CardHeader>

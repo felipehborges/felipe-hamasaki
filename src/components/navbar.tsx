@@ -12,9 +12,9 @@ import { cn } from '@/lib/utils'
 import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import { ButtonTheme } from './button-change-theme'
 import ContactMeDialog from './contact-me/contact-me-dialog'
 import { Button } from './ui/button'
-import { ButtonTheme } from './button-change-theme'
 
 export default function Navbar(props: { className?: string }) {
   const [showNavbar, setShowNavbar] = useState(true)
@@ -93,7 +93,7 @@ export default function Navbar(props: { className?: string }) {
           props.className
         )}
       >
-        <section className="hidden w-full justify-between border-black border-b-4 bg-card-secondary p-4 sm:flex">
+        <section className="hidden w-full justify-between border-b bg-background p-4 sm:flex">
           <div className="mx-auto flex gap-4">
             {navigationLinks.map((link) => (
               <Link
@@ -141,7 +141,7 @@ export default function Navbar(props: { className?: string }) {
             </Button>
           </DrawerTrigger>
 
-          <DrawerContent className="border-black border-b-2 bg-card shadow-[4px_4px_0px_#000]">
+          <DrawerContent className="border-b bg-card">
             <DrawerHeader>
               <DrawerTitle className="text-xl">Enjoy!</DrawerTitle>
 

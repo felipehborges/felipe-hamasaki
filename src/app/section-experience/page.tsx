@@ -1,12 +1,12 @@
 'use client'
 
-import DownloadResumeButton from '@/components/download-resume-button'
 import ExperienceCard from '@/app/section-experience/components/card'
+import DownloadResumeButton from '@/components/download-resume-button'
 import { H1 } from '@/components/typography'
 
 export default function SectionExperience() {
   return (
-    <section id="experience" className="min-h-screen bg-background-page">
+    <section id="experience" className="min-h-screen bg-background">
       <header className="flex items-center justify-center py-8">
         <H1>Experience</H1>
       </header>

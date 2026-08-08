@@ -48,7 +48,7 @@ reauditar o código ou readivinhar decisões.
 |---|---|---|
 | F0 | Especificação | ✅ Concluída |
 | F1 | Saneamento técnico | ✅ Concluída |
-| F2 | Design system | ⬜ Não iniciada |
+| F2 | Design system | 🟡 Código concluído (T01–T05); T06 decidida; T07 bloqueada (dono) |
 | F3 | Arquitetura de informação e rotas | ⬜ Não iniciada |
 | F4 | Camada de conteúdo (MDX) | ⬜ Não iniciada |
 | F5 | SEO, performance, acessibilidade | ⬜ Não iniciada |

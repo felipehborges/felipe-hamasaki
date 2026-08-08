@@ -1,20 +1,13 @@
 import type * as React from 'react'
 
 import { cn } from '@/lib/utils'
-import { Domine } from 'next/font/google'
-
-const domine = Domine({
-  variable: '--font-poppins',
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700']
-})
 
 function Card({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot="card"
       className={cn(
-        'flex flex-col gap-6 rounded-lg border-2 border-black bg-card py-8 text-card-foreground shadow-[4px_4px_0px_#000]',
+        'flex flex-col gap-6 rounded-md border border-border bg-card py-8 text-card-foreground',
         className
       )}
       {...props}
@@ -37,8 +30,7 @@ function CardTitle({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot="card-title"
       className={cn(
-        'font-semibold text-2xl leading-none',
-        domine.className,
+        'font-semibold font-serif text-2xl leading-none',
         className
       )}
       {...props}

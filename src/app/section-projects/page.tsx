@@ -7,7 +7,7 @@ export default function SectionProjects() {
   return (
     <section
       id="projects"
-      className="flex min-h-screen flex-col items-center justify-center bg-background-page"
+      className="flex min-h-screen flex-col items-center justify-center bg-background"
     >
       <header className="flex items-center justify-center py-8">
         <H1>Projects</H1>

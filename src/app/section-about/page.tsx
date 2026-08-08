@@ -1,7 +1,7 @@
 'use client'
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { P } from '@/components/typography'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { motion } from 'motion/react'
 import Image from 'next/image'
 
@@ -11,7 +11,7 @@ export default function SectionAbout() {
   return (
     <section
       id="about"
-      className="flex min-h-screen flex-col items-center justify-center bg-background-page lg:flex-row lg:gap-10"
+      className="flex min-h-screen flex-col items-center justify-center bg-background lg:flex-row lg:gap-10"
     >
       <div className="flex items-center justify-center p-4 lg:w-1/2 lg:justify-end">
         <motion.div
@@ -31,7 +31,7 @@ export default function SectionAbout() {
             src="/hamasaki/child.png"
             width={400}
             height={400}
-            className="rounded-lg border-2 border-black shadow-[4px_4px_0px_#000] xl:w-[500px]"
+            className="rounded-md border border-border xl:w-[500px]"
           />
         </motion.div>
       </div>
@@ -54,7 +54,7 @@ export default function SectionAbout() {
             <CardTitle className="text-lg lg:text-2xl">About Me</CardTitle>
           </CardHeader>
 
-          <CardContent className="mb-2 px-8 text-justify text-sm xl:text-base">
+          <CardContent className="mb-2 px-8 text-sm xl:text-base">
             <P className="leading-4.5 xl:leading-6">
               Born in December 1994, I was immersed in technology from a young
               age thanks to my father — a web designer and journalist — whose

@@ -1,21 +1,20 @@
-import type * as React from 'react'
 import { Slot } from '@radix-ui/react-slot'
-import { cva, type VariantProps } from 'class-variance-authority'
+import { type VariantProps, cva } from 'class-variance-authority'
+import type * as React from 'react'
 
 import { cn } from '@/lib/utils'
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md border-2 border-black font-medium text-sm shadow-[0px_3px_0px_#000] shadow-black outline-none transition-[color,box-shadow] transition-all duration-100 ease-in-out hover:translate-y-1 hover:cursor-pointer hover:shadow-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md font-medium text-sm outline-none transition-colors duration-fast ease-standard hover:cursor-pointer focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: 'bg-primary dark:text-primary-foreground',
-        secondary: 'bg-secondary text-secondary-foreground',
-        outline: 'bg-background/80 active:bg-background/50',
-        destructive:
-          'bg-destructive text-white focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40',
-
-        ghost: 'hover:bg-primary/15 dark:hover:bg-primary/5',
+        default: 'bg-primary text-primary-foreground hover:bg-primary/90',
+        secondary:
+          'border border-border bg-secondary text-secondary-foreground hover:border-border-strong',
+        outline:
+          'border border-border bg-transparent hover:border-border-strong',
+        ghost: 'hover:bg-accent',
         link: 'text-primary underline-offset-4 hover:underline'
       },
       size: {
@@ -28,13 +27,7 @@ const buttonVariants = cva(
     defaultVariants: {
       variant: 'default',
       size: 'default'
-    },
-    compoundVariants: [
-      {
-        variant: ['ghost', 'link'],
-        className: 'hover:translate-none border-none shadow-none'
-      }
-    ]
+    }
   }
 )
 

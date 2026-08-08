@@ -1,14 +1,25 @@
 import { ThemeProvider } from '@/components/theme-provider'
 import '@/styles/globals.css'
-import type { Metadata } from 'next'
-import { Poppins } from 'next/font/google'
-import type { ReactNode } from 'react'
 import { Toaster } from '@/components/ui/sonner'
+import type { Metadata } from 'next'
+import { Inter, JetBrains_Mono, Newsreader } from 'next/font/google'
+import type { ReactNode } from 'react'
 
-const poppins = Poppins({
-  variable: '--font-poppins',
+const inter = Inter({
   subsets: ['latin'],
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
+  variable: '--font-inter'
+})
+
+const newsreader = Newsreader({
+  subsets: ['latin'],
+  style: ['normal', 'italic'],
+  variable: '--font-newsreader'
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-jetbrains-mono'
 })
 
 export const metadata: Metadata = {
@@ -22,11 +33,15 @@ export default async function RootLayout({
   children: ReactNode
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${poppins.className} overflow-x-hidden antialiased`}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${inter.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}
+    >
+      <body className="overflow-x-hidden antialiased">
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >

@@ -18,7 +18,7 @@ export default function SectionHome() {
     >
       <section
         id="home"
-        className="flex min-h-screen flex-col items-center justify-center gap-10 bg-background-page md:flex-row md:gap-6 xl:gap-20"
+        className="flex min-h-screen flex-col items-center justify-center gap-10 bg-background md:flex-row md:gap-6 xl:gap-20"
       >
         <div className="flex justify-end md:w-1/2">
           <Image
@@ -41,7 +41,7 @@ export default function SectionHome() {
             </H1>
           </div>
 
-          <div className="md: flex max-w-150 flex-col px-10 text-justify md:w-3/4 md:px-0 lg:max-w-120">
+          <div className="md: flex max-w-150 flex-col px-10 md:w-3/4 md:px-0 lg:max-w-120">
             <P>
               I'm a Brazilian passionate{' '}
               <span className="font-bold text-secondary">
