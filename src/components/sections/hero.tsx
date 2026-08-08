@@ -9,13 +9,21 @@ export function Hero() {
     <section className="mx-auto max-w-6xl px-6 py-24 md:px-8 md:py-32">
       <H1>{siteConfig.name}</H1>
 
-      {/* TODO(content): one-line positioning — seniority, stack, availability.
-          See 05-estrategia-conteudo.md, briefing bloco 1. */}
       <p className="mt-4 max-w-[65ch] text-lg text-muted-foreground">
-        TODO(content): one-line positioning statement.
+        Full stack developer working in TypeScript. 4+ years of professional
+        experience. Open to any development role, remote, as a contractor.
       </p>
 
-      {/* TODO(content): up to two short hook paragraphs — briefing bloco 1. */}
+      <div className="mt-6 flex max-w-[65ch] flex-col gap-4 text-muted-foreground">
+        <p>
+          I'm ready to take on any kind of development work — front-end,
+          back-end, or full stack.
+        </p>
+        <p>
+          Open to relocating if a role requires it, and to any timezone or
+          salary range.
+        </p>
+      </div>
 
       <div className="mt-8 flex flex-wrap items-center gap-4">
         <Button asChild>

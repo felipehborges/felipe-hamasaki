@@ -288,17 +288,17 @@ um marcador explícito `TODO(content)` no código — **nunca** inventar o texto
 **Aceite:** senioridade, stack e disponibilidade visíveis sem rolar em 1280×720 e em
 390×844 · Server Component · sem `whileInView`.
 
-**Nota de execução:** bloco 1 do briefing ainda não foi respondido pelo dono — a linha de
-posicionamento e os parágrafos-gancho estão marcados `TODO(content)`, conforme instruído
-(nunca inventados). O critério de aceite sobre visibilidade sem rolar está satisfeito
-estruturalmente (layout compacto, sem imagem, sem `min-h-screen`); só será verificável de
-fato com o texto real. Sem avatar (nem anime, nem placeholder cinza) — retrato real
-pendente de F2-T07. Ação primária de CTA para case study/`\`/work\`` omitida por ora
-(rota não existe sem conteúdo, mesma regra de renderização condicional); mantido apenas
-"Download résumé" e os links persistentes (GitHub, LinkedIn, e-mail). Bloco "Selected work"
-da home (item 3 do mapa de blocos) também não foi implementado — depende da infraestrutura
-de conteúdo MDX da F4 (`SelectedWork`, F4-T07); a home hoje pula direto de Hero para
-Experience, o que é o comportamento correto enquanto não há case study publicado.
+**Nota de execução:** bloco 1 do briefing foi respondido pelo dono em 2026-08-08 e o texto
+do Hero (linha de posicionamento + dois parágrafos) já reflete as respostas reais — full
+stack TypeScript, 4+ anos de experiência, aberto a qualquer vaga de desenvolvimento, PJ,
+remoto, sem restrição de visto/salário/fuso. Nenhum dado foi inventado. Sem avatar (nem
+anime, nem placeholder cinza) — retrato real pendente de F2-T07. Ação primária de CTA para
+case study/`\`/work\`` omitida por ora (rota não existe sem conteúdo, mesma regra de
+renderização condicional); mantido apenas "Download résumé" e os links persistentes
+(GitHub, LinkedIn, e-mail). Bloco "Selected work" da home (item 3 do mapa de blocos) também
+não foi implementado — depende da infraestrutura de conteúdo MDX da F4 (`SelectedWork`,
+F4-T07); a home hoje pula direto de Hero para Experience, o que é o comportamento correto
+enquanto não há case study publicado.
 
 ### F3-T05 · `ExperienceTimeline` ✅
 
@@ -571,7 +571,7 @@ Nenhum agente pode executar estas tarefas. Ver `05-estrategia-conteudo.md`, seç
 
 | # | Tarefa | Esforço | Desbloqueia | Status |
 |---|---|---|---|---|
-| F7-T01 | Responder bloco 1 do briefing (posicionamento) | 15 min | F3-T04 (hero) | ⬜ |
+| F7-T01 | Responder bloco 1 do briefing (posicionamento) | 15 min | F3-T04 (hero) | ✅ |
 | F7-T02 | Responder bloco 2 do briefing (ODEEN) | 90 min | F3-T05 (timeline) | ⬜ |
 | F7-T03 | Responder blocos 3 e 4 | 50 min | F3-T07 (`/about`) | ⬜ |
 | F7-T04 | Responder bloco 5 | 15 min | F7-T07 | ⬜ |
