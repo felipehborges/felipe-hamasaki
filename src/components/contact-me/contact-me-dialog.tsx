@@ -1,6 +1,11 @@
 'use client'
 
+import { siteConfig } from '@/lib/site-config'
+import { useTheme } from 'next-themes'
+import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import { Button } from '../ui/button'
 import {
   Dialog,
   DialogContent,
@@ -9,10 +14,6 @@ import {
   DialogTitle
 } from '../ui/dialog'
 import ContactMeForm from './contact-me-form'
-import Image from 'next/image'
-import { Button } from '../ui/button'
-import { useEffect, useState } from 'react'
-import { useTheme } from 'next-themes'
 
 interface ContactMeDialogProps {
   open: boolean
@@ -47,7 +48,7 @@ export default function ContactMeDialog(props: ContactMeDialogProps) {
         <div className="grid- grid grid-cols-2 gap-2">
           <Button asChild variant="outline" size="lg">
             <Link
-              href="mailto:felipehama@gmail.com"
+              href={`mailto:${siteConfig.email}`}
               target="_blank"
               className="flex items-center"
             >
@@ -81,7 +82,7 @@ export default function ContactMeDialog(props: ContactMeDialogProps) {
 
           <Button asChild variant="outline" size="lg">
             <Link
-              href="https://github.com/felipehborges"
+              href={siteConfig.links.github}
               target="_blank"
               className="flex items-center"
             >
@@ -102,7 +103,7 @@ export default function ContactMeDialog(props: ContactMeDialogProps) {
 
           <Button asChild variant="outline" size="lg">
             <Link
-              href="https://www.linkedin.com/in/felipehborges/"
+              href={siteConfig.links.linkedin}
               target="_blank"
               className="flex items-center"
             >

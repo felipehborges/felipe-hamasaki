@@ -2,9 +2,10 @@
 
 import DownloadResumeButton from '@/components/download-resume-button'
 import { Button } from '@/components/ui/button'
+import { siteConfig } from '@/lib/site-config'
+import { useTheme } from 'next-themes'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
 
 export default function SectionFooter() {
@@ -30,7 +31,7 @@ export default function SectionFooter() {
   return (
     <footer className="flex flex-col items-center justify-center py-10">
       <div className="mb-4 flex items-center">
-        <Link href="https://github.com/felipehborges " target="_blank">
+        <Link href={siteConfig.links.github} target="_blank">
           <Image
             src={
               theme === 'dark'
@@ -44,7 +45,7 @@ export default function SectionFooter() {
           />
         </Link>
 
-        <Link href="https://www.linkedin.com/in/felipehborges/" target="_blank">
+        <Link href={siteConfig.links.linkedin} target="_blank">
           <Image
             src="/logos/logo-linkedin.png"
             alt="LinkedIn Logo"
@@ -54,7 +55,7 @@ export default function SectionFooter() {
           />
         </Link>
 
-        <Link href="mailto:felipehama@gmail.com" target="_blank">
+        <Link href={`mailto:${siteConfig.email}`} target="_blank">
           <Image
             src="/logos/logo-gmail.png"
             alt="Gmail Logo"
