@@ -26,7 +26,12 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: 'Felipe Hamasaki',
-  description: 'Welcome to my website!'
+  description: 'Welcome to my website!',
+  alternates: {
+    types: {
+      'application/rss+xml': '/rss.xml'
+    }
+  }
 }
 
 export default async function RootLayout({

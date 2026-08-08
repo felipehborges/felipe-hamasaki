@@ -1,7 +1,10 @@
 import { H1 } from '@/components/typography'
+import { hasWork } from '@/lib/content'
 import Link from 'next/link'
 
-export default function NotFound() {
+export default async function NotFound() {
+  const showWork = await hasWork()
+
   return (
     <section className="mx-auto max-w-6xl px-6 py-24 text-center md:px-8">
       <H1>Page not found</H1>
@@ -14,9 +17,15 @@ export default function NotFound() {
         <Link href="/" className="text-sm hover:underline">
           Go home
         </Link>
-        <Link href="/about" className="text-sm hover:underline">
-          About
-        </Link>
+        {showWork ? (
+          <Link href="/work" className="text-sm hover:underline">
+            Work
+          </Link>
+        ) : (
+          <Link href="/about" className="text-sm hover:underline">
+            About
+          </Link>
+        )}
       </div>
     </section>
   )

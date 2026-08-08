@@ -1,11 +1,18 @@
+import { hasArticles, hasWork } from '@/lib/content'
 import { siteConfig } from '@/lib/site-config'
 import Link from 'next/link'
 import { NavLink } from './nav-link'
 import { ThemeToggle } from './theme-toggle'
 
-const navigationLinks = [{ href: '/about', label: 'About' }]
+export async function SiteHeader() {
+  const [showWork, showWriting] = await Promise.all([hasWork(), hasArticles()])
 
-export function SiteHeader() {
+  const navigationLinks = [
+    ...(showWork ? [{ href: '/work', label: 'Work' }] : []),
+    ...(showWriting ? [{ href: '/writing', label: 'Writing' }] : []),
+    { href: '/about', label: 'About' }
+  ]
+
   return (
     <header className="sticky top-0 z-40 border-b bg-background">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-8">

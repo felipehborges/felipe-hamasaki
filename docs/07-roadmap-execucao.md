@@ -412,7 +412,7 @@ consumidor ao final da fase e foram removidas de `button.tsx`, restando `default
 
 **Depende de:** F3.
 
-### F4-T01 · Instalar dependências de conteúdo ⬜
+### F4-T01 · Instalar dependências de conteúdo ✅
 
 `next-mdx-remote`, `gray-matter`, `rehype-pretty-code`, `shiki`, `remark-gfm`,
 `rehype-slug`, `rehype-autolink-headings`, `reading-time`.
@@ -421,14 +421,17 @@ Criar `content/work/` e `content/writing/` com um `.gitkeep`.
 
 **Aceite:** `pnpm build` passa com os diretórios vazios.
 
-### F4-T02 · `src/lib/schemas.ts` ⬜
+**Nota de execução:** `unified` também foi adicionado como devDependency — só para expor
+os tipos de `PluggableList` usados em `mdx-components.tsx`; já existia como transitiva.
+
+### F4-T02 · `src/lib/schemas.ts` ✅
 
 Schemas Zod de `04-especificacao-tecnica.md` e tipos inferidos.
 
 **Aceite:** tipos exportados · frontmatter inválido produz erro descritivo com o nome do
 arquivo.
 
-### F4-T03 · `src/lib/content.ts` ⬜
+### F4-T03 · `src/lib/content.ts` ✅
 
 Implementar o contrato completo de leitura. Filtro de rascunho por ambiente. Memoização
 com `cache()`. Diretório ausente retorna lista vazia sem lançar erro.
@@ -436,7 +439,7 @@ com `cache()`. Diretório ausente retorna lista vazia sem lançar erro.
 **Aceite:** build passa sem nenhum conteúdo · `draft: true` invisível em produção e
 visível em desenvolvimento · frontmatter inválido quebra o build.
 
-### F4-T04 · `Prose` e `mdx-components` ⬜
+### F4-T04 · `Prose` e `mdx-components` ✅
 
 Wrapper de estilo (medida de 68ch) e mapeamento de componentes. Destaque de sintaxe com
 tema claro e escuro. Âncoras em títulos.
@@ -444,7 +447,29 @@ tema claro e escuro. Âncoras em títulos.
 **Aceite:** MDX de teste renderiza com tipografia correta nos dois temas · bloco de código
 com destaque nos dois temas · imagem em MDX usa `next/image` sem deslocamento de layout.
 
-### F4-T05 · Rotas `/work` e `/work/[slug]` ⬜
+**Nota de execução:** verificado com um arquivo MDX temporário em `content/work/`
+(nunca commitado, removido logo depois do teste) — títulos, parágrafos, links, lista e
+bloco de código renderizaram corretamente, com `--shiki-light`/`--shiki-dark` presentes e
+alternando conforme o tema. `img` usa `next/image` com `fill` dentro de um contêiner
+`aspect-video` (não há como obter as dimensões reais de uma imagem só a partir do markdown
+sem uma lib adicional de leitura de metadados — ainda não instalada; revisitar quando
+houver imagem real em conteúdo).
+
+**Limitação encontrada e documentada (não é bug meu):** `next-mdx-remote@6.0.0` quebra com
+500 ao renderizar MDX em `pnpm dev` — tanto com `--turbopack` quanto sem —, com o erro
+"Attempted to render ... without development properties". Causa: `next-mdx-remote/dist/serialize.js`
+força `development: process.env.NODE_ENV !== 'production'` por cima de qualquer opção
+passada (não dá para desativar via `mdxOptions`), e o runtime `jsx-dev-runtime` que a lib
+carrega via `require()` (CJS) não é a mesma instância que o React/Next usam internamente —
+um caso de "dual package hazard" agravado pela validação mais estrita de elementos no
+React 19. **Build de produção (`pnpm build` + `pnpm start`) renderiza tudo corretamente**,
+inclusive destaque de sintaxe nos dois temas — é isso que importa para o site publicado.
+Falta hoje: preview local de MDX em `pnpm dev`. Não há correção limpa sem trocar de
+biblioteca (ex.: `@mdx-js/mdx` direto) ou esperar um patch upstream — fora do escopo desta
+tarefa. Sinalizado como dívida técnica para quando o dono for escrever o primeiro case
+study de verdade.
+
+### F4-T05 · Rotas `/work` e `/work/[slug]` ✅
 
 `generateStaticParams`, 404 para slug inexistente, navegação anterior/próximo, chamada de
 contato ao final. Ambas retornam 404 se não houver conteúdo publicado.
@@ -452,13 +477,13 @@ contato ao final. Ambas retornam 404 se não houver conteúdo publicado.
 **Aceite:** com zero case studies, `/work` retorna 404 e o link some do header · com um
 case study, ambas as rotas funcionam e são estáticas no output do build.
 
-### F4-T06 · Rotas `/writing` e `/writing/[slug]` ⬜
+### F4-T06 · Rotas `/writing` e `/writing/[slug]` ✅
 
 Análogo, com data, tempo de leitura e ordenação cronológica reversa.
 
 **Aceite:** mesmas condições · tempo de leitura calculado · ordenação correta.
 
-### F4-T07 · `SelectedWork` na home ⬜
+### F4-T07 · `SelectedWork` na home ✅
 
 Dois a três itens com `featured: true`, ordenados por `order`. Seção inteira não renderiza
 se não houver conteúdo.
@@ -466,12 +491,17 @@ se não houver conteúdo.
 **Aceite:** sem conteúdo, a seção não aparece no HTML · link "All work" só aparece se
 houver mais itens do que os exibidos.
 
-### F4-T08 · `rss.xml` ⬜
+### F4-T08 · `rss.xml` ✅
 
 Route Handler gerando o feed dos artigos publicados. `<link rel="alternate">` no `<head>`.
 404 se não houver artigo.
 
 **Aceite:** feed validado em `validator.w3.org/feed` · URLs absolutas.
+
+**Nota de execução:** não validado em `validator.w3.org/feed` porque o feed só existe com
+pelo menos um artigo publicado — hoje retorna 404 (testado). Revalidar quando `content/writing/`
+tiver o primeiro artigo. URLs absolutas via `siteConfig.url` (que hoje aponta para
+`localhost:3000` até `NEXT_PUBLIC_SITE_URL` ser configurada em produção — F6-T01/F5).
 
 ---
 
