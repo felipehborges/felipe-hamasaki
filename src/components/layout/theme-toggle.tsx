@@ -1,16 +1,16 @@
 'use client'
 
+import { Button } from '@/components/ui/button'
 import { Moon, Sun } from 'lucide-react'
 import { useTheme } from 'next-themes'
-import { Button } from './ui/button'
 
-export function ButtonTheme(props: { className?: string }) {
+export function ThemeToggle(props: { className?: string }) {
   const { setTheme } = useTheme()
 
   return (
     <Button
       className={props.className}
-      variant="outline"
+      variant="ghost"
       size="icon"
       onClick={() => setTheme((theme) => (theme === 'dark' ? 'light' : 'dark'))}
     >

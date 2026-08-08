@@ -222,7 +222,7 @@ tela de alta densidade · sem metadado EXIF de localização.
 
 **Depende de:** F2.
 
-### F3-T01 · Eliminar as rotas fantasma ⬜
+### F3-T01 · Eliminar as rotas fantasma ✅
 
 Mover os seis `src/app/section-*/page.tsx` para `src/components/sections/*.tsx` como
 componentes nomeados. Deletar os diretórios `src/app/section-*/`. Mover
@@ -237,7 +237,17 @@ HTML servido (hoje não encontra).
 
 **Referência:** P1-1 · P1-2
 
-### F3-T02 · `SiteHeader` ⬜
+**Nota de execução:** em vez de "mover como está" e só depois reescrever em T02–T07, os
+seis `section-*` foram eliminados e substituídos diretamente pelos componentes finais
+(`SiteHeader`, `SiteFooter`, `Hero`, `ExperienceTimeline`, `ContactSection`, `/about`),
+já que T02–T07 os reescreveriam por completo de qualquer forma. Nenhum conteúdo Skills
+sobrevive como seção da home — a parede de logos é eliminada (P0-5) e a seção não existe
+mais como bloco da home (a home nova não tem bloco de Skills; ele migrou para `/about`
+conforme `02-arquitetura-informacao.md`). O padrão `if (!mounted) return null` não precisou
+de tratamento porque as seções que o usavam (Skills, Footer) deixaram de existir nesse
+formato.
+
+### F3-T02 · `SiteHeader` ✅
 
 Header fixo, sempre visível, sem esconder ao rolar. Logotipo textual, navegação
 condicional (`Work`, `Writing`, `About`), toggle de tema, indicação de rota ativa. Sem
@@ -250,7 +260,14 @@ Deletar `src/components/navbar.tsx` e o `ContactMeDialog` da navegação.
 
 **Referência:** P2-4
 
-### F3-T03 · `SiteFooter` ⬜
+**Nota de execução:** navegação mostra apenas `About` por enquanto — `/work` e `/writing`
+ainda não existem (dependem da infraestrutura de conteúdo da F4) e a regra de renderização
+condicional (`02-arquitetura-informacao.md`) proíbe linkar para rota inexistente. `Work` e
+`Writing` entram quando F4 criar essas rotas. Header usa `position: sticky` (não `fixed`) —
+mesmo efeito de "sempre visível", sem necessidade de compensar altura com padding.
+`ContactMeDialog` foi deletado junto com `contact-me/` inteiro (T06 já cobre contato inline).
+
+### F3-T03 · `SiteFooter` ✅
 
 Nome, ano, links sociais com ícones `lucide-react`, navegação secundária, link para o
 repositório. Tudo vindo de `site-config.ts`. Presente em todas as rotas via layout.
@@ -258,7 +275,7 @@ repositório. Tudo vindo de `site-config.ts`. Presente em todas as rotas via lay
 **Aceite:** nenhum `logos/*.png` social em uso · presente em todas as rotas · Server
 Component.
 
-### F3-T04 · `Hero` ⬜
+### F3-T04 · `Hero` ✅
 
 Conforme `02-arquitetura-informacao.md`. `<h1>`, linha de posicionamento com senioridade,
 stack e disponibilidade, dois parágrafos no máximo, ações primárias, links persistentes.
@@ -271,7 +288,19 @@ um marcador explícito `TODO(content)` no código — **nunca** inventar o texto
 **Aceite:** senioridade, stack e disponibilidade visíveis sem rolar em 1280×720 e em
 390×844 · Server Component · sem `whileInView`.
 
-### F3-T05 · `ExperienceTimeline` ⬜
+**Nota de execução:** bloco 1 do briefing ainda não foi respondido pelo dono — a linha de
+posicionamento e os parágrafos-gancho estão marcados `TODO(content)`, conforme instruído
+(nunca inventados). O critério de aceite sobre visibilidade sem rolar está satisfeito
+estruturalmente (layout compacto, sem imagem, sem `min-h-screen`); só será verificável de
+fato com o texto real. Sem avatar (nem anime, nem placeholder cinza) — retrato real
+pendente de F2-T07. Ação primária de CTA para case study/`\`/work\`` omitida por ora
+(rota não existe sem conteúdo, mesma regra de renderização condicional); mantido apenas
+"Download résumé" e os links persistentes (GitHub, LinkedIn, e-mail). Bloco "Selected work"
+da home (item 3 do mapa de blocos) também não foi implementado — depende da infraestrutura
+de conteúdo MDX da F4 (`SelectedWork`, F4-T07); a home hoje pula direto de Hero para
+Experience, o que é o comportamento correto enquanto não há case study publicado.
+
+### F3-T05 · `ExperienceTimeline` ✅
 
 Timeline tipográfica, sem card, sem borda, sem imagem por cargo. Cada entrada segue o
 template de `05-estrategia-conteudo.md`.
@@ -283,7 +312,13 @@ imagens deletadas · legível em 360px.
 
 **Referência:** P0-4 · P2-3 · P2-5
 
-### F3-T06 · `ContactSection` (só UI) ⬜
+**Nota de execução:** bloco 2 do briefing (a parte de maior retorno de todo o projeto)
+ainda não foi respondido. Cargo, empresa, período e localização são fatos já existentes no
+site atual e foram preservados; a linha de "o que foi construído e com qual impacto" — que
+é justamente o que falta hoje (P0-4) — está marcada `TODO(content)` em cada entrada, nunca
+inventada. `card.tsx` e as cinco imagens `exp-*.png` foram deletados.
+
+### F3-T06 · `ContactSection` (só UI) ✅
 
 Seção inline no fim da home e do `/about`: chamada, e-mail em texto selecionável +
 `mailto:`, LinkedIn, GitHub, e o formulário. O envio real vem na F6 — até lá o botão fica
@@ -294,7 +329,15 @@ desabilitado com aviso claro, ou o formulário é omitido.
 **Aceite:** e-mail selecionável como texto · sem dialog/modal · formulário não simula
 sucesso falso.
 
-### F3-T07 · Página `/about` ⬜
+**Nota de execução:** escolhida a opção "botão desabilitado com aviso claro" em vez de
+omitir o formulário — os campos (nome, e-mail, mensagem) usam `ui/input`, `ui/textarea` e
+`ui/label` reais, todos com `disabled`, sem nenhum `onSubmit` ou lógica de envio, e um
+texto abaixo do botão explica que o formulário ainda não está ligado e sugere o e-mail
+direto. Isso mantém `input.tsx`/`textarea.tsx`/`label.tsx` em uso real (evitando conflito
+com a F3-T09, que exige todo arquivo de `ui/` importado em algum lugar) e deixa o trabalho
+da F6 (F6-T02/T03) mais direto — só remover `disabled` e ligar à Server Action.
+
+### F3-T07 · Página `/about` ✅
 
 Conforme `02-arquitetura-informacao.md`. Narrativa expandida, `child.png` com legenda,
 "como eu trabalho", skills agrupadas por profundidade em texto, download de currículo
@@ -307,19 +350,44 @@ baixáveis · um `<h1>` só.
 
 **Referência:** P0-5
 
-### F3-T08 · `not-found.tsx` ⬜
+**Nota de execução:** a narrativa dos quatro parágrafos existentes foi migrada verbatim
+(é conteúdo real já publicado, não invenção) — "desenvolvê-la" depende do bloco 4 do
+briefing, marcado `TODO(content)`. "Como eu trabalho" é inteiramente novo (bloco 4) e
+também está `TODO(content)`. Skills deixou de ser parede de logos e virou lista textual
+(`skill-logo.tsx` e os 18 arquivos de `public/logos/` — 14 de tecnologia + 4 sociais —
+deletados), mas o **agrupamento por profundidade** (working daily / comfortable /
+familiar) exige autoavaliação honesta que só o dono pode fazer (regra de honestidade #2 em
+`05-estrategia-conteudo.md`) — por isso a lista está sem agrupamento, com `TODO(content)`
+pedindo essa categorização. Currículo EN/PT mantido via `DownloadResumeButton` existente,
+sem alteração de comportamento. Um único `<h1>` na página.
+
+### F3-T08 · `not-found.tsx` ✅
 
 Mensagem curta, link para `/` e para `/work`.
 
 **Aceite:** rota inexistente retorna 404 com header e footer.
 
-### F3-T09 · Limpar `src/components/ui/` ⬜
+**Nota de execução:** o link é para `/` e `/about` — `/work` ainda não existe (F4). Trocar
+por `/work` quando a rota existir.
+
+### F3-T09 · Limpar `src/components/ui/` ✅
 
 Executar **por último** nesta fase. Deletar todo componente sem uso e as dependências que
 ficarem órfãs (`vaul` se `drawer` sair, `tailwindcss-animate` se não for usado).
 
 **Aceite:** todo arquivo em `ui/` é importado em algum lugar · `pnpm build` passa ·
 `package.json` sem dependência órfã.
+
+**Nota de execução:** deletados `card.tsx`, `drawer.tsx`, `dropdown-menu.tsx`, `tooltip.tsx`,
+`sheet.tsx` e `form.tsx` (zero uso confirmado por grep). Dependências órfãs removidas:
+`vaul`, `@radix-ui/react-dropdown-menu`, `@radix-ui/react-tooltip`. `tailwindcss-animate`
+mantido — `dialog.tsx` ainda usa as classes `animate-in`/`fade-in-0`/`zoom-in-95` do plugin.
+`input.tsx`, `textarea.tsx`, `label.tsx`, `dialog.tsx` e `sonner.tsx` mantidos por terem uso
+real (via T06 e `download-resume-button.tsx`), conforme a tabela de componentes de
+`03-design-system.md` já antecipava para a F6. Variantes de botão `outline` e `link` — que
+ainda tinham uso no início da F3 (navbar, dialog de contato antigos) — ficaram sem nenhum
+consumidor ao final da fase e foram removidas de `button.tsx`, restando `default`,
+`secondary` e `ghost`.
 
 ---
 
@@ -522,8 +590,8 @@ primeiro, em paralelo à F1.
 
 | Marco | Condição | Estado |
 |---|---|---|
-| **M1 — Repositório limpo** | F1 concluída | ⬜ |
-| **M2 — Nova identidade visual** | F2 concluída | ⬜ |
+| **M1 — Repositório limpo** | F1 concluída | ✅ |
+| **M2 — Nova identidade visual** | F2 concluída | ✅ |
 | **M3 — Pronto para ir ao ar** | F3 + F5-T02..T06 + F6, com F7-T01..T03 | ⬜ |
 | **M4 — Vitrine ativa** | F4 + F7-T05 (`/work` existe com um case study) | ⬜ |
 | **M5 — Portfólio completo** | F7 concluída, metas de performance atingidas | ⬜ |

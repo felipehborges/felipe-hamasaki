@@ -1,3 +1,5 @@
+import { SiteFooter } from '@/components/layout/site-footer'
+import { SiteHeader } from '@/components/layout/site-header'
 import { ThemeProvider } from '@/components/theme-provider'
 import '@/styles/globals.css'
 import { Toaster } from '@/components/ui/sonner'
@@ -45,7 +47,9 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <SiteHeader />
+          <main>{children}</main>
+          <SiteFooter />
         </ThemeProvider>
         <Toaster />
       </body>
