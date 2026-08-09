@@ -511,14 +511,18 @@ tiver o primeiro artigo. URLs absolutas via `siteConfig.url` (que hoje aponta pa
 
 **Depende de:** F3 e F4 (exceto F5-T01).
 
-### F5-T01 · Medir a linha de base ⬜ *executar ANTES da F1*
+### F5-T01 · Medir a linha de base ⛔ *pulada — decisão do dono em 2026-08-08*
 
 Lighthouse mobile e desktop no site atual em produção. Registrar na tabela de
 `06-seo-performance-a11y.md`.
 
 **Aceite:** linha preenchida com data e valores reais.
 
-### F5-T02 · Metadata por rota ⬜
+**Nota:** o dono decidiu pular a medição de linha de base e seguir direto para a F1,
+mesmo sabendo que o ideal era medir antes. Não há comparação "antes vs. depois"
+disponível — a tabela de medições em `06-seo-performance-a11y.md` continua vazia.
+
+### F5-T02 · Metadata por rota ✅
 
 `metadataBase`, template de título, `description` única por rota, canonical, `noindex` em
 rascunho. Substituir `"Welcome to my website!"`.
@@ -528,27 +532,53 @@ caracteres · canonical absoluto e sem barra final.
 
 **Referência:** P1-3
 
-### F5-T03 · Imagens Open Graph ⬜
+**Nota de execução:** `siteConfig.description` deixou de ser o placeholder e passou a
+usar o mesmo texto real do Hero (posicionamento do bloco 1 do briefing). Descrições únicas
+por rota, todas entre 120–160 caracteres. `robots: { index: false, follow: false }` em
+`/work/[slug]` e `/writing/[slug]` quando `frontmatter.draft` for `true`.
+
+### F5-T03 · Imagens Open Graph ✅
 
 `opengraph-image.tsx` no site, em `/work/[slug]` e em `/writing/[slug]`.
 
 **Aceite:** as três geram 1200×630 · fonte carregada corretamente no runtime do `next/og` ·
 LinkedIn Post Inspector mostra o card completo.
 
-### F5-T04 · JSON-LD ⬜
+**Nota de execução:** o padrão documentado do Next (`fetch(new URL('./font.ttf', import.meta.url))`)
+só funciona de forma confiável no runtime Edge — no runtime Node.js (o padrão destas rotas)
+ele quebra o build com "Failed to parse URL" ao tentar buscar um asset já processado pelo
+bundler. Troquei por leitura direta do arquivo via `fs.readFile` (`src/lib/og-fonts.ts`,
+compartilhado pelas três rotas), lendo `public/fonts/Inter-Bold.ttf` e
+`public/fonts/Newsreader-Medium.ttf` — baixados da Google Fonts (Inter e Newsreader, ambas
+OFL, redistribuição livre) especificamente para este uso; não são as mesmas instâncias
+carregadas por `next/font` no site (que o runtime do `next/og` não consegue usar).
+Verificado com `pnpm build && pnpm start`: as três imagens geram no tamanho certo, com as
+fontes corretas — não testado no LinkedIn Post Inspector real, que exige o site publicado
+com `NEXT_PUBLIC_SITE_URL` configurada (F6-T01/deploy).
+
+### F5-T04 · JSON-LD ✅
 
 `Person` na home, `BlogPosting` nos artigos, `CreativeWork` nos case studies.
 
 **Aceite:** sem erro no Rich Results Test · renderizado no servidor.
 
-### F5-T05 · `sitemap.ts` e `robots.ts` ⬜
+**Nota de execução:** os três tipos renderizam via `<script type="application/ld+json">`
+no servidor (Server Components, sem JS no cliente). Não testado no Rich Results Test real
+— também depende do site publicado.
+
+### F5-T05 · `sitemap.ts` e `robots.ts` ✅
 
 Gerados a partir do conteúdo real, com `lastModified` vindo do frontmatter.
 
 **Aceite:** sitemap lista exatamente as rotas existentes · nenhuma rota `section-*` ·
 robots aponta para o sitemap.
 
-### F5-T06 · Auditoria de acessibilidade ⬜
+**Nota de execução:** verificado — hoje o sitemap lista só `/` e `/about` (sem conteúdo
+publicado). `/work`, `/writing` e seus slugs entram automaticamente quando existirem,
+com `lastModified` calculado a partir de `frontmatter.year` (case study) ou
+`updatedAt`/`publishedAt` (artigo), nunca da data do build.
+
+### F5-T06 · Auditoria de acessibilidade 🟡
 
 Percorrer o checklist manual completo de `06-seo-performance-a11y.md`, incluindo o teste
 com leitor de tela. Corrigir tudo que aparecer.
@@ -556,13 +586,36 @@ com leitor de tela. Corrigir tudo que aparecer.
 **Aceite:** checklist inteiro marcado · Lighthouse Accessibility 100 em todas as rotas ·
 skip link presente e funcional.
 
-### F5-T07 · Orçamento de performance ⬜
+**Nota de execução:** verificado manualmente (sem Lighthouse real, ambiente sem Chrome
+completo disponível para rodar o CLI): skip link adicionado como primeiro elemento focável
+(faltava — corrigido agora); hierarquia de títulos sem pular nível em `/` e `/about`;
+landmarks (`header`, `nav`, `main`, `footer`) presentes; `lang="en"` no `<html>`; foco
+visível global (F2); sem rolagem horizontal em 320px em `/` e `/about`; alvo de toque do
+botão `icon` estava em 36px (abaixo do mínimo de 44px) — corrigido para `size-11` em
+`button.tsx`. **Não verificado:** teste real com leitor de tela (NVDA/VoiceOver) e
+Lighthouse Accessibility numérico — exigem execução manual fora deste ambiente. Formulário
+de contato ainda não tem `aria-live` porque está desabilitado (F6 liga isso).
+
+### F5-T07 · Orçamento de performance 🟡
 
 Medir e ajustar até atingir as metas. Auditar o bundle, confirmar que só o esperado é
 client component.
 
 **Aceite:** todas as metas de `06-seo-performance-a11y.md` atingidas · nova linha na tabela
 de medições · JS da home < 90 KB comprimido.
+
+**Nota de execução:** sem Lighthouse real disponível neste ambiente (sem Chrome completo
+para o CLI), então as metas de LCP/CLS/INP/TTFB/notas do Lighthouse **não foram medidas**
+— a tabela de `06-seo-performance-a11y.md` continua vazia; precisa ser preenchida com
+Lighthouse real antes do lançamento. O que dá para confirmar pelo output do `pnpm build`:
+First Load JS da home = **114 kB**, acima da meta de 90 KB. A maior parte (102 kB) é
+overhead de framework compartilhado entre todas as rotas (React 19 + runtime do Next App
+Router) — não há muito código de aplicação para cortar (a home em si soma 911 B). Reduzir
+esse número exigiria uma intervenção mais profunda (ex.: menos client components no root
+layout — `ThemeProvider`, `ThemeToggle` e `Toaster` são os únicos hoje) e está fora do que
+dá para resolver com ajuste pontual; fica registrado como gap conhecido para revisitar
+antes do lançamento, não escondido. Client components confirmados como só os esperados:
+toggle de tema e (quando ligado, F6) formulário de contato — nenhum outro.
 
 ---
 

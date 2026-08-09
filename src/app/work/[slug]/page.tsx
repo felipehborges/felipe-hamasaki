@@ -3,6 +3,7 @@ import { Prose } from '@/components/content/prose'
 import { ContactSection } from '@/components/sections/contact-section'
 import { H1 } from '@/components/typography'
 import { getAllWork, getWorkBySlug } from '@/lib/content'
+import { siteConfig } from '@/lib/site-config'
 import type { Metadata } from 'next'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import Link from 'next/link'
@@ -25,7 +26,13 @@ export async function generateMetadata({
 
   return {
     title: entry.frontmatter.title,
-    description: entry.frontmatter.summary
+    description: entry.frontmatter.summary,
+    alternates: {
+      canonical: `/work/${entry.slug}`
+    },
+    robots: entry.frontmatter.draft
+      ? { index: false, follow: false }
+      : undefined
   }
 }
 
@@ -46,8 +53,26 @@ export default async function WorkCaseStudyPage({
   const previous = all[index + 1]
   const next = all[index - 1]
 
+  const creativeWorkJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CreativeWork',
+    name: entry.frontmatter.title,
+    description: entry.frontmatter.summary,
+    creator: { '@type': 'Person', name: siteConfig.name },
+    dateCreated: `${entry.frontmatter.year}`,
+    keywords: entry.frontmatter.stack.join(', '),
+    url: `${siteConfig.url}/work/${entry.slug}`
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: static, internally-defined JSON-LD, no user input
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(creativeWorkJsonLd)
+        }}
+      />
       <article className="mx-auto max-w-6xl px-6 py-24 md:px-8 md:py-32">
         <H1>{entry.frontmatter.title}</H1>
 

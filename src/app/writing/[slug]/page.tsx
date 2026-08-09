@@ -3,6 +3,7 @@ import { Prose } from '@/components/content/prose'
 import { ContactSection } from '@/components/sections/contact-section'
 import { H1 } from '@/components/typography'
 import { getAllArticles, getArticleBySlug } from '@/lib/content'
+import { siteConfig } from '@/lib/site-config'
 import type { Metadata } from 'next'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import Link from 'next/link'
@@ -25,7 +26,13 @@ export async function generateMetadata({
 
   return {
     title: entry.frontmatter.title,
-    description: entry.frontmatter.summary
+    description: entry.frontmatter.summary,
+    alternates: {
+      canonical: `/writing/${entry.slug}`
+    },
+    robots: entry.frontmatter.draft
+      ? { index: false, follow: false }
+      : undefined
   }
 }
 
@@ -46,8 +53,23 @@ export default async function ArticlePage({
   const previous = all[index + 1]
   const next = all[index - 1]
 
+  const blogPostingJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: entry.frontmatter.title,
+    datePublished: entry.frontmatter.publishedAt,
+    dateModified: entry.frontmatter.updatedAt ?? entry.frontmatter.publishedAt,
+    author: { '@type': 'Person', name: siteConfig.name },
+    url: `${siteConfig.url}/writing/${entry.slug}`
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: static, internally-defined JSON-LD, no user input
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingJsonLd) }}
+      />
       <article className="mx-auto max-w-6xl px-6 py-24 md:px-8 md:py-32">
         <H1>{entry.frontmatter.title}</H1>
 

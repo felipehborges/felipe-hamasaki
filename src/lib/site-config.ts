@@ -2,7 +2,8 @@ export const siteConfig = {
   name: 'Felipe Hamasaki',
   role: 'Full Stack Developer',
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
-  description: 'Welcome to my website!',
+  description:
+    'Full stack developer working in TypeScript, with 4+ years of professional experience. Open to any development role, remote, as a contractor.',
   email: 'felipehama@gmail.com',
   location: 'São Paulo, Brazil',
   links: {

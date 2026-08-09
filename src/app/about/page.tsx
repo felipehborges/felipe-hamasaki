@@ -5,7 +5,12 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 
 export const metadata: Metadata = {
-  title: 'About'
+  title: 'About',
+  description:
+    'Full stack developer based in Brazil. Former HR analyst turned developer during the pandemic, now building software professionally.',
+  alternates: {
+    canonical: '/about'
+  }
 }
 
 const skills = [

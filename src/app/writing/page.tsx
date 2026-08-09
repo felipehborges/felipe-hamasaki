@@ -5,7 +5,12 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 export const metadata: Metadata = {
-  title: 'Writing'
+  title: 'Writing',
+  description:
+    'Notes on building software — practical takeaways from real projects, written in first person, without the tutorial fluff.',
+  alternates: {
+    canonical: '/writing'
+  }
 }
 
 export default async function WritingPage() {
