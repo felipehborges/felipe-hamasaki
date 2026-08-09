@@ -1,8 +1,5 @@
+import { ContactForm } from '@/components/contact/contact-form'
 import { H2 } from '@/components/typography'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Textarea } from '@/components/ui/textarea'
 import { siteConfig } from '@/lib/site-config'
 import { Github, Linkedin } from 'lucide-react'
 import Link from 'next/link'
@@ -47,33 +44,7 @@ export function ContactSection() {
         </div>
       </div>
 
-      <form className="mt-10 flex max-w-[65ch] flex-col gap-4">
-        <div className="grid gap-4 sm:grid-cols-2">
-          <div className="grid gap-2">
-            <Label htmlFor="contact-name">Name</Label>
-            <Input id="contact-name" name="name" disabled />
-          </div>
-
-          <div className="grid gap-2">
-            <Label htmlFor="contact-email">Email</Label>
-            <Input id="contact-email" name="email" type="email" disabled />
-          </div>
-        </div>
-
-        <div className="grid gap-2">
-          <Label htmlFor="contact-message">Message</Label>
-          <Textarea id="contact-message" name="message" rows={5} disabled />
-        </div>
-
-        <div>
-          <Button type="submit" disabled>
-            Send message
-          </Button>
-          <p className="mt-2 text-muted-foreground text-sm">
-            The contact form isn't wired up yet — email me directly instead.
-          </p>
-        </div>
-      </form>
+      <ContactForm />
     </section>
   )
 }

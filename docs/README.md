@@ -52,7 +52,7 @@ reauditar o código ou readivinhar decisões.
 | F3 | Arquitetura de informação e rotas | ✅ Concluída (código) — conteúdo pendente do dono |
 | F4 | Camada de conteúdo (MDX) | ✅ Concluída — sem conteúdo publicado ainda |
 | F5 | SEO, performance, acessibilidade | 🟡 Código concluído — Lighthouse real e leitor de tela pendentes |
-| F6 | Contato funcional | ⬜ Não iniciada |
+| F6 | Contato funcional | 🟡 Funciona em dev (modo teste) — domínio e deploy pendentes |
 | F7 | Produção de conteúdo | ⬜ Não iniciada — depende do dono |
 
 Fonte de verdade do status: `07-roadmap-execucao.md`. Esta tabela é apenas um resumo.

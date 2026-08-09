@@ -625,7 +625,7 @@ toggle de tema e (quando ligado, F6) formulário de contato — nenhum outro.
 
 **Depende de:** F3-T06.
 
-### F6-T01 · Configurar a Resend ⛔ *parcialmente bloqueada — requer o dono*
+### F6-T01 · Configurar a Resend 🟡 *modo de teste — domínio próprio ainda pendente*
 
 Criar conta, verificar domínio remetente, gerar chave de API, configurar as variáveis de
 ambiente localmente e no ambiente de deploy.
@@ -633,7 +633,16 @@ ambiente localmente e no ambiente de deploy.
 **Aceite:** domínio verificado · variáveis presentes em ambos os ambientes · nenhuma
 chave versionada.
 
-### F6-T02 · Server Action `sendContact` ⬜
+**Nota de execução:** conta criada e API key gerada em 2026-08-08. O dono não tem domínio
+próprio ainda, então `CONTACT_FROM_EMAIL` usa `onboarding@resend.dev` (remetente de teste
+do Resend, sem verificação de domínio) — funciona, mas só entrega para o e-mail cadastrado
+na conta Resend (`felipehama@gmail.com`), não para qualquer visitante do site. Variáveis
+configuradas em `.env.local` (não versionado, confirmado com `git check-ignore`). **Não
+configuradas no ambiente de deploy** — não existe deploy ainda. Quando o dono tiver um
+domínio, revisitar: verificar domínio no Resend, trocar `CONTACT_FROM_EMAIL` para um
+endereço desse domínio, e só aí o formulário passa a atender visitantes reais.
+
+### F6-T02 · Server Action `sendContact` ✅
 
 Implementar conforme o contrato de `04-especificacao-tecnica.md`: revalidação Zod no
 servidor, honeypot, rate limit de 3 por hora por IP, `reply_to` com o e-mail do visitante
@@ -643,7 +652,13 @@ e `from` do domínio verificado, sem log de conteúdo.
 sem enviar · quarto envio na mesma hora retorna `rate_limit` · e-mail chega com
 `reply_to` correto.
 
-### F6-T03 · Ligar o formulário ⬜
+**Nota de execução:** rate limit em memória (`Map` por IP), conforme a spec permite
+enquanto o volume for baixo — se o deploy for serverless com instâncias efêmeras, revisitar
+com Upstash Redis (a própria spec já antecipa isso). Schema Zod do formulário
+(`contactFormSchema`) vive em `src/lib/schemas.ts`, compartilhado entre cliente e servidor
+— a mesma validação dos dois lados, como o contrato exige.
+
+### F6-T03 · Ligar o formulário ✅
 
 Conectar `contact-form.tsx` à action. Estado de carregamento, sucesso e erro via `sonner`.
 Mensagem de erro oferece o `mailto:` como alternativa.
@@ -651,12 +666,22 @@ Mensagem de erro oferece o `mailto:` como alternativa.
 **Aceite:** envio real chega à caixa de entrada · erro exibe alternativa · campos limpos
 após sucesso · `aria-live` anuncia o resultado.
 
-### F6-T04 · Verificação ponta a ponta ⬜
+**Nota de execução:** testado com envio real pelo dono — mensagem chegou. Um problema de
+usabilidade apareceu no teste: o e-mail do visitante só ia no cabeçalho `reply_to`, invisível
+no corpo da mensagem em clientes como o Gmail (só afeta para onde vai a resposta). Corrigido
+incluindo `From: {nome} <{email}>` como primeira linha do corpo do e-mail — testado de novo,
+confirmado funcionando.
+
+### F6-T04 · Verificação ponta a ponta 🟡 *só em desenvolvimento — produção pendente*
 
 Testar em produção, incluindo mobile. Confirmar que a mensagem chega e que responder ao
 e-mail vai para o remetente correto.
 
 **Aceite:** teste real bem-sucedido em produção · resposta ao e-mail chega ao visitante.
+
+**Nota de execução:** testado com sucesso em `pnpm dev` (dono enviou de verdade, e-mail
+chegou com o remetente visível). **Não testado em produção** — não há deploy ainda. Também
+não testado em mobile. Revisitar quando o site for publicado.
 
 ---
 
