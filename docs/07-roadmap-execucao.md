@@ -289,9 +289,17 @@ um marcador explícito `TODO(content)` no código — **nunca** inventar o texto
 390×844 · Server Component · sem `whileInView`.
 
 **Nota de execução:** bloco 1 do briefing foi respondido pelo dono em 2026-08-08 e o texto
-do Hero (linha de posicionamento + dois parágrafos) já reflete as respostas reais — full
-stack TypeScript, 4+ anos de experiência, aberto a qualquer vaga de desenvolvimento, PJ,
-remoto, sem restrição de visto/salário/fuso. Nenhum dado foi inventado. Sem avatar (nem
+do Hero (linha de posicionamento + dois parágrafos) já reflete as respostas reais. Nenhum
+dado foi inventado.
+
+**Reescrito em 2026-08-12** a partir de `E:\code\career-review` (ver nota longa em F3-T05).
+A primeira versão era genérica — "aberto a qualquer vaga de desenvolvimento", "aberto a
+qualquer faixa salarial" — porque era o que o dono tinha dito. O material da auditoria de
+carreira permitiu um posicionamento muito mais forte e igualmente verdadeiro: foco em
+frontend declarado, domínio nomeado (inteligência corporativa e antifraude), disponibilidade
+com sobreposição ao horário comercial dos EUA, e o inglês C2 conectado aos três anos como
+professor. Saíram do Hero: menção a faixa salarial (não pertence a um portfólio público) e
+"aberto a qualquer coisa", que lê como falta de direção em vez de flexibilidade. Sem avatar (nem
 anime, nem placeholder cinza) — retrato real pendente de F2-T07. Ação primária de CTA para
 case study/`\`/work\`` omitida por ora (rota não existe sem conteúdo, mesma regra de
 renderização condicional); mantido apenas "Download résumé" e os links persistentes
@@ -332,6 +340,33 @@ Duas ressalvas registradas explicitamente:
    deliberadamente mais curta em vez de inflada. **Vale revisitar** com o dono para separar
    melhor o que pertence a cada período — a pergunta 7 do bloco 2 ("o que mudou entre um
    cargo e o outro?"), que é o que justifica as promoções, segue sem resposta detalhada.
+
+**Reescrita em 2026-08-12 a partir de `E:\code\career-review`.** O dono forneceu uma pasta
+com auditoria de carreira completa (`career-audit/respostas.md` = respostas a 30 blocos de
+perguntas; `resume-v2/` = currículo e perfil de LinkedIn já reescritos e auditados por
+honestidade). A timeline foi refeita inteiramente a partir desse material, que é muito mais
+rico e específico que o resumo verbal anterior. Três correções de honestidade aplicadas:
+
+1. **Cargo desinflado.** O site dizia "Mid-Level Full Stack Developer" / "Mid-Level
+   Front-End Developer". Q-26 revela que a progressão real foi *front júnior → front pleno →
+   full stack **júnior*** — ou seja, "Mid-Level Full Stack" era acima do título real. Seguindo
+   a decisão já tomada em `resume-v2`, o nível foi **omitido** ("Full Stack Developer"),
+   que é defensável em verificação e alinha com o LinkedIn.
+2. **Autokiniton dividida em dois cargos.** Era uma entrada única "Human Resources Analyst
+   2015–2021"; na verdade foram estágio (abr/2015–mar/2017) e analista de administração de
+   pessoal (mar/2017–mar/2021). O audit confirma que o LinkedIn estava certo e o currículo
+   antigo é que estava errado. Nome da empresa também corrigido para Autokiniton.
+3. **Sem métricas inventadas, de novo.** Q-01 diz que o produto de câmeras trouxe "algumas
+   centenas de milhares de reais" mas que o dono não sabe quantificar, e Q-02 sugere "pode
+   colocar aí umas 500" para número de integrações. Nenhum dos dois virou número no site.
+   O que entrou foi o que é verificável: ~100 analistas, operação 24/7, e os nomes dos
+   clientes (Vivo, TIM, Claro) — que calibram porte melhor que qualquer número estimado.
+   Os nomes das operadoras foram mantidos genéricos ("Brazil's largest mobile operators")
+   por prudência de confidencialidade.
+
+Pendência conhecida: `resume-v2` marca a migração Java → TypeScript como `[VERIFICAR]`, e
+a data de início na Skill Idiomas tem divergência (2012 no currículo, 2013 numa das entradas
+do LinkedIn). O site usa 2012. Confirmar antes de divulgar.
 
 ### F3-T06 · `ContactSection` (só UI) ✅
 
@@ -375,6 +410,30 @@ familiar) exige autoavaliação honesta que só o dono pode fazer (regra de hone
 `05-estrategia-conteudo.md`) — por isso a lista está sem agrupamento, com `TODO(content)`
 pedindo essa categorização. Currículo EN/PT mantido via `DownloadResumeButton` existente,
 sem alteração de comportamento. Um único `<h1>` na página.
+
+**Concluída em 2026-08-12** a partir de `E:\code\career-review` (ver nota longa em F3-T05).
+Os três `TODO(content)` foram resolvidos com material real:
+
+- **Narrativa** reescrita e expandida. Mantém os fatos do texto antigo (nascimento, o pai
+  designer, a virada durante a pandemia) e acrescenta o que a auditoria trouxe: os três anos
+  como professor de inglês, os seis anos na Autokiniton divididos entre estágio e analista,
+  e o detalhe que mais rende — o que ele mais gostava no trabalho de RH era construir os
+  relatórios e cruzar dados em Excel, que é literalmente o mesmo trabalho que faz hoje com
+  outra ferramenta. Isso responde "por que RH importa" de forma concreta, em vez do genérico
+  "aprimorou minhas habilidades interpessoais" do texto antigo.
+- **"How I work"** escrito a partir de Q-04, Q-09 e Q-23: a briga pelas convenções (Biome,
+  pnpm, branching por release) e o fato de terem sido mantidas apesar da resistência; a
+  postura em decisões técnicas; o uso pesado de IA, declarado abertamente; e o inglês diário.
+- **Skills agrupadas por profundidade**, usando exatamente a estratificação já auditada em
+  `resume-v2`: *Working daily* / *Comfortable* / *Work alongside*. A terceira categoria é a
+  mais importante em termos de honestidade — GCP, CI/CD, JWT/OAuth, RBAC e LGPD aparecem
+  (são keywords reais e o contexto é verdadeiro) mas com uma frase explícita dizendo que ele
+  trabalha dentro disso sem ter construído, porque infra e auth pertencem a outras pessoas
+  do time. Isso vem direto da recomendação de `resume-v2`.
+
+**Skills removidas por falta de evidência**, seguindo a auditoria: `NestJS` (usa Express),
+`Prisma` (SQL direto, sem ORM), `PostgreSQL` (só MySQL no trabalho) e `Python` (Q-11: apenas
+estudo inicial). Todas as quatro estavam no site e nenhuma se sustenta em entrevista.
 
 ### F3-T08 · `not-found.tsx` ✅
 
@@ -696,7 +755,7 @@ Nenhum agente pode executar estas tarefas. Ver `05-estrategia-conteudo.md`, seç
 |---|---|---|---|---|
 | F7-T01 | Responder bloco 1 do briefing (posicionamento) | 15 min | F3-T04 (hero) | ✅ |
 | F7-T02 | Responder bloco 2 do briefing (ODEEN) | 90 min | F3-T05 (timeline) | 🟡 |
-| F7-T03 | Responder blocos 3 e 4 | 50 min | F3-T07 (`/about`) | ⬜ |
+| F7-T03 | Responder blocos 3 e 4 | 50 min | F3-T07 (`/about`) | ✅ |
 | F7-T04 | Responder bloco 5 | 15 min | F7-T07 | ⬜ |
 | F7-T05 | Escrever o primeiro case study | 3–4 h | Rota `/work` | ⬜ |
 | F7-T06 | Escolher os dois projetos-vitrine | 1 h | F7-T08 | ⬜ |

@@ -9,19 +9,23 @@ export function Hero() {
     <section className="mx-auto max-w-6xl px-6 py-24 md:px-8 md:py-32">
       <H1>{siteConfig.name}</H1>
 
-      <p className="mt-4 max-w-[65ch] text-lg text-muted-foreground">
-        Full stack developer working in TypeScript. 4+ years of professional
-        experience. Open to any development role, remote, as a contractor.
+      <p className="mt-4 max-w-[65ch] text-lg">
+        Full stack developer, frontend-focused — React, Next.js, TypeScript,
+        Node.js. Four years building operational software for corporate
+        intelligence and fraud prevention. Open to remote roles, with full
+        overlap with US business hours.
       </p>
 
       <div className="mt-6 flex max-w-[65ch] flex-col gap-4 text-muted-foreground">
         <p>
-          I'm ready to take on any kind of development work — front-end,
-          back-end, or full stack.
+          I work on the kind of platform people sit in front of for eight hours
+          a day — live vehicle tracking, mapping, cross-source data matching —
+          where being clear and reliable matters more than being novel.
         </p>
         <p>
-          Open to relocating if a role requires it, and to any timezone or
-          salary range.
+          I started on the frontend and now work across the stack. I taught
+          English for three years before moving into software, which is why I
+          write and work in it at a professional level.
         </p>
       </div>
 

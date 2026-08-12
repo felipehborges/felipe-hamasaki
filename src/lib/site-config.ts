@@ -3,7 +3,7 @@ export const siteConfig = {
   role: 'Full Stack Developer',
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
   description:
-    'Full stack developer working in TypeScript, with 4+ years of professional experience. Open to any development role, remote, as a contractor.',
+    'Full stack developer, frontend-focused — React, Next.js, TypeScript, Node.js. 4 years building corporate intelligence and anti-fraud platforms. Open to remote.',
   email: 'felipehama@gmail.com',
   location: 'São Paulo, Brazil',
   links: {

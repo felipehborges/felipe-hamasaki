@@ -13,55 +13,70 @@ interface ExperienceEntry {
 
 const experience: ExperienceEntry[] = [
   {
-    title: 'Mid-Level Full Stack Developer',
+    title: 'Full Stack Developer',
     company: 'ODEEN — Intelligence for Security',
     companyUrl: 'https://www.odeen.com.br/',
-    period: '2025 — Present',
+    period: 'Mar 2025 — Present',
     location: 'Mogi das Cruzes, SP',
     context:
-      'Same platform, now working end to end across the API instead of only the front-end.',
+      "Corporate intelligence and investigation group. Fraud prevention and asset recovery for insurers, vehicle protection, telecom and energy clients — 24/7 operations, sensitive personal data under Brazil's LGPD.",
     body: [
-      'Added an authentication and authorization middleware layer to the API, which until then exposed routes without it.',
-      'Restructured the back-end from a flat, mixed service layer into a feature-based architecture, so each feature owns its own routes, services and types.'
+      'I work across the stack on SCI², the core intelligence platform — live vehicle tracking, mapping, advanced search and cross-source data matching, used around the clock by roughly 100 analysts — and on SGRLock, a client-facing fraud-screening service. React and Next.js on one side; Node.js, Express and MySQL with hand-written SQL on the other.',
+      'I helped ship a real-time security monitoring product for telecom tower sites: live video streaming, smoke detection, door locks and anti-theft sensors, delivered over WebSocket and polling and integrated with hardware built in-house. It won the company new contracts with Brazil’s largest mobile operators.',
+      'I integrate the platform with public records databases, vehicle telemetry providers, insurers, payment gateways and messaging channels, and expose REST APIs consumed directly by corporate clients.',
+      "I'm driving an incremental migration to a feature-based architecture, to cut coupling as the platform grows."
     ]
   },
   {
-    title: 'Mid-Level Front-End Developer',
+    title: 'Front End Developer',
     company: 'ODEEN — Intelligence for Security',
     companyUrl: 'https://www.odeen.com.br/',
-    period: '2023 — 2025',
+    period: 'May 2023 — Feb 2025',
     location: 'Mogi das Cruzes, SP',
-    context:
-      'Security intelligence platform: interactive maps, vehicle tracking, advanced search and data cross-referencing.',
     body: [
-      'Built the front-end for a real-time security camera system rendered on the same map surface as the tracking data — the hardest problem I worked on there.',
-      'Worked across screens, tables and map views that handle large volumes of data.'
+      'I built and maintained an internal library of around 50 React components, published as a private npm package and reused across the company’s products.',
+      'I introduced the engineering standards our five-person team still works by: moved linting from ESLint to Biome, standardised on pnpm, and defined release-based branching, naming and documentation conventions. There was pushback at first; the standards stuck.',
+      'I led implementation of new features and interface components, and mentored a junior developer through onboarding.'
     ]
   },
   {
-    title: 'Junior Front-End Developer',
+    title: 'Junior Front End Developer',
     company: 'ODEEN — Intelligence for Security',
     companyUrl: 'https://www.odeen.com.br/',
-    period: '2022 — 2023',
+    period: 'Jan 2022 — Apr 2023',
     location: 'Mogi das Cruzes, SP',
     context: 'Where I started on the platform I still work on today.',
     body: [
-      'Built screens, tables and map-based views, and the endpoints behind them.'
+      'I built responsive interfaces with React, TypeScript and Tailwind CSS, and maintained the operator tools the team uses daily.'
     ]
   },
   {
-    title: 'Human Resources Analyst',
-    company: 'Tower International (Autokiniton)',
+    title: 'Personnel Administration Analyst',
+    company: 'Autokiniton (formerly Tower International)',
     companyUrl: 'https://www.autokiniton.com/',
-    period: '2015 — 2021',
+    period: 'Mar 2017 — Mar 2021',
+    location: 'Arujá, SP',
+    context: 'American automotive manufacturing multinational.',
+    body: [
+      'Payroll, time-and-attendance systems, onboarding and offboarding, and management reporting. I built the reporting and data cross-referencing in Excel, and used English regularly with the US organisation. I started studying programming during this period.'
+    ]
+  },
+  {
+    title: 'Human Resources Intern',
+    company: 'Autokiniton (formerly Tower International)',
+    companyUrl: 'https://www.autokiniton.com/',
+    period: 'Apr 2015 — Mar 2017',
     location: 'Arujá, SP'
   },
   {
     title: 'English Teacher',
     company: 'Skill Idiomas',
     companyUrl: 'https://www.linkedin.com/company/skill-idiomas',
-    period: '2012 — 2014',
-    location: 'Arujá, SP'
+    period: 'Jan 2012 — Dec 2014',
+    location: 'Arujá, SP',
+    body: [
+      'Taught English from beginner to intermediate level. This is where the C2 proficiency comes from.'
+    ]
   }
 ]
 
