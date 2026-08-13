@@ -1,5 +1,9 @@
-import { H2 } from '@/components/typography'
+'use client'
+
+import { Eyebrow, H2 } from '@/components/typography'
+import { Reveal } from '@/components/ui/reveal'
 import Link from 'next/link'
+import { useEffect, useRef, useState } from 'react'
 
 interface ExperienceEntry {
   title: string
@@ -81,58 +85,94 @@ const experience: ExperienceEntry[] = [
 ]
 
 export function ExperienceTimeline() {
+  const railRef = useRef<HTMLDivElement>(null)
+  const [progress, setProgress] = useState(0)
+
+  useEffect(() => {
+    function onScroll() {
+      const el = railRef.current
+      if (!el) return
+      const rect = el.getBoundingClientRect()
+      const vh = window.innerHeight
+      const progressed = vh * 0.7 - rect.top
+      const pct = Math.max(0, Math.min(100, (progressed / rect.height) * 100))
+      setProgress(pct)
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
     <section className="mx-auto max-w-6xl px-6 py-24 md:px-8 md:py-32">
-      <H2>Experience</H2>
+      <Eyebrow>Career</Eyebrow>
+      <H2 className="mt-2">Experience</H2>
 
-      <ol className="mt-8 flex flex-col gap-12">
-        {experience.map((entry) => (
-          <li key={`${entry.company}-${entry.period}`}>
-            <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-              <h3 className="font-semibold text-h3 tracking-tight">
-                {entry.title}
-              </h3>
-              <span className="font-mono text-muted-foreground text-xs uppercase tracking-wide">
-                {entry.period}
-              </span>
-            </div>
+      <div className="mt-10 grid grid-cols-[20px_1fr] gap-x-8">
+        <div
+          ref={railRef}
+          className="relative w-px justify-self-center bg-border"
+        >
+          <div
+            className="absolute top-0 left-0 w-px bg-primary transition-[height] duration-100 ease-linear"
+            style={{ height: `${progress}%` }}
+          />
+        </div>
 
-            <p className="mt-1 text-muted-foreground text-sm">
-              {entry.companyUrl ? (
-                <Link
-                  href={entry.companyUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-foreground hover:underline"
-                >
-                  {entry.company}
-                </Link>
-              ) : (
-                entry.company
-              )}{' '}
-              · {entry.location}
-            </p>
+        <ol className="flex flex-col gap-16">
+          {experience.map((entry, index) => (
+            <Reveal key={`${entry.company}-${entry.period}`} delay={index * 40}>
+              <li className="exp-item relative -my-3 -mr-3 py-3 pr-3">
+                <span className="exp-dot absolute top-1.5 left-[-41px] size-2.5 rounded-full bg-primary" />
 
-            {entry.context ? (
-              <p className="mt-3 max-w-[65ch] text-sm italic">
-                {entry.context}
-              </p>
-            ) : null}
+                <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+                  <h3 className="font-semibold text-h3 tracking-tight">
+                    {entry.title}
+                  </h3>
+                  <span className="font-mono text-muted-foreground text-xs uppercase tracking-wide">
+                    {entry.period}
+                  </span>
+                </div>
 
-            {entry.body?.map((line) => (
-              <p
-                key={line}
-                className="mt-2 max-w-[65ch] text-muted-foreground text-sm"
-              >
-                {line}
-              </p>
-            ))}
-          </li>
-        ))}
-      </ol>
+                <p className="mt-1 text-muted-foreground text-sm">
+                  {entry.companyUrl ? (
+                    <Link
+                      href={entry.companyUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hover:text-foreground hover:underline"
+                    >
+                      {entry.company}
+                    </Link>
+                  ) : (
+                    entry.company
+                  )}{' '}
+                  · {entry.location}
+                </p>
 
-      <p className="mt-8">
-        <Link href="/about" className="text-sm hover:underline">
+                {entry.context ? (
+                  <p className="mt-3 max-w-[65ch] font-serif text-sm italic">
+                    {entry.context}
+                  </p>
+                ) : null}
+
+                {entry.body?.map((line) => (
+                  <p
+                    key={line}
+                    className="mt-2 max-w-[65ch] text-muted-foreground text-sm"
+                  >
+                    {line}
+                  </p>
+                ))}
+              </li>
+            </Reveal>
+          ))}
+        </ol>
+      </div>
+
+      <p className="mt-10">
+        <Link href="/about" className="link-sweep text-sm">
           Read the full story →
         </Link>
       </p>

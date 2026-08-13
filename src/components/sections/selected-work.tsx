@@ -1,4 +1,4 @@
-import { H2 } from '@/components/typography'
+import { Eyebrow, H2 } from '@/components/typography'
 import { getAllWork, getFeaturedWork } from '@/lib/content'
 import Link from 'next/link'
 
@@ -14,7 +14,8 @@ export async function SelectedWork() {
 
   return (
     <section className="mx-auto max-w-6xl px-6 py-24 md:px-8 md:py-32">
-      <H2>Selected work</H2>
+      <Eyebrow>Portfolio</Eyebrow>
+      <H2 className="mt-2">Selected work</H2>
 
       <ol className="mt-8 flex flex-col gap-10">
         {featured.map((entry) => (
@@ -46,7 +47,7 @@ export async function SelectedWork() {
 
       {hasMore ? (
         <p className="mt-8">
-          <Link href="/work" className="text-sm hover:underline">
+          <Link href="/work" className="link-sweep text-sm">
             All work →
           </Link>
         </p>

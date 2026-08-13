@@ -16,7 +16,7 @@ export function SiteFooter() {
             href={siteConfig.links.repo}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground text-sm hover:text-foreground hover:underline"
+            className="link-sweep text-muted-foreground text-sm hover:text-foreground"
           >
             View source
           </Link>
@@ -25,7 +25,7 @@ export function SiteFooter() {
         <nav className="flex items-center gap-4">
           <Link
             href="/about"
-            className="text-muted-foreground text-sm hover:text-foreground"
+            className="link-sweep text-muted-foreground text-sm hover:text-foreground"
           >
             About
           </Link>

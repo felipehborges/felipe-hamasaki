@@ -1,6 +1,6 @@
 import DownloadResumeButton from '@/components/download-resume-button'
 import { ContactSection } from '@/components/sections/contact-section'
-import { H1, H2, P } from '@/components/typography'
+import { Eyebrow, H1, H2, P } from '@/components/typography'
 import type { Metadata } from 'next'
 import Image from 'next/image'
 
@@ -62,7 +62,8 @@ export default function AboutPage() {
   return (
     <>
       <section className="mx-auto max-w-6xl px-6 py-24 md:px-8 md:py-32">
-        <H1>About</H1>
+        <Eyebrow>About</Eyebrow>
+        <H1 className="mt-2">About</H1>
 
         <p className="mt-4 max-w-[65ch] text-lg">
           I build and modernise operational software for corporate intelligence

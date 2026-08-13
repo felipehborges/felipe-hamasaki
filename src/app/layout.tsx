@@ -2,22 +2,25 @@ import { SiteFooter } from '@/components/layout/site-footer'
 import { SiteHeader } from '@/components/layout/site-header'
 import { ThemeProvider } from '@/components/theme-provider'
 import '@/styles/globals.css'
+import { GrainOverlay } from '@/components/ui/grain-overlay'
 import { Toaster } from '@/components/ui/sonner'
 import { siteConfig } from '@/lib/site-config'
 import type { Metadata } from 'next'
-import { Inter, JetBrains_Mono, Newsreader } from 'next/font/google'
+import { Fraunces, JetBrains_Mono, Public_Sans } from 'next/font/google'
 import type { ReactNode } from 'react'
 
-const inter = Inter({
+const publicSans = Public_Sans({
   subsets: ['latin'],
-  variable: '--font-inter',
+  weight: ['400', '500', '600'],
+  variable: '--font-public-sans',
   display: 'swap'
 })
 
-const newsreader = Newsreader({
+const fraunces = Fraunces({
   subsets: ['latin'],
   style: ['normal', 'italic'],
-  variable: '--font-newsreader',
+  weight: ['300', '500', '600'],
+  variable: '--font-fraunces',
   display: 'swap'
 })
 
@@ -55,7 +58,7 @@ export default async function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}
+      className={`${publicSans.variable} ${fraunces.variable} ${jetbrainsMono.variable}`}
     >
       <body className="overflow-x-hidden antialiased">
         <ThemeProvider
@@ -64,6 +67,7 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <GrainOverlay />
           <a
             href="#main-content"
             className="sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:top-4 focus-visible:left-4 focus-visible:z-50 focus-visible:rounded-md focus-visible:bg-primary focus-visible:px-4 focus-visible:py-2 focus-visible:text-primary-foreground"

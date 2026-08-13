@@ -7,16 +7,16 @@ import Link from 'next/link'
 export function Hero() {
   return (
     <section className="mx-auto max-w-6xl px-6 py-24 md:px-8 md:py-32">
-      <H1>{siteConfig.name}</H1>
+      <H1 className="animate-fade-up">{siteConfig.name}</H1>
 
-      <p className="mt-4 max-w-[65ch] text-lg">
+      <p className="animate-fade-up mt-4 max-w-[65ch] text-lg [animation-delay:80ms]">
         Full stack developer, frontend-focused — React, Next.js, TypeScript,
         Node.js. Four years building operational software for corporate
         intelligence and fraud prevention. Open to remote roles, with full
         overlap with US business hours.
       </p>
 
-      <div className="mt-6 flex max-w-[65ch] flex-col gap-4 text-muted-foreground">
+      <div className="animate-fade-up mt-6 flex max-w-[65ch] flex-col gap-4 text-muted-foreground [animation-delay:150ms]">
         <p>
           I work on the kind of platform people sit in front of for eight hours
           a day — live vehicle tracking, mapping, cross-source data matching —
@@ -29,7 +29,7 @@ export function Hero() {
         </p>
       </div>
 
-      <div className="mt-8 flex flex-wrap items-center gap-4">
+      <div className="animate-fade-up mt-8 flex flex-wrap items-center gap-4 [animation-delay:220ms]">
         <Button asChild>
           <Link href={siteConfig.resume.en} target="_blank">
             Download résumé
@@ -37,7 +37,7 @@ export function Hero() {
         </Button>
       </div>
 
-      <div className="mt-8 flex items-center gap-4">
+      <div className="animate-fade-up mt-8 flex items-center gap-4 [animation-delay:280ms]">
         <Link
           href={siteConfig.links.github}
           target="_blank"

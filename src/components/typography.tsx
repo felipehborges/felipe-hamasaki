@@ -6,6 +6,19 @@ interface TypographyProps {
   className?: string
 }
 
+export function Eyebrow({ children, className }: TypographyProps) {
+  return (
+    <p
+      className={cn(
+        'font-mono text-[11px] text-muted-foreground/70 uppercase tracking-[0.15em]',
+        className
+      )}
+    >
+      {children}
+    </p>
+  )
+}
+
 export function H1({ children, className }: TypographyProps) {
   return (
     <h1

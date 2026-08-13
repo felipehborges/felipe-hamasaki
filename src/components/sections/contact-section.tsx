@@ -1,5 +1,5 @@
 import { ContactForm } from '@/components/contact/contact-form'
-import { H2 } from '@/components/typography'
+import { Eyebrow, H2 } from '@/components/typography'
 import { siteConfig } from '@/lib/site-config'
 import { Github, Linkedin } from 'lucide-react'
 import Link from 'next/link'
@@ -7,7 +7,8 @@ import Link from 'next/link'
 export function ContactSection() {
   return (
     <section className="mx-auto max-w-6xl px-6 py-24 md:px-8 md:py-32">
-      <H2>Get in touch</H2>
+      <Eyebrow>Contact</Eyebrow>
+      <H2 className="mt-2">Get in touch</H2>
 
       <p className="mt-4 max-w-[65ch] text-muted-foreground">
         The fastest way to reach me is by email.
