@@ -364,9 +364,22 @@ rico e específico que o resumo verbal anterior. Três correções de honestidad
    Os nomes das operadoras foram mantidos genéricos ("Brazil's largest mobile operators")
    por prudência de confidencialidade.
 
-Pendência conhecida: `resume-v2` marca a migração Java → TypeScript como `[VERIFICAR]`, e
-a data de início na Skill Idiomas tem divergência (2012 no currículo, 2013 numa das entradas
-do LinkedIn). O site usa 2012. Confirmar antes de divulgar.
+Pendências resolvidas com o dono em 2026-08-12:
+
+- **Skill Idiomas: 2013 é o correto** (o currículo v2 dizia 2012). Corrigido para
+  jan/2013–dez/2014. Isso derrubou de três para **dois** anos o tempo como professor, e as
+  três menções a "three years teaching English" (hero, narrativa e `description` do `/about`)
+  foram corrigidas junto. ⚠️ `career-review/resume-v2/` ainda diz "three years" em currículo
+  e LinkedIn — corrigir lá também para não divergir entre canais.
+- **Migração Java → TypeScript fica fora do site.** O dono confirmou: *"fizemos a migração,
+  meu time fez, eu não fiz."* É a regra de honestidade #4 (`05-estrategia-conteudo.md`) —
+  responsabilidade de time não vira responsabilidade individual. ⚠️ O currículo v2 tem essa
+  migração como bullet em primeira pessoa (`Contributed to...`, marcado `[VERIFICAR]`);
+  revisar lá pelo mesmo motivo.
+- **Formulário + `mailto:` coexistem de propósito**, e o ícone de e-mail do hero fica. O
+  e-mail copiável serve o recrutador que cola no ATS ou responde do próprio cliente; o
+  formulário serve quem está no celular sem app de e-mail. Decisão já prevista em
+  `02-arquitetura-informacao.md`.
 
 ### F3-T06 · `ContactSection` (só UI) ✅
 

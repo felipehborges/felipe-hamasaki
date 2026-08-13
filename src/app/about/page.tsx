@@ -7,7 +7,7 @@ import Image from 'next/image'
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Full stack developer working on corporate intelligence platforms. Six years in HR before moving into software, and three years teaching English before that.',
+    'Full stack developer working on corporate intelligence platforms. Six years in HR before moving into software, and two years teaching English before that.',
   alternates: {
     canonical: '/about'
   }
@@ -80,7 +80,7 @@ export default function AboutPage() {
             </P>
 
             <P>
-              So I did something else first. I taught English for three years,
+              So I did something else first. I taught English for two years,
               then spent six years in human resources at an American automotive
               multinational — starting as an intern and ending as a personnel
               administration analyst, running payroll, time-and-attendance

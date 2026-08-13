@@ -72,7 +72,7 @@ const experience: ExperienceEntry[] = [
     title: 'English Teacher',
     company: 'Skill Idiomas',
     companyUrl: 'https://www.linkedin.com/company/skill-idiomas',
-    period: 'Jan 2012 — Dec 2014',
+    period: 'Jan 2013 — Dec 2014',
     location: 'Arujá, SP',
     body: [
       'Taught English from beginner to intermediate level. This is where the C2 proficiency comes from.'

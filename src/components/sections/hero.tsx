@@ -24,7 +24,7 @@ export function Hero() {
         </p>
         <p>
           I started on the frontend and now work across the stack. I taught
-          English for three years before moving into software, which is why I
+          English for two years before moving into software, which is why I
           write and work in it at a professional level.
         </p>
       </div>
