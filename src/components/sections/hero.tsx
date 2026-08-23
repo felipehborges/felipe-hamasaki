@@ -1,4 +1,3 @@
-import { Link } from '@/i18n/navigation'
 import { siteConfig } from '@/lib/site-config'
 import { useLocale, useTranslations } from 'next-intl'
 
@@ -29,13 +28,14 @@ export function Hero() {
           >
             {t('bookCall')} <span aria-hidden="true">↗</span>
           </a>
-          <Link
+          <a
             className="portfolio-button portfolio-button-secondary"
             href={resume}
             target="_blank"
+            rel="noopener noreferrer"
           >
             {t('resume')} <span aria-hidden="true">↓</span>
-          </Link>
+          </a>
         </div>
 
         <div className="portfolio-remote-facts" aria-label={t('remoteDetails')}>

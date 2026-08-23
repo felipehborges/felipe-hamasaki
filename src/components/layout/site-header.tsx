@@ -1,6 +1,6 @@
 import { LanguageSwitcher } from '@/components/layout/language-switcher'
-import { Link } from '@/i18n/navigation'
 import type { AppLocale } from '@/i18n/routing'
+import { localizePath } from '@/i18n/urls'
 import { siteConfig } from '@/lib/site-config'
 import { useLocale, useTranslations } from 'next-intl'
 
@@ -14,17 +14,17 @@ export function SiteHeader() {
         className="portfolio-container portfolio-nav"
         aria-label={t('primaryNavigation')}
       >
-        <Link
+        <a
           className="portfolio-wordmark"
-          href="/#top"
+          href={localizePath('/#top', locale)}
           aria-label={t('home')}
         >
           FH<span>.</span>
-        </Link>
+        </a>
         <div className="portfolio-nav-links">
-          <Link href="/#work">{t('work')}</Link>
-          <Link href="/#about">{t('about')}</Link>
-          <Link href="/#experience">{t('experience')}</Link>
+          <a href={localizePath('/#work', locale)}>{t('work')}</a>
+          <a href={localizePath('/#about', locale)}>{t('about')}</a>
+          <a href={localizePath('/#experience', locale)}>{t('experience')}</a>
         </div>
         <div className="portfolio-nav-actions">
           <LanguageSwitcher label={t('language')} locale={locale} />
