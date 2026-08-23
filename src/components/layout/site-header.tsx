@@ -1,35 +1,25 @@
-import { hasArticles, hasWork } from '@/lib/content'
 import { siteConfig } from '@/lib/site-config'
 import Link from 'next/link'
-import { NavLink } from './nav-link'
-import { ThemeToggle } from './theme-toggle'
 
-export async function SiteHeader() {
-  const [showWork, showWriting] = await Promise.all([hasWork(), hasArticles()])
-
-  const navigationLinks = [
-    ...(showWork ? [{ href: '/work', label: 'Work' }] : []),
-    ...(showWriting ? [{ href: '/writing', label: 'Writing' }] : []),
-    { href: '/about', label: 'About' }
-  ]
-
+export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b bg-background">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-8">
-        <Link href="/" className="font-serif text-lg tracking-tight">
-          {siteConfig.name}
+    <header className="portfolio-header">
+      <nav className="portfolio-container portfolio-nav" aria-label="Primary">
+        <Link className="portfolio-wordmark" href="/#top" aria-label="Home">
+          FH<span>.</span>
         </Link>
-
-        <nav className="flex items-center gap-6">
-          {navigationLinks.map((link) => (
-            <NavLink key={link.href} href={link.href}>
-              {link.label}
-            </NavLink>
-          ))}
-
-          <ThemeToggle />
-        </nav>
-      </div>
+        <div className="portfolio-nav-links">
+          <Link href="/#work">Work</Link>
+          <Link href="/#about">About</Link>
+          <Link href="/#experience">Experience</Link>
+        </div>
+        <a
+          className="portfolio-nav-cta"
+          href={'mailto:' + siteConfig.email + '?subject=Intro%20call'}
+        >
+          Let’s talk <span aria-hidden="true">↗</span>
+        </a>
+      </nav>
     </header>
   )
 }

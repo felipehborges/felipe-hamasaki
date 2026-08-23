@@ -1,7 +1,9 @@
 import { ContactSection } from '@/components/sections/contact-section'
+import { AboutSection } from '@/components/sections/about-section'
 import { ExperienceTimeline } from '@/components/sections/experience-timeline'
 import { Hero } from '@/components/sections/hero'
 import { SelectedWork } from '@/components/sections/selected-work'
+import { StackSection } from '@/components/sections/stack-section'
 import { siteConfig } from '@/lib/site-config'
 import type { Metadata } from 'next'
 
@@ -32,6 +34,8 @@ export default function Home() {
       />
       <Hero />
       <SelectedWork />
+      <StackSection />
+      <AboutSection />
       <ExperienceTimeline />
       <ContactSection />
     </>

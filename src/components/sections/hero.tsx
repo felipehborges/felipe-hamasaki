@@ -1,70 +1,81 @@
-import { H1 } from '@/components/typography'
-import { Button } from '@/components/ui/button'
 import { siteConfig } from '@/lib/site-config'
-import { Github, Linkedin, Mail } from 'lucide-react'
 import Link from 'next/link'
 
 export function Hero() {
   return (
-    <section className="mx-auto max-w-6xl px-6 py-24 md:px-8 md:py-32">
-      <H1>{siteConfig.name}</H1>
+    <section className="portfolio-container portfolio-hero" id="top">
+      <div className="portfolio-hero-copy">
+        <div className="portfolio-eyebrow">
+          <span className="portfolio-status-dot" />
+          OPEN TO REMOTE ROLES
+        </div>
 
-      <p className="mt-4 max-w-[65ch] text-lg">
-        Full stack developer, frontend-focused — React, Next.js, TypeScript,
-        Node.js. Four years building operational software for corporate
-        intelligence and fraud prevention. Open to remote roles, with full
-        overlap with US business hours.
-      </p>
+        <h1>
+          I build operational software people can rely on for{' '}
+          <em>eight hours straight.</em>
+        </h1>
 
-      <div className="mt-6 flex max-w-[65ch] flex-col gap-4 text-muted-foreground">
-        <p>
-          I work on the kind of platform people sit in front of for eight hours
-          a day — live vehicle tracking, mapping, cross-source data matching —
-          where being clear and reliable matters more than being novel.
+        <p className="portfolio-hero-lede">
+          I’m Felipe Hamasaki, a full stack engineer in Brazil. I turn complex
+          intelligence, tracking, and fraud-prevention workflows into clear,
+          dependable products.
         </p>
-        <p>
-          I started on the frontend and now work across the stack. I taught
-          English for two years before moving into software, which is why I
-          write and work in it at a professional level.
-        </p>
-      </div>
 
-      <div className="mt-8 flex flex-wrap items-center gap-4">
-        <Button asChild>
-          <Link href={siteConfig.resume.en} target="_blank">
-            Download résumé
+        <div className="portfolio-hero-actions">
+          <a
+            className="portfolio-button portfolio-button-primary"
+            href={'mailto:' + siteConfig.email + '?subject=Intro%20call'}
+          >
+            Book a call <span aria-hidden="true">↗</span>
+          </a>
+          <Link
+            className="portfolio-button portfolio-button-secondary"
+            href={siteConfig.resume.en}
+            target="_blank"
+          >
+            PDF resume <span aria-hidden="true">↓</span>
           </Link>
-        </Button>
+        </div>
+
+        <div className="portfolio-remote-facts" aria-label="Remote work details">
+          <div>
+            <span>TIME ZONE</span>
+            <strong>GMT−3 · US business hours</strong>
+          </div>
+          <div>
+            <span>ENGLISH</span>
+            <strong>C2 · Professional fluency</strong>
+          </div>
+          <div>
+            <span>STATUS</span>
+            <strong>Open to remote roles</strong>
+          </div>
+        </div>
       </div>
 
-      <div className="mt-8 flex items-center gap-4">
-        <Link
-          href={siteConfig.links.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-          className="text-muted-foreground hover:text-foreground"
-        >
-          <Github className="size-5" />
-        </Link>
-
-        <Link
-          href={siteConfig.links.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-          className="text-muted-foreground hover:text-foreground"
-        >
-          <Linkedin className="size-5" />
-        </Link>
-
-        <Link
-          href={`mailto:${siteConfig.email}`}
-          aria-label="Email"
-          className="text-muted-foreground hover:text-foreground"
-        >
-          <Mail className="size-5" />
-        </Link>
+      <div className="portfolio-hero-art" aria-hidden="true">
+        <div className="portfolio-orbit portfolio-orbit-one" />
+        <div className="portfolio-orbit portfolio-orbit-two" />
+        <div className="portfolio-code-card">
+          <div className="portfolio-code-dots">
+            <i />
+            <i />
+            <i />
+          </div>
+          <code>
+            <span>felipe</span>@são-paulo:~$
+          </code>
+          <p>
+            making complex
+            <br />
+            work feel clear
+          </p>
+          <small>// built for the whole shift</small>
+        </div>
+        <div className="portfolio-metric-chip">
+          <b>24/7</b>
+          <span>OPERATIONS</span>
+        </div>
       </div>
     </section>
   )

@@ -1,50 +1,38 @@
-import { ContactForm } from '@/components/contact/contact-form'
-import { H2 } from '@/components/typography'
 import { siteConfig } from '@/lib/site-config'
-import { Github, Linkedin } from 'lucide-react'
 import Link from 'next/link'
 
 export function ContactSection() {
   return (
-    <section className="mx-auto max-w-6xl px-6 py-24 md:px-8 md:py-32">
-      <H2>Get in touch</H2>
+    <section className="portfolio-contact portfolio-section" id="contact">
+      <div className="portfolio-container portfolio-contact-inner">
+        <span className="portfolio-kicker">LET’S BUILD SOMETHING SOLID</span>
+        <h2>
+          Need an engineer who speaks
+          <br />
+          product <em>and</em> production?
+        </h2>
 
-      <p className="mt-4 max-w-[65ch] text-muted-foreground">
-        The fastest way to reach me is by email.
-      </p>
-
-      <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center">
-        <a
-          href={`mailto:${siteConfig.email}`}
-          className="text-lg hover:underline"
-        >
-          {siteConfig.email}
+        <a className="portfolio-email" href={'mailto:' + siteConfig.email}>
+          {siteConfig.email} <span aria-hidden="true">↗</span>
         </a>
 
-        <div className="flex items-center gap-4">
+        <div className="portfolio-socials">
           <Link
             href={siteConfig.links.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="LinkedIn"
-            className="text-muted-foreground hover:text-foreground"
           >
-            <Linkedin className="size-5" />
+            LinkedIn <span aria-hidden="true">↗</span>
           </Link>
-
           <Link
             href={siteConfig.links.github}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="GitHub"
-            className="text-muted-foreground hover:text-foreground"
           >
-            <Github className="size-5" />
+            GitHub <span aria-hidden="true">↗</span>
           </Link>
         </div>
       </div>
-
-      <ContactForm />
     </section>
   )
 }
