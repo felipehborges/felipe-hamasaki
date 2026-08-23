@@ -1,54 +1,55 @@
+import { Link } from '@/i18n/navigation'
 import { siteConfig } from '@/lib/site-config'
-import Link from 'next/link'
+import { useLocale, useTranslations } from 'next-intl'
 
 export function Hero() {
+  const t = useTranslations('Home.hero')
+  const locale = useLocale()
+  const resume =
+    locale === 'pt-BR' ? siteConfig.resume.pt : siteConfig.resume.en
+
   return (
     <section className="portfolio-container portfolio-hero" id="top">
       <div className="portfolio-hero-copy">
         <div className="portfolio-eyebrow">
           <span className="portfolio-status-dot" />
-          OPEN TO REMOTE ROLES
+          {t('status')}
         </div>
 
         <h1>
-          I build operational software people can rely on for{' '}
-          <em>eight hours straight.</em>
+          {t('headline')} <em>{t('headlineEmphasis')}</em>
         </h1>
 
-        <p className="portfolio-hero-lede">
-          I’m Felipe Hamasaki, a full stack engineer in Brazil. I turn complex
-          intelligence, tracking, and fraud-prevention workflows into clear,
-          dependable products.
-        </p>
+        <p className="portfolio-hero-lede">{t('lede')}</p>
 
         <div className="portfolio-hero-actions">
           <a
             className="portfolio-button portfolio-button-primary"
-            href={'mailto:' + siteConfig.email + '?subject=Intro%20call'}
+            href={`mailto:${siteConfig.email}?subject=${encodeURIComponent(t('bookCall'))}`}
           >
-            Book a call <span aria-hidden="true">↗</span>
+            {t('bookCall')} <span aria-hidden="true">↗</span>
           </a>
           <Link
             className="portfolio-button portfolio-button-secondary"
-            href={siteConfig.resume.en}
+            href={resume}
             target="_blank"
           >
-            PDF resume <span aria-hidden="true">↓</span>
+            {t('resume')} <span aria-hidden="true">↓</span>
           </Link>
         </div>
 
-        <div className="portfolio-remote-facts" aria-label="Remote work details">
+        <div className="portfolio-remote-facts" aria-label={t('remoteDetails')}>
           <div>
-            <span>TIME ZONE</span>
-            <strong>GMT−3 · US business hours</strong>
+            <span>{t('timeZoneLabel')}</span>
+            <strong>{t('timeZoneValue')}</strong>
           </div>
           <div>
-            <span>ENGLISH</span>
-            <strong>C2 · Professional fluency</strong>
+            <span>{t('englishLabel')}</span>
+            <strong>{t('englishValue')}</strong>
           </div>
           <div>
-            <span>STATUS</span>
-            <strong>Open to remote roles</strong>
+            <span>{t('statusLabel')}</span>
+            <strong>{t('statusValue')}</strong>
           </div>
         </div>
       </div>
@@ -66,15 +67,15 @@ export function Hero() {
             <span>felipe</span>@são-paulo:~$
           </code>
           <p>
-            making complex
+            {t('codeLine1')}
             <br />
-            work feel clear
+            {t('codeLine2')}
           </p>
-          <small>// built for the whole shift</small>
+          <small>{t('codeComment')}</small>
         </div>
         <div className="portfolio-metric-chip">
           <b>24/7</b>
-          <span>OPERATIONS</span>
+          <span>{t('operations')}</span>
         </div>
       </div>
     </section>

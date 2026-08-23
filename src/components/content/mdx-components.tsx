@@ -60,7 +60,7 @@ export const mdxComponents: MDXRemoteProps['components'] = {
     )
   },
   img: ({ src, alt }: ComponentProps<'img'>) => {
-    if (!src) return null
+    if (typeof src !== 'string') return null
     return (
       <span className="relative block aspect-video w-full overflow-hidden rounded-md border border-border">
         <Image

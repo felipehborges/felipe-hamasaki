@@ -2,25 +2,35 @@ import { mdxComponents, mdxOptions } from '@/components/content/mdx-components'
 import { Prose } from '@/components/content/prose'
 import { ContactSection } from '@/components/sections/contact-section'
 import { H1 } from '@/components/typography'
-import { getAllWork, getWorkBySlug } from '@/lib/content'
+import { Link } from '@/i18n/navigation'
+import { type AppLocale, routing } from '@/i18n/routing'
+import { absoluteLocalizedUrl, languageAlternates } from '@/i18n/urls'
+import { getAllArticles, getArticleBySlug } from '@/lib/content'
 import { siteConfig } from '@/lib/site-config'
 import type { Metadata } from 'next'
+import { getTranslations } from 'next-intl/server'
 import { MDXRemote } from 'next-mdx-remote/rsc'
-import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
-  const work = await getAllWork()
-  return work.map((entry) => ({ slug: entry.slug }))
+  const params = []
+
+  for (const locale of routing.locales) {
+    for (const entry of await getAllArticles(locale)) {
+      params.push({ locale, slug: entry.slug })
+    }
+  }
+
+  return params
 }
 
 export async function generateMetadata({
   params
 }: {
-  params: Promise<{ slug: string }>
+  params: Promise<{ locale: AppLocale; slug: string }>
 }): Promise<Metadata> {
-  const { slug } = await params
-  const entry = await getWorkBySlug(slug)
+  const { locale, slug } = await params
+  const entry = await getArticleBySlug(slug, locale)
 
   if (!entry) return {}
 
@@ -28,7 +38,8 @@ export async function generateMetadata({
     title: entry.frontmatter.title,
     description: entry.frontmatter.summary,
     alternates: {
-      canonical: `/work/${entry.slug}`
+      canonical: absoluteLocalizedUrl(`/writing/${entry.slug}`, locale),
+      languages: languageAlternates(`/writing/${entry.slug}`)
     },
     robots: entry.frontmatter.draft
       ? { index: false, follow: false }
@@ -36,32 +47,35 @@ export async function generateMetadata({
   }
 }
 
-export default async function WorkCaseStudyPage({
+export default async function ArticlePage({
   params
 }: {
-  params: Promise<{ slug: string }>
+  params: Promise<{ locale: AppLocale; slug: string }>
 }) {
-  const { slug } = await params
-  const entry = await getWorkBySlug(slug)
+  const { locale, slug } = await params
+  const entry = await getArticleBySlug(slug, locale)
 
   if (!entry) {
     notFound()
   }
 
-  const all = await getAllWork()
+  const [all, t] = await Promise.all([
+    getAllArticles(locale),
+    getTranslations({ locale, namespace: 'Writing' })
+  ])
   const index = all.findIndex((item) => item.slug === slug)
   const previous = all[index + 1]
   const next = all[index - 1]
 
-  const creativeWorkJsonLd = {
+  const blogPostingJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'CreativeWork',
-    name: entry.frontmatter.title,
-    description: entry.frontmatter.summary,
-    creator: { '@type': 'Person', name: siteConfig.name },
-    dateCreated: `${entry.frontmatter.year}`,
-    keywords: entry.frontmatter.stack.join(', '),
-    url: `${siteConfig.url}/work/${entry.slug}`
+    '@type': 'BlogPosting',
+    headline: entry.frontmatter.title,
+    datePublished: entry.frontmatter.publishedAt,
+    dateModified: entry.frontmatter.updatedAt ?? entry.frontmatter.publishedAt,
+    author: { '@type': 'Person', name: siteConfig.name },
+    url: absoluteLocalizedUrl(`/writing/${entry.slug}`, locale),
+    inLanguage: locale
   }
 
   return (
@@ -69,44 +83,15 @@ export default async function WorkCaseStudyPage({
       <script
         type="application/ld+json"
         // biome-ignore lint/security/noDangerouslySetInnerHtml: static, internally-defined JSON-LD, no user input
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(creativeWorkJsonLd)
-        }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingJsonLd) }}
       />
       <article className="mx-auto max-w-6xl px-6 py-24 md:px-8 md:py-32">
         <H1>{entry.frontmatter.title}</H1>
 
         <div className="mt-4 flex flex-wrap items-center gap-4 text-muted-foreground text-sm">
-          <span>{entry.frontmatter.year}</span>
-          <span>{entry.frontmatter.role}</span>
-          <span className="font-mono text-xs">
-            {entry.frontmatter.stack.join(' · ')}
-          </span>
-          {entry.frontmatter.repo ? (
-            <a
-              href={entry.frontmatter.repo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline"
-            >
-              Repository
-            </a>
-          ) : null}
-          {entry.frontmatter.demo ? (
-            <a
-              href={entry.frontmatter.demo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline"
-            >
-              Live demo
-            </a>
-          ) : null}
+          <span>{entry.frontmatter.publishedAt}</span>
+          <span>{t('readingTime', { minutes: entry.readingTimeMinutes })}</span>
         </div>
-
-        <p className="mt-6 max-w-[65ch] text-lg text-muted-foreground">
-          {entry.frontmatter.summary}
-        </p>
 
         <div className="mt-12">
           <Prose>
@@ -120,7 +105,10 @@ export default async function WorkCaseStudyPage({
 
         <nav className="mt-16 flex items-center justify-between gap-4 border-t pt-6 text-sm">
           {previous ? (
-            <Link href={`/work/${previous.slug}`} className="hover:underline">
+            <Link
+              href={`/writing/${previous.slug}`}
+              className="hover:underline"
+            >
               ← {previous.frontmatter.title}
             </Link>
           ) : (
@@ -128,7 +116,7 @@ export default async function WorkCaseStudyPage({
           )}
 
           {next ? (
-            <Link href={`/work/${next.slug}`} className="hover:underline">
+            <Link href={`/writing/${next.slug}`} className="hover:underline">
               {next.frontmatter.title} →
             </Link>
           ) : (

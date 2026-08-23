@@ -188,10 +188,34 @@
 }
 
 .portfolio-nav-cta {
+  display: none;
   padding-block: 8px;
   border-bottom: 1px solid var(--accent);
   font-size: 14px;
   font-weight: 700;
+}
+
+.portfolio-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.portfolio-language-switcher select {
+  max-width: 132px;
+  min-height: 44px;
+  padding: 8px 28px 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--text);
+  font: 12px var(--font-jetbrains-mono), monospace;
+  cursor: pointer;
+}
+
+.portfolio-language-switcher select:hover,
+.portfolio-language-switcher select:focus-visible {
+  border-color: var(--accent);
 }
 
 .portfolio-nav-cta span,
@@ -203,7 +227,7 @@
   transition: transform 200ms ease;
 }
 
-a:hover > span[aria-hidden='true'] {
+a:hover > span[aria-hidden="true"] {
   transform: translate(2px, -2px);
 }
 
@@ -284,10 +308,7 @@ a:hover > span[aria-hidden='true'] {
   border-radius: 12px;
   font-size: 15px;
   font-weight: 700;
-  transition:
-    transform 200ms ease,
-    color 200ms ease,
-    background 200ms ease,
+  transition: transform 200ms ease, color 200ms ease, background 200ms ease,
     border-color 200ms ease;
 }
 
@@ -346,7 +367,7 @@ a:hover > span[aria-hidden='true'] {
 }
 
 .portfolio-hero-art::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 340px;
   height: 340px;
@@ -485,10 +506,8 @@ a:hover > span[aria-hidden='true'] {
   border: 1px solid var(--border);
   border-radius: 12px;
   background: var(--surface);
-  transition:
-    transform 250ms ease,
-    border-color 250ms ease,
-    background 250ms ease;
+  transition: transform 250ms ease, border-color 250ms ease, background 250ms
+    ease;
 }
 
 .portfolio-project-card:hover {
@@ -707,6 +726,10 @@ a:hover > span[aria-hidden='true'] {
 }
 
 @media (min-width: 640px) {
+  .portfolio-nav-cta {
+    display: inline-block;
+  }
+
   .portfolio-nav-links {
     display: flex;
   }

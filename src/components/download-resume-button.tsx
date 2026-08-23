@@ -11,19 +11,31 @@ import { DialogTrigger } from '@radix-ui/react-dialog'
 import { Download } from 'lucide-react'
 import { Button } from './ui/button'
 
-export default function DownloadResumeButton() {
+interface ResumeLabels {
+  download: string
+  selectLanguage: string
+  english: string
+  portuguese: string
+  close: string
+}
+
+export default function DownloadResumeButton({
+  labels
+}: {
+  labels: ResumeLabels
+}) {
   return (
     <Dialog>
       <DialogTrigger asChild>
         <Button type="button">
           <Download />
-          Download Resume
+          {labels.download}
         </Button>
       </DialogTrigger>
 
-      <DialogContent>
+      <DialogContent closeLabel={labels.close} aria-describedby={undefined}>
         <DialogHeader>
-          <DialogTitle>Select resume language</DialogTitle>
+          <DialogTitle>{labels.selectLanguage}</DialogTitle>
         </DialogHeader>
 
         <div className="flex w-full items-center justify-center gap-4 py-4">
@@ -34,14 +46,14 @@ export default function DownloadResumeButton() {
               className="flex w-40 items-center text-base"
             >
               <Download />
-              English
+              {labels.english}
             </Button>
           </a>
 
           <a href={siteConfig.resume.pt} download="ptbr-resume.pdf">
             <Button variant="secondary" size="lg" className="w-40 text-base">
               <Download />
-              Português
+              {labels.portuguese}
             </Button>
           </a>
         </div>

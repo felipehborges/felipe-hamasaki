@@ -1,32 +1,55 @@
 import { H1 } from '@/components/typography'
+import { Link } from '@/i18n/navigation'
+import { type AppLocale, routing } from '@/i18n/routing'
+import { absoluteLocalizedUrl, languageAlternates } from '@/i18n/urls'
 import { getAllWork, hasWork } from '@/lib/content'
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { hasLocale } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 
-export const metadata: Metadata = {
-  title: 'Work',
-  description:
-    'Case studies on real projects I have built — the problem I was solving, the constraints, the decisions I made, and what changed as a result.',
-  alternates: {
-    canonical: '/work'
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+
+  if (!hasLocale(routing.locales, locale)) return {}
+
+  const t = await getTranslations({ locale, namespace: 'Metadata' })
+
+  return {
+    title: t('workTitle'),
+    description: t('workDescription'),
+    alternates: {
+      canonical: absoluteLocalizedUrl('/work', locale),
+      languages: languageAlternates('/work')
+    }
   }
 }
 
-export default async function WorkPage() {
-  if (!(await hasWork())) {
+export default async function WorkPage({
+  params
+}: {
+  params: Promise<{ locale: AppLocale }>
+}) {
+  const { locale } = await params
+
+  if (!(await hasWork(locale))) {
     notFound()
   }
 
-  const work = await getAllWork()
+  const [work, t] = await Promise.all([
+    getAllWork(locale),
+    getTranslations({ locale, namespace: 'Work' })
+  ])
 
   return (
     <section className="mx-auto max-w-6xl px-6 py-24 md:px-8 md:py-32">
-      <H1>Work</H1>
+      <H1>{t('title')}</H1>
 
-      <p className="mt-4 max-w-[65ch] text-muted-foreground">
-        Case studies from recent projects.
-      </p>
+      <p className="mt-4 max-w-[65ch] text-muted-foreground">{t('intro')}</p>
 
       <ol className="mt-12 flex flex-col gap-10">
         {work.map((entry) => (
@@ -40,7 +63,7 @@ export default async function WorkPage() {
                   {entry.frontmatter.title}
                   {entry.frontmatter.draft ? (
                     <span className="ml-2 font-mono text-muted-foreground text-xs uppercase">
-                      Draft
+                      {t('draft')}
                     </span>
                   ) : null}
                 </h2>

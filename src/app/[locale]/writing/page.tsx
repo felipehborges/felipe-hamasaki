@@ -1,32 +1,55 @@
 import { H1 } from '@/components/typography'
+import { Link } from '@/i18n/navigation'
+import { type AppLocale, routing } from '@/i18n/routing'
+import { absoluteLocalizedUrl, languageAlternates } from '@/i18n/urls'
 import { getAllArticles, hasArticles } from '@/lib/content'
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import { hasLocale } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import { notFound } from 'next/navigation'
 
-export const metadata: Metadata = {
-  title: 'Writing',
-  description:
-    'Notes on building software — practical takeaways from real projects, written in first person, without the tutorial fluff.',
-  alternates: {
-    canonical: '/writing'
+export async function generateMetadata({
+  params
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+
+  if (!hasLocale(routing.locales, locale)) return {}
+
+  const t = await getTranslations({ locale, namespace: 'Metadata' })
+
+  return {
+    title: t('writingTitle'),
+    description: t('writingDescription'),
+    alternates: {
+      canonical: absoluteLocalizedUrl('/writing', locale),
+      languages: languageAlternates('/writing')
+    }
   }
 }
 
-export default async function WritingPage() {
-  if (!(await hasArticles())) {
+export default async function WritingPage({
+  params
+}: {
+  params: Promise<{ locale: AppLocale }>
+}) {
+  const { locale } = await params
+
+  if (!(await hasArticles(locale))) {
     notFound()
   }
 
-  const articles = await getAllArticles()
+  const [articles, t] = await Promise.all([
+    getAllArticles(locale),
+    getTranslations({ locale, namespace: 'Writing' })
+  ])
 
   return (
     <section className="mx-auto max-w-6xl px-6 py-24 md:px-8 md:py-32">
-      <H1>Writing</H1>
+      <H1>{t('title')}</H1>
 
-      <p className="mt-4 max-w-[65ch] text-muted-foreground">
-        Notes on building software.
-      </p>
+      <p className="mt-4 max-w-[65ch] text-muted-foreground">{t('intro')}</p>
 
       <ol className="mt-12 flex flex-col gap-10">
         {articles.map((entry) => (
@@ -40,7 +63,7 @@ export default async function WritingPage() {
                   {entry.frontmatter.title}
                   {entry.frontmatter.draft ? (
                     <span className="ml-2 font-mono text-muted-foreground text-xs uppercase">
-                      Draft
+                      {t('draft')}
                     </span>
                   ) : null}
                 </h2>
@@ -54,7 +77,7 @@ export default async function WritingPage() {
               </p>
 
               <p className="font-mono text-muted-foreground text-xs">
-                {entry.readingTime}
+                {t('readingTime', { minutes: entry.readingTimeMinutes })}
               </p>
             </Link>
           </li>

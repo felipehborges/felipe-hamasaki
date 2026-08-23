@@ -1,34 +1,55 @@
+import { routing } from '@/i18n/routing'
+import { absoluteLocalizedUrl, languageAlternates } from '@/i18n/urls'
 import { getAllArticles, getAllWork, hasArticles, hasWork } from '@/lib/content'
-import { siteConfig } from '@/lib/site-config'
 import type { MetadataRoute } from 'next'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const entries: MetadataRoute.Sitemap = [
-    { url: siteConfig.url },
-    { url: `${siteConfig.url}/about` }
-  ]
+  const entries: MetadataRoute.Sitemap = []
 
-  if (await hasWork()) {
-    entries.push({ url: `${siteConfig.url}/work` })
+  for (const locale of routing.locales) {
+    entries.push(
+      {
+        url: absoluteLocalizedUrl('/', locale),
+        alternates: { languages: languageAlternates('/') }
+      },
+      {
+        url: absoluteLocalizedUrl('/about', locale),
+        alternates: { languages: languageAlternates('/about') }
+      }
+    )
 
-    for (const entry of await getAllWork()) {
+    if (await hasWork(locale)) {
       entries.push({
-        url: `${siteConfig.url}/work/${entry.slug}`,
-        lastModified: new Date(entry.frontmatter.year, 0, 1)
+        url: absoluteLocalizedUrl('/work', locale),
+        alternates: { languages: languageAlternates('/work') }
       })
+
+      for (const entry of await getAllWork(locale)) {
+        const pathname = `/work/${entry.slug}`
+        entries.push({
+          url: absoluteLocalizedUrl(pathname, locale),
+          lastModified: new Date(entry.frontmatter.year, 0, 1),
+          alternates: { languages: languageAlternates(pathname) }
+        })
+      }
     }
-  }
 
-  if (await hasArticles()) {
-    entries.push({ url: `${siteConfig.url}/writing` })
-
-    for (const entry of await getAllArticles()) {
+    if (await hasArticles(locale)) {
       entries.push({
-        url: `${siteConfig.url}/writing/${entry.slug}`,
-        lastModified: new Date(
-          entry.frontmatter.updatedAt ?? entry.frontmatter.publishedAt
-        )
+        url: absoluteLocalizedUrl('/writing', locale),
+        alternates: { languages: languageAlternates('/writing') }
       })
+
+      for (const entry of await getAllArticles(locale)) {
+        const pathname = `/writing/${entry.slug}`
+        entries.push({
+          url: absoluteLocalizedUrl(pathname, locale),
+          lastModified: new Date(
+            entry.frontmatter.updatedAt ?? entry.frontmatter.publishedAt
+          ),
+          alternates: { languages: languageAlternates(pathname) }
+        })
+      }
     }
   }
 

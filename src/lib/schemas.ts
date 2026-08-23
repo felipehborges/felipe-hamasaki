@@ -25,12 +25,26 @@ export const articleFrontmatterSchema = z.object({
 export type WorkFrontmatter = z.infer<typeof workFrontmatterSchema>
 export type ArticleFrontmatter = z.infer<typeof articleFrontmatterSchema>
 
-export const contactFormSchema = z.object({
-  name: z.string().min(1, 'Name is required').max(100),
-  email: z.string().email('Enter a valid email'),
-  message: z.string().min(10, 'Message is too short').max(5000),
-  // Honeypot — real visitors never see or fill this field.
-  company: z.string().optional()
+interface ContactValidationMessages {
+  nameRequired: string
+  emailInvalid: string
+  messageShort: string
+}
+
+export function createContactFormSchema(messages: ContactValidationMessages) {
+  return z.object({
+    name: z.string().min(1, messages.nameRequired).max(100),
+    email: z.string().email(messages.emailInvalid),
+    message: z.string().min(10, messages.messageShort).max(5000),
+    // Honeypot — real visitors never see or fill this field.
+    company: z.string().optional()
+  })
+}
+
+export const contactFormSchema = createContactFormSchema({
+  nameRequired: 'name_required',
+  emailInvalid: 'email_invalid',
+  messageShort: 'message_too_short'
 })
 
 export type ContactFormValues = z.infer<typeof contactFormSchema>

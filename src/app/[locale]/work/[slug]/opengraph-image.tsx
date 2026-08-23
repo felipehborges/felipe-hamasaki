@@ -1,5 +1,7 @@
-import { getArticleBySlug } from '@/lib/content'
+import type { AppLocale } from '@/i18n/routing'
+import { getWorkBySlug } from '@/lib/content'
 import { loadOgFonts } from '@/lib/og-fonts'
+import { getTranslations } from 'next-intl/server'
 import { ImageResponse } from 'next/og'
 
 export const size = { width: 1200, height: 630 }
@@ -8,11 +10,14 @@ export const contentType = 'image/png'
 export default async function Image({
   params
 }: {
-  params: Promise<{ slug: string }>
+  params: Promise<{ locale: AppLocale; slug: string }>
 }) {
-  const { slug } = await params
-  const entry = await getArticleBySlug(slug)
-  const fonts = await loadOgFonts()
+  const { locale, slug } = await params
+  const [entry, fonts, t] = await Promise.all([
+    getWorkBySlug(slug, locale),
+    loadOgFonts(),
+    getTranslations({ locale, namespace: 'OpenGraph' })
+  ])
 
   return new ImageResponse(
     <div
@@ -37,7 +42,8 @@ export default async function Image({
           letterSpacing: 2
         }}
       >
-        Writing{entry ? ` — ${entry.frontmatter.publishedAt}` : ''}
+        {t('caseStudy')}
+        {entry ? ` — ${entry.frontmatter.year}` : ''}
       </div>
       <div
         style={{
@@ -48,8 +54,20 @@ export default async function Image({
           maxWidth: 900
         }}
       >
-        {entry?.frontmatter.title ?? 'Writing'}
+        {entry?.frontmatter.title ?? t('caseStudy')}
       </div>
+      {entry ? (
+        <div
+          style={{
+            fontFamily: 'Inter',
+            fontSize: 28,
+            color: '#a39e96',
+            marginTop: 32
+          }}
+        >
+          {entry.frontmatter.stack.join(' · ')}
+        </div>
+      ) : null}
     </div>,
     { ...size, fonts }
   )

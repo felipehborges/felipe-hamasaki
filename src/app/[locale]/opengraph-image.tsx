@@ -1,12 +1,21 @@
 import { loadOgFonts } from '@/lib/og-fonts'
 import { siteConfig } from '@/lib/site-config'
+import { getTranslations } from 'next-intl/server'
 import { ImageResponse } from 'next/og'
 
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
-export default async function Image() {
-  const fonts = await loadOgFonts()
+export default async function Image({
+  params
+}: {
+  params: Promise<{ locale: string }>
+}) {
+  const { locale } = await params
+  const [fonts, t] = await Promise.all([
+    loadOgFonts(),
+    getTranslations({ locale, namespace: 'Metadata' })
+  ])
 
   return new ImageResponse(
     <div
@@ -32,7 +41,7 @@ export default async function Image() {
           marginTop: 24
         }}
       >
-        {siteConfig.role}
+        {t('role')}
       </div>
       <div
         style={{
@@ -43,7 +52,7 @@ export default async function Image() {
           marginTop: 48
         }}
       >
-        {siteConfig.url.replace(/^https?:\/\//, '')}
+        {t('socialDescription')}
       </div>
     </div>,
     { ...size, fonts }

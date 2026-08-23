@@ -1,10 +1,11 @@
-import fs from 'node:fs/promises'
-import path from 'node:path'
-
 export async function loadOgFonts() {
   const [interBold, newsreaderMedium] = await Promise.all([
-    fs.readFile(path.join(process.cwd(), 'public/fonts/Inter-Bold.ttf')),
-    fs.readFile(path.join(process.cwd(), 'public/fonts/Newsreader-Medium.ttf'))
+    fetch(new URL('../../public/fonts/Inter-Bold.ttf', import.meta.url)).then(
+      (response) => response.arrayBuffer()
+    ),
+    fetch(
+      new URL('../../public/fonts/Newsreader-Medium.ttf', import.meta.url)
+    ).then((response) => response.arrayBuffer())
   ])
 
   return [

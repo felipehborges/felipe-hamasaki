@@ -1,6 +1,8 @@
 'use server'
 
+import { routing } from '@/i18n/routing'
 import { contactFormSchema } from '@/lib/schemas'
+import { hasLocale } from 'next-intl'
 import { headers } from 'next/headers'
 import { Resend } from 'resend'
 
@@ -28,8 +30,14 @@ function recordAttempt(ip: string) {
   attempts.set(ip, recent)
 }
 
-export async function sendContact(data: unknown): Promise<ContactResult> {
+export async function sendContact(
+  data: unknown,
+  requestedLocale: unknown
+): Promise<ContactResult> {
   const parsed = contactFormSchema.safeParse(data)
+  const locale = hasLocale(routing.locales, requestedLocale)
+    ? requestedLocale
+    : routing.defaultLocale
 
   if (!parsed.success) {
     return { ok: false, error: 'validation' }
@@ -58,7 +66,7 @@ export async function sendContact(data: unknown): Promise<ContactResult> {
       from: process.env.CONTACT_FROM_EMAIL ?? '',
       to: process.env.CONTACT_TO_EMAIL ?? '',
       replyTo: parsed.data.email,
-      subject: `New message from ${parsed.data.name}`,
+      subject: `[${locale}] New portfolio message from ${parsed.data.name}`,
       text: `From: ${parsed.data.name} <${parsed.data.email}>\n\n${parsed.data.message}`
     })
 

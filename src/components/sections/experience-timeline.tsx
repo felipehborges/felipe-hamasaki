@@ -1,64 +1,35 @@
-const experience = [
-  {
-    period: 'MAR 2025 — NOW',
-    role: 'Full Stack Developer',
-    company: 'ODEEN — Intelligence for Security',
-    impact:
-      'Building intelligence and fraud-prevention products used around the clock by roughly 100 analysts.'
-  },
-  {
-    period: 'MAY 2023 — FEB 2025',
-    role: 'Front End Developer',
-    company: 'ODEEN — Intelligence for Security',
-    impact:
-      'Created a private library of around 50 React components and the standards used by a five-person team.'
-  },
-  {
-    period: 'JAN 2022 — APR 2023',
-    role: 'Junior Front End Developer',
-    company: 'ODEEN — Intelligence for Security',
-    impact:
-      'Built responsive operator interfaces with React, TypeScript, and Tailwind CSS.'
-  },
-  {
-    period: '2015 — 2021',
-    role: 'HR Analyst & Intern',
-    company: 'Autokiniton',
-    impact:
-      'Ran payroll and reporting in an American manufacturer while studying programming for a career change.'
-  },
-  {
-    period: '2013 — 2014',
-    role: 'English Teacher',
-    company: 'Skill Idiomas',
-    impact:
-      'Taught beginner-to-intermediate English — the less obvious origin of my C2 communication skills.'
-  }
-]
+import { useTranslations } from 'next-intl'
 
 export function ExperienceTimeline() {
+  const t = useTranslations('Home.experience')
+  const experience = [
+    'fullstack',
+    'frontend',
+    'junior',
+    'hrAnalyst',
+    'hrIntern',
+    'teacher'
+  ] as const
+
   return (
     <section className="portfolio-experience" id="experience">
       <div className="portfolio-container portfolio-section">
         <div className="portfolio-section-heading portfolio-section-heading-compact">
           <div>
-            <span className="portfolio-kicker">EXPERIENCE</span>
-            <h2>Built in production.</h2>
+            <span className="portfolio-kicker">{t('kicker')}</span>
+            <h2>{t('title')}</h2>
           </div>
         </div>
 
         <div className="portfolio-timeline">
           {experience.map((entry) => (
-            <article
-              className="portfolio-timeline-row"
-              key={entry.period + entry.role}
-            >
-              <time>{entry.period}</time>
+            <article className="portfolio-timeline-row" key={entry}>
+              <time>{t(`entries.${entry}.period`)}</time>
               <div>
-                <h3>{entry.role}</h3>
-                <span>{entry.company}</span>
+                <h3>{t(`entries.${entry}.role`)}</h3>
+                <span>{t(`entries.${entry}.company`)}</span>
               </div>
-              <p>{entry.impact}</p>
+              <p>{t(`entries.${entry}.impact`)}</p>
             </article>
           ))}
         </div>

@@ -1,55 +1,39 @@
+import { Link } from '@/i18n/navigation'
 import { siteConfig } from '@/lib/site-config'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 const projects = [
   {
+    id: 'one',
     number: '01',
-    title: 'Intelligence platform for 24/7 operations',
-    problem:
-      'Analysts needed to connect vehicle tracking, mapping, advanced search, and sensitive records without losing context.',
-    solution:
-      'Built and modernised the React and Next.js interface while extending Node.js, Express, and MySQL services behind it.',
-    result: '≈100 analysts · 24/7 use',
     stack: ['React', 'Next.js', 'Node.js', 'MySQL', 'REST'],
     context: 'https://www.odeen.com.br/'
   },
   {
+    id: 'two',
     number: '02',
-    title: 'Real-time telecom site monitoring',
-    problem:
-      'Security teams needed one live view of remote tower sites and the hardware protecting them.',
-    solution:
-      'Delivered video, smoke, access, and anti-theft signals through WebSocket and polling, integrated with in-house hardware.',
-    result: '4 live signal types',
     stack: ['TypeScript', 'WebSocket', 'React', 'Node.js'],
     context: 'https://www.odeen.com.br/'
   },
   {
+    id: 'three',
     number: '03',
-    title: 'A design system teams actually reuse',
-    problem:
-      'Product interfaces were repeating the same decisions and drifting as the platform grew.',
-    solution:
-      'Built a private React component package and introduced shared tooling, naming, release, and documentation standards.',
-    result: '≈50 reusable components',
     stack: ['React', 'TypeScript', 'Tailwind CSS', 'Biome', 'pnpm'],
     context: siteConfig.links.github
   }
-]
+] as const
 
 export function SelectedWork() {
+  const t = useTranslations('Home.work')
+
   return (
     <section className="portfolio-container portfolio-section" id="work">
       <div className="portfolio-section-heading">
         <div>
-          <span className="portfolio-kicker">SELECTED WORK</span>
-          <h2>Proof, not promises.</h2>
+          <span className="portfolio-kicker">{t('kicker')}</span>
+          <h2>{t('title')}</h2>
         </div>
-        <p>
-          Production systems are private. These concise case studies show the
-          problem, the implementation, and a result that can be discussed
-          without pretending an NDA is a demo link.
-        </p>
+        <p>{t('intro')}</p>
       </div>
 
       <div className="portfolio-project-grid">
@@ -61,28 +45,30 @@ export function SelectedWork() {
                 href={project.context}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={'Context for ' + project.title}
+                aria-label={t('contextFor', {
+                  title: t(`projects.${project.id}.title`)
+                })}
               >
-                Context <span aria-hidden="true">↗</span>
+                {t('context')} <span aria-hidden="true">↗</span>
               </Link>
             </div>
 
-            <h3>{project.title}</h3>
+            <h3>{t(`projects.${project.id}.title`)}</h3>
 
             <dl>
               <div>
-                <dt>Problem</dt>
-                <dd>{project.problem}</dd>
+                <dt>{t('problem')}</dt>
+                <dd>{t(`projects.${project.id}.problem`)}</dd>
               </div>
               <div>
-                <dt>Solution</dt>
-                <dd>{project.solution}</dd>
+                <dt>{t('solution')}</dt>
+                <dd>{t(`projects.${project.id}.solution`)}</dd>
               </div>
             </dl>
 
             <div className="portfolio-project-result">
-              <span>RESULT</span>
-              <strong>{project.result}</strong>
+              <span>{t('result')}</span>
+              <strong>{t(`projects.${project.id}.result`)}</strong>
             </div>
 
             <div className="portfolio-tags">

@@ -1,5 +1,6 @@
 import { getAllArticles } from '@/lib/content'
 import { siteConfig } from '@/lib/site-config'
+import englishMessages from '../../../messages/en.json'
 
 function escapeXml(value: string) {
   return value
@@ -10,10 +11,6 @@ function escapeXml(value: string) {
 
 export async function GET() {
   const articles = await getAllArticles()
-
-  if (articles.length === 0) {
-    return new Response('Not found', { status: 404 })
-  }
 
   const items = articles
     .map(
@@ -33,7 +30,7 @@ export async function GET() {
   <channel>
     <title>${escapeXml(siteConfig.name)}</title>
     <link>${siteConfig.url}</link>
-    <description>${escapeXml(siteConfig.description)}</description>
+    <description>${escapeXml(englishMessages.Metadata.description)}</description>
     ${items}
   </channel>
 </rss>`

@@ -5,14 +5,36 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
-import { type ContactFormValues, contactFormSchema } from '@/lib/schemas'
+import type { AppLocale } from '@/i18n/routing'
+import { type ContactFormValues, createContactFormSchema } from '@/lib/schemas'
 import { siteConfig } from '@/lib/site-config'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useState, useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 
-export function ContactForm() {
+interface ContactFormLabels {
+  name: string
+  email: string
+  message: string
+  company: string
+  send: string
+  sending: string
+  success: string
+  rateLimit: string
+  failure: string
+  nameRequired: string
+  emailInvalid: string
+  messageShort: string
+}
+
+export function ContactForm({
+  locale,
+  labels
+}: {
+  locale: AppLocale
+  labels: ContactFormLabels
+}) {
   const [isPending, startTransition] = useTransition()
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
@@ -23,25 +45,31 @@ export function ContactForm() {
     reset,
     formState: { errors }
   } = useForm<ContactFormValues>({
-    resolver: zodResolver(contactFormSchema)
+    resolver: zodResolver(
+      createContactFormSchema({
+        nameRequired: labels.nameRequired,
+        emailInvalid: labels.emailInvalid,
+        messageShort: labels.messageShort
+      })
+    )
   })
 
   function onSubmit(values: ContactFormValues) {
     startTransition(async () => {
-      const result = await sendContact(values)
+      const result = await sendContact(values, locale)
 
       if (result.ok) {
         setStatus('success')
         setErrorMessage('')
         reset()
-        toast.success("Message sent — I'll get back to you soon.")
+        toast.success(labels.success)
         return
       }
 
       const message =
         result.error === 'rate_limit'
-          ? 'Too many messages sent recently. Try again later, or email me directly.'
-          : `Something went wrong. Email me directly at ${siteConfig.email} instead.`
+          ? labels.rateLimit
+          : labels.failure.replace('{email}', siteConfig.email)
 
       setStatus('error')
       setErrorMessage(message)
@@ -57,7 +85,7 @@ export function ContactForm() {
     >
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="grid gap-2">
-          <Label htmlFor="contact-name">Name</Label>
+          <Label htmlFor="contact-name">{labels.name}</Label>
           <Input
             id="contact-name"
             aria-invalid={!!errors.name}
@@ -69,7 +97,7 @@ export function ContactForm() {
         </div>
 
         <div className="grid gap-2">
-          <Label htmlFor="contact-email">Email</Label>
+          <Label htmlFor="contact-email">{labels.email}</Label>
           <Input
             id="contact-email"
             type="email"
@@ -83,7 +111,7 @@ export function ContactForm() {
       </div>
 
       <div className="grid gap-2">
-        <Label htmlFor="contact-message">Message</Label>
+        <Label htmlFor="contact-message">{labels.message}</Label>
         <Textarea
           id="contact-message"
           rows={5}
@@ -96,7 +124,7 @@ export function ContactForm() {
       </div>
 
       <div className="hidden" aria-hidden="true">
-        <label htmlFor="contact-company">Company</label>
+        <label htmlFor="contact-company">{labels.company}</label>
         <input
           id="contact-company"
           tabIndex={-1}
@@ -107,7 +135,7 @@ export function ContactForm() {
 
       <div>
         <Button type="submit" disabled={isPending}>
-          {isPending ? 'Sending…' : 'Send message'}
+          {isPending ? labels.sending : labels.send}
         </Button>
 
         <output aria-live="polite" className="mt-2 block text-sm">
@@ -115,9 +143,7 @@ export function ContactForm() {
             <span className="text-destructive">{errorMessage}</span>
           ) : null}
           {status === 'success' ? (
-            <span className="text-muted-foreground">
-              Message sent — I'll get back to you soon.
-            </span>
+            <span className="text-muted-foreground">{labels.success}</span>
           ) : null}
         </output>
       </div>

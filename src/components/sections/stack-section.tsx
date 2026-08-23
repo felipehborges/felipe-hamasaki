@@ -1,35 +1,53 @@
-const groups = [
-  {
-    title: 'Frontend',
-    items: ['TypeScript', 'React', 'Next.js', 'Tailwind CSS', 'Accessibility']
-  },
-  {
-    title: 'Backend & data',
-    items: ['Node.js', 'Express', 'MySQL', 'SQL', 'REST APIs', 'WebSocket']
-  },
-  {
-    title: 'Delivery',
-    items: ['pnpm', 'Biome', 'Git', 'CI/CD', 'Google Cloud']
-  },
-  {
-    title: 'How I work',
-    items: ['System design', 'Design systems', 'Technical writing', 'Mentoring']
-  }
-]
+import { useTranslations } from 'next-intl'
 
 export function StackSection() {
+  const t = useTranslations('Home.stack')
+  const groups = [
+    {
+      title: t('frontend'),
+      items: [
+        'TypeScript',
+        'React',
+        'Next.js',
+        'Tailwind CSS',
+        'Zustand',
+        'React Query'
+      ]
+    },
+    {
+      title: t('backend'),
+      items: ['Node.js', 'Express', 'MySQL', 'SQL', 'REST APIs', 'WebSocket']
+    },
+    {
+      title: t('engineering'),
+      items: [
+        'Git',
+        'Biome',
+        'pnpm',
+        t('componentArchitecture'),
+        t('featureArchitecture')
+      ]
+    },
+    {
+      title: t('collaboration'),
+      items: [
+        t('integrations'),
+        t('technicalWriting'),
+        'Agile / Scrum',
+        t('aiDevelopment')
+      ]
+    }
+  ]
+
   return (
     <section className="portfolio-stack-section" id="stack">
       <div className="portfolio-container portfolio-section">
         <div className="portfolio-section-heading">
           <div>
-            <span className="portfolio-kicker">TOOLKIT</span>
-            <h2>Right tool. Clear reason.</h2>
+            <span className="portfolio-kicker">{t('kicker')}</span>
+            <h2>{t('title')}</h2>
           </div>
-          <p>
-            Technologies I use in production, grouped by the job they do — no
-            arbitrary percentage bars involved.
-          </p>
+          <p>{t('intro')}</p>
         </div>
 
         <div className="portfolio-stack-grid">

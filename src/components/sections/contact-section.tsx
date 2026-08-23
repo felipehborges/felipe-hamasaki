@@ -1,18 +1,21 @@
+import { Link } from '@/i18n/navigation'
 import { siteConfig } from '@/lib/site-config'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 export function ContactSection() {
+  const t = useTranslations('Home.contact')
+
   return (
     <section className="portfolio-contact portfolio-section" id="contact">
       <div className="portfolio-container portfolio-contact-inner">
-        <span className="portfolio-kicker">LET’S BUILD SOMETHING SOLID</span>
+        <span className="portfolio-kicker">{t('kicker')}</span>
         <h2>
-          Need an engineer who speaks
+          {t('titleLine1')}
           <br />
-          product <em>and</em> production?
+          <em>{t('titleLine2')}</em>
         </h2>
 
-        <a className="portfolio-email" href={'mailto:' + siteConfig.email}>
+        <a className="portfolio-email" href={`mailto:${siteConfig.email}`}>
           {siteConfig.email} <span aria-hidden="true">↗</span>
         </a>
 

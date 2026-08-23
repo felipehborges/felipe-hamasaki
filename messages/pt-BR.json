@@ -1,0 +1,219 @@
+{
+  "Metadata": {
+    "role": "Desenvolvedor Full Stack",
+    "siteTitle": "Felipe Hamasaki — Desenvolvedor Full Stack",
+    "description": "Desenvolvedor full stack que cria software operacional confiável para inteligência corporativa e prevenção a fraudes. Aberto a vagas remotas.",
+    "socialDescription": "Software operacional para inteligência, prevenção a fraudes e times distribuídos.",
+    "aboutTitle": "Sobre",
+    "aboutDescription": "Desenvolvedor full stack com forte experiência em frontend, passagem por RH e ensino de inglês e quatro anos criando software operacional.",
+    "workTitle": "Projetos",
+    "workDescription": "Estudos de caso de projetos reais, suas restrições, as decisões por trás deles e o que mudou.",
+    "writingTitle": "Artigos",
+    "writingDescription": "Notas práticas sobre desenvolvimento e manutenção de software, baseadas em trabalho de produção.",
+    "location": "Estado de São Paulo, Brasil"
+  },
+  "Layout": { "skipToContent": "Pular para o conteúdo" },
+  "Header": {
+    "primaryNavigation": "Navegação principal",
+    "home": "Início",
+    "work": "Projetos",
+    "about": "Sobre",
+    "experience": "Experiência",
+    "talk": "Vamos conversar",
+    "emailSubject": "Conversa inicial",
+    "language": "Escolher idioma"
+  },
+  "Footer": {
+    "location": "Estado de São Paulo, Brasil · Trabalho para o mundo todo"
+  },
+  "Home": {
+    "hero": {
+      "status": "ABERTO A VAGAS REMOTAS",
+      "headline": "Eu construo software operacional no qual as pessoas podem confiar durante",
+      "headlineEmphasis": "o turno inteiro.",
+      "lede": "Sou Felipe Hamasaki, desenvolvedor full stack no Brasil. Transformo fluxos complexos de inteligência, rastreamento e prevenção a fraudes em produtos claros e confiáveis.",
+      "bookCall": "Marcar uma conversa",
+      "resume": "Currículo em PDF",
+      "remoteDetails": "Detalhes sobre trabalho remoto",
+      "timeZoneLabel": "FUSO HORÁRIO",
+      "timeZoneValue": "UTC−3 · Horário comercial dos EUA",
+      "englishLabel": "INGLÊS",
+      "englishValue": "Certificado C2 · Ex-professor",
+      "statusLabel": "STATUS",
+      "statusValue": "Aberto a vagas remotas",
+      "codeLine1": "tornando o trabalho",
+      "codeLine2": "complexo mais claro",
+      "codeComment": "// feito para o turno inteiro",
+      "operations": "OPERAÇÕES"
+    },
+    "work": {
+      "kicker": "PROJETOS SELECIONADOS",
+      "title": "Provas, não promessas.",
+      "intro": "Os sistemas de produção são privados. Estes estudos de caso resumidos explicam o problema, minha contribuição e o resultado sem tratar trabalho confidencial como demonstração pública.",
+      "context": "Contexto",
+      "contextFor": "Contexto de {title}",
+      "problem": "Problema",
+      "solution": "Contribuição",
+      "result": "RESULTADO",
+      "projects": {
+        "one": {
+          "title": "Plataforma de inteligência para operações 24/7",
+          "problem": "Analistas precisam conectar rastreamento veicular ao vivo, mapas, buscas avançadas e registros sensíveis sem perder o contexto.",
+          "solution": "Construo e modernizo interfaces em React e Next.js enquanto amplio os serviços em Node.js, Express e MySQL por trás delas.",
+          "result": "≈100 analistas · uso 24/7"
+        },
+        "two": {
+          "title": "Monitoramento de sites de telecom em tempo real",
+          "problem": "Equipes de segurança precisam de uma visão ao vivo dos sites remotos de torres e do hardware que os protege.",
+          "solution": "Ajudei a construir o monitoramento de vídeo, fumaça, acesso e antifurto com WebSocket e polling, integrado a hardware próprio.",
+          "result": "4 tipos de sinais ao vivo"
+        },
+        "three": {
+          "title": "Uma biblioteca de componentes compartilhada entre produtos",
+          "problem": "As interfaces repetiam as mesmas decisões e perdiam consistência conforme a plataforma crescia.",
+          "solution": "Construí e mantive um pacote React privado e introduzi convenções de ferramentas, nomenclatura, releases e documentação.",
+          "result": "≈50 componentes React"
+        }
+      }
+    },
+    "stack": {
+      "kicker": "FERRAMENTAS",
+      "title": "A ferramenta certa. Um motivo claro.",
+      "intro": "Tecnologias que uso em produção, agrupadas pelo trabalho que fazem — sem barras de porcentagem arbitrárias.",
+      "frontend": "Frontend",
+      "backend": "Backend e dados",
+      "engineering": "Prática de engenharia",
+      "collaboration": "Domínio e colaboração",
+      "componentArchitecture": "Arquitetura de componentes",
+      "featureArchitecture": "Arquitetura por features",
+      "integrations": "Integrações com terceiros",
+      "technicalWriting": "Documentação técnica",
+      "aiDevelopment": "Desenvolvimento assistido por IA"
+    },
+    "about": {
+      "kicker": "SOBRE",
+      "titleLine1": "Software claro.",
+      "titleLine2": "Trabalho em equipe franco.",
+      "paragraph1": "Sou desenvolvedor full stack no estado de São Paulo. Construo e modernizo software operacional para inteligência corporativa e prevenção a fraudes, onde a confiabilidade importa porque as pessoas usam o produto o dia todo.",
+      "paragraph2": "Comecei no frontend e hoje trabalho nas duas pontas. Gosto de participar das decisões de produto, deixar os trade-offs explícitos e melhorar as convenções que ajudam um time pequeno a avançar junto.",
+      "paragraph3": "Antes do software, ensinei inglês por dois anos e trabalhei seis anos em RH. A folha de pagamento me ensinou que alguns bugs afetam pessoas de verdade; a sala de aula, a explicar coisas complexas sem me esconder atrás de jargão."
+    },
+    "experience": {
+      "kicker": "EXPERIÊNCIA",
+      "title": "Construído em produção.",
+      "entries": {
+        "fullstack": {
+          "period": "MAR 2025 — ATUALMENTE",
+          "role": "Desenvolvedor Full Stack",
+          "company": "ODEEN — Intelligence for Security",
+          "impact": "Construção de produtos de inteligência e prevenção a fraudes usados 24 horas por cerca de 100 analistas."
+        },
+        "frontend": {
+          "period": "MAI 2023 — FEV 2025",
+          "role": "Desenvolvedor Front-end",
+          "company": "ODEEN — Intelligence for Security",
+          "impact": "Construí e mantive um pacote privado com cerca de 50 componentes React e introduzi convenções adotadas por um time de cinco desenvolvedores."
+        },
+        "junior": {
+          "period": "JAN 2022 — ABR 2023",
+          "role": "Desenvolvedor Front-end Júnior",
+          "company": "ODEEN — Intelligence for Security",
+          "impact": "Construí interfaces responsivas para operadores com React, TypeScript e Tailwind CSS."
+        },
+        "hrAnalyst": {
+          "period": "MAR 2017 — MAR 2021",
+          "role": "Analista de Administração de Pessoal",
+          "company": "Autokiniton (antiga Tower International)",
+          "impact": "Cuidei de folha de pagamento, ponto, admissões, rescisões e relatórios gerenciais em uma fabricante americana."
+        },
+        "hrIntern": {
+          "period": "ABR 2015 — MAR 2017",
+          "role": "Estagiário de Recursos Humanos",
+          "company": "Autokiniton (antiga Tower International)",
+          "impact": "Apoiei a administração de pessoal e construí relatórios e cruzamentos de dados no Excel."
+        },
+        "teacher": {
+          "period": "JAN 2013 — DEZ 2014",
+          "role": "Professor de Inglês",
+          "company": "Skill Idiomas",
+          "impact": "Ensinei inglês do nível básico ao intermediário por dois anos."
+        }
+      }
+    },
+    "contact": {
+      "kicker": "VAMOS CONSTRUIR ALGO SÓLIDO",
+      "titleLine1": "Precisa de um desenvolvedor que entenda",
+      "titleLine2": "produto e produção?"
+    }
+  },
+  "About": {
+    "title": "Sobre",
+    "intro": "Construo e modernizo software operacional para inteligência corporativa e prevenção a fraudes. Cheguei até aqui passando por recursos humanos e uma sala de aula de inglês — e isso importa mais do que pode parecer.",
+    "story1": "Cresci perto de computadores, em grande parte porque meu pai era web designer e jornalista. Sempre gostei de jogos e PCs, mas levei tempo para enxergar software como trabalho, e não apenas como hobby.",
+    "story2": "Ensinei inglês por dois anos e depois passei seis anos em recursos humanos em uma multinacional automotiva americana. Comecei como estagiário e me tornei analista de administração de pessoal, trabalhando com folha, ponto, admissões, rescisões e relatórios gerenciais.",
+    "story3": "A parte de que eu mais gostava era construir relatórios. Passei anos cruzando dados no Excel, entendendo o que cada número significava e apresentando a informação para que outra pessoa pudesse agir. Em 2020, comecei a estudar Python e JavaScript à noite com o objetivo específico de mudar de carreira.",
+    "story4": "Entrei na ODEEN em janeiro de 2022 como desenvolvedor front-end júnior. Passei a desenvolvedor front-end e depois a desenvolvedor full stack, trabalhando com React e Next.js na interface e Node.js, Express e MySQL no backend. Concluí Análise e Desenvolvimento de Sistemas enquanto trabalhava em tempo integral.",
+    "story5": "Os anos de RH são a parte menos óbvia do meu currículo e a que eu mais defenderia. Seis anos de folha ensinam que alguns erros não têm volta, que a pessoa diante de uma interface ruim está tendo um dia pior do que quem a construiu e que documentação só funciona quando é fácil de usar. Hoje construo ferramentas para operadores. É a mesma responsabilidade com entradas diferentes.",
+    "photoAlt": "Felipe Hamasaki quando criança",
+    "photoCaption": "Por volta da época em que computadores ficaram interessantes.",
+    "howIWork": "Como eu trabalho",
+    "work1": "Eu me importo com convenções mais do que muita gente considera razoável. No time atual, ajudei a trocar ESLint por Biome, padronizei pnpm e introduzi um fluxo de branches por release, além de regras de nomenclatura e documentação. Essas mudanças não foram atribuídas a mim e foram adotadas depois de discussão com o time.",
+    "work2": "Gosto de participar das decisões técnicas, deixar alternativas e custos explícitos e depois apoiar a decisão que o time tomar.",
+    "work3": "Uso ferramentas de IA intensamente e sou direto sobre isso. Elas mudaram o volume de trabalho que consigo assumir, mas continuo responsável por entender e revisar o resultado.",
+    "work4": "O inglês faz parte da minha vida profissional desde antes do software: ensinei o idioma por dois anos, usei-o com uma organização nos EUA na indústria automotiva e obtive o certificado EF SET C2 em leitura e compreensão auditiva.",
+    "skills": "Competências",
+    "skillsIntro": "Agrupadas pela profundidade com que realmente as uso, não pela quantidade de nomes que consigo listar.",
+    "daily": "Uso diário",
+    "comfortable": "Uso em produção",
+    "context": "Contexto da plataforma",
+    "componentLibraries": "Bibliotecas de componentes",
+    "featureArchitecture": "Arquitetura por features",
+    "contextNote": "Contexto da plataforma significa exatamente isso: os sistemas em que trabalho usam essas tecnologias e controles, mas infraestrutura, pipelines de entrega e autenticação são responsabilidade de outras pessoas do time.",
+    "resume": "Currículo"
+  },
+  "Resume": {
+    "download": "Baixar currículo",
+    "selectLanguage": "Escolha o idioma do currículo",
+    "english": "English",
+    "portuguese": "Português",
+    "close": "Fechar"
+  },
+  "Work": {
+    "title": "Projetos",
+    "intro": "Estudos de caso de projetos recentes.",
+    "draft": "Rascunho",
+    "repository": "Repositório",
+    "liveDemo": "Demonstração"
+  },
+  "Writing": {
+    "title": "Artigos",
+    "intro": "Notas sobre desenvolvimento de software.",
+    "draft": "Rascunho",
+    "readingTime": "{minutes, plural, one {# min de leitura} other {# min de leitura}}"
+  },
+  "NotFound": {
+    "title": "Página não encontrada",
+    "message": "A página que você procura não existe.",
+    "home": "Ir para o início",
+    "work": "Projetos",
+    "about": "Sobre"
+  },
+  "ContactForm": {
+    "name": "Nome",
+    "email": "E-mail",
+    "message": "Mensagem",
+    "company": "Empresa",
+    "send": "Enviar mensagem",
+    "sending": "Enviando…",
+    "success": "Mensagem enviada — responderei em breve.",
+    "rateLimit": "Muitas mensagens foram enviadas recentemente. Tente mais tarde ou fale comigo por e-mail.",
+    "failure": "Algo deu errado. Envie um e-mail diretamente para {email}.",
+    "nameRequired": "O nome é obrigatório",
+    "emailInvalid": "Digite um e-mail válido",
+    "messageShort": "A mensagem é muito curta"
+  },
+  "OpenGraph": {
+    "caseStudy": "Estudo de caso",
+    "writing": "Artigos"
+  }
+}
