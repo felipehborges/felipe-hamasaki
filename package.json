@@ -8,6 +8,8 @@
   "scripts": {
     "dev": "vinext dev",
     "build": "vinext build",
+    "build:sites": "vinext build",
+    "build:vercel": "next build",
     "start": "vinext start",
     "lint": "next lint"
   },
