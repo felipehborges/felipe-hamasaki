@@ -2,11 +2,15 @@ import { mdxComponents, mdxOptions } from '@/components/content/mdx-components'
 import { Prose } from '@/components/content/prose'
 import { ContactSection } from '@/components/sections/contact-section'
 import { H1 } from '@/components/typography'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
 import { Link } from '@/i18n/navigation'
 import { type AppLocale, routing } from '@/i18n/routing'
 import { absoluteLocalizedUrl, languageAlternates } from '@/i18n/urls'
 import { getAllArticles, getArticleBySlug } from '@/lib/content'
 import { siteConfig } from '@/lib/site-config'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { MDXRemote } from 'next-mdx-remote/rsc'
@@ -89,8 +93,10 @@ export default async function ArticlePage({
         <H1>{entry.frontmatter.title}</H1>
 
         <div className="mt-4 flex flex-wrap items-center gap-4 text-muted-foreground text-sm">
-          <span>{entry.frontmatter.publishedAt}</span>
-          <span>{t('readingTime', { minutes: entry.readingTimeMinutes })}</span>
+          <Badge variant="outline">{entry.frontmatter.publishedAt}</Badge>
+          <Badge variant="secondary">
+            {t('readingTime', { minutes: entry.readingTimeMinutes })}
+          </Badge>
         </div>
 
         <div className="mt-12">
@@ -103,22 +109,24 @@ export default async function ArticlePage({
           </Prose>
         </div>
 
-        <nav className="mt-16 flex items-center justify-between gap-4 border-t pt-6 text-sm">
+        <Separator className="mt-16" />
+        <nav className="flex items-center justify-between gap-4 pt-6 text-sm">
           {previous ? (
-            <Link
-              href={`/writing/${previous.slug}`}
-              className="hover:underline"
-            >
-              ← {previous.frontmatter.title}
-            </Link>
+            <Button asChild variant="ghost">
+              <Link href={`/writing/${previous.slug}`}>
+                <ArrowLeft aria-hidden="true" /> {previous.frontmatter.title}
+              </Link>
+            </Button>
           ) : (
             <span />
           )}
 
           {next ? (
-            <Link href={`/writing/${next.slug}`} className="hover:underline">
-              {next.frontmatter.title} →
-            </Link>
+            <Button asChild variant="ghost">
+              <Link href={`/writing/${next.slug}`}>
+                {next.frontmatter.title} <ArrowRight aria-hidden="true" />
+              </Link>
+            </Button>
           ) : (
             <span />
           )}

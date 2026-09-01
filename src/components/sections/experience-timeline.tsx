@@ -16,24 +16,30 @@ export function ExperienceTimeline() {
       <div className="portfolio-container portfolio-section">
         <div className="portfolio-section-heading portfolio-section-heading-compact">
           <div>
-            <span className="portfolio-kicker">{t('kicker')}</span>
+            <Badge variant="ghost" className="portfolio-kicker p-0">
+              {t('kicker')}
+            </Badge>
             <h2>{t('title')}</h2>
           </div>
         </div>
 
         <div className="portfolio-timeline">
           {experience.map((entry) => (
-            <article className="portfolio-timeline-row" key={entry}>
-              <time>{t(`entries.${entry}.period`)}</time>
-              <div>
-                <h3>{t(`entries.${entry}.role`)}</h3>
-                <span>{t(`entries.${entry}.company`)}</span>
-              </div>
-              <p>{t(`entries.${entry}.impact`)}</p>
-            </article>
+            <Card asChild className="portfolio-timeline-row" key={entry}>
+              <article>
+                <time>{t(`entries.${entry}.period`)}</time>
+                <div>
+                  <h3>{t(`entries.${entry}.role`)}</h3>
+                  <span>{t(`entries.${entry}.company`)}</span>
+                </div>
+                <p>{t(`entries.${entry}.impact`)}</p>
+              </article>
+            </Card>
           ))}
         </div>
       </div>
     </section>
   )
 }
+import { Badge } from '@/components/ui/badge'
+import { Card, CardContent } from '@/components/ui/card'

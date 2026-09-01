@@ -1,5 +1,6 @@
 import { SiteFooter } from '@/components/layout/site-footer'
 import { SiteHeader } from '@/components/layout/site-header'
+import { Button } from '@/components/ui/button'
 import { routing } from '@/i18n/routing'
 import { absoluteLocalizedUrl, languageAlternates } from '@/i18n/urls'
 import { siteConfig } from '@/lib/site-config'
@@ -110,12 +111,12 @@ export default async function RootLayout({
       className={`${inter.variable} ${newsreader.variable} ${jetbrainsMono.variable} dark`}
     >
       <body className="overflow-x-hidden antialiased">
-        <a
-          href="#main-content"
-          className="sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:top-4 focus-visible:left-4 focus-visible:z-50 focus-visible:rounded-md focus-visible:bg-primary focus-visible:px-4 focus-visible:py-2 focus-visible:text-primary-foreground"
+        <Button
+          asChild
+          className="sr-only focus-visible:not-sr-only focus-visible:fixed focus-visible:top-4 focus-visible:left-4 focus-visible:z-50"
         >
-          {t('skipToContent')}
-        </a>
+          <a href="#main-content">{t('skipToContent')}</a>
+        </Button>
         <SiteHeader />
         <main id="main-content">{children}</main>
         <SiteFooter />

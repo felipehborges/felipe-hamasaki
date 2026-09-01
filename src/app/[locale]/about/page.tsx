@@ -1,6 +1,9 @@
 import DownloadResumeButton from '@/components/download-resume-button'
 import { ContactSection } from '@/components/sections/contact-section'
 import { H1, H2, P } from '@/components/typography'
+import { Badge } from '@/components/ui/badge'
+import { Card, CardContent } from '@/components/ui/card'
+import { Separator } from '@/components/ui/separator'
 import { routing } from '@/i18n/routing'
 import { absoluteLocalizedUrl, languageAlternates } from '@/i18n/urls'
 import type { Metadata } from 'next'
@@ -91,21 +94,26 @@ export default function AboutPage() {
             <P>{t('story5')}</P>
           </div>
 
-          <figure className="flex flex-col gap-2">
-            <Image
-              src="/hamasaki/child.png"
-              alt={t('photoAlt')}
-              width={400}
-              height={400}
-              className="rounded-md border border-border"
-            />
-            <figcaption className="text-muted-foreground text-sm">
-              {t('photoCaption')}
-            </figcaption>
-          </figure>
+          <Card asChild>
+            <figure>
+              <CardContent className="flex flex-col gap-3">
+                <Image
+                  src="/hamasaki/child.png"
+                  alt={t('photoAlt')}
+                  width={400}
+                  height={400}
+                  className="rounded-md"
+                />
+                <figcaption className="text-muted-foreground text-sm">
+                  {t('photoCaption')}
+                </figcaption>
+              </CardContent>
+            </figure>
+          </Card>
         </div>
 
-        <div className="mt-16">
+        <Separator className="mt-16" />
+        <div className="mt-8">
           <H2>{t('howIWork')}</H2>
 
           <div className="mt-4 flex max-w-[65ch] flex-col gap-6">
@@ -116,7 +124,8 @@ export default function AboutPage() {
           </div>
         </div>
 
-        <div className="mt-16">
+        <Separator className="mt-16" />
+        <div className="mt-8">
           <H2>{t('skills')}</H2>
 
           <p className="mt-4 max-w-[65ch] text-muted-foreground">
@@ -132,7 +141,13 @@ export default function AboutPage() {
                 <dt className="font-mono text-muted-foreground text-xs uppercase tracking-wide sm:pt-1">
                   {group.label}
                 </dt>
-                <dd className="max-w-[55ch]">{group.items.join(' · ')}</dd>
+                <dd className="flex max-w-[55ch] flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <Badge variant="secondary" key={item}>
+                      {item}
+                    </Badge>
+                  ))}
+                </dd>
               </div>
             ))}
           </dl>
@@ -142,7 +157,8 @@ export default function AboutPage() {
           </p>
         </div>
 
-        <div className="mt-16">
+        <Separator className="mt-16" />
+        <div className="mt-8">
           <H2>{t('resume')}</H2>
           <div className="mt-4">
             <DownloadResumeButton

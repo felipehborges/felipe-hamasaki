@@ -44,7 +44,9 @@ export function StackSection() {
       <div className="portfolio-container portfolio-section">
         <div className="portfolio-section-heading">
           <div>
-            <span className="portfolio-kicker">{t('kicker')}</span>
+            <Badge variant="ghost" className="portfolio-kicker p-0">
+              {t('kicker')}
+            </Badge>
             <h2>{t('title')}</h2>
           </div>
           <p>{t('intro')}</p>
@@ -52,17 +54,25 @@ export function StackSection() {
 
         <div className="portfolio-stack-grid">
           {groups.map((group) => (
-            <div className="portfolio-stack-group" key={group.title}>
-              <h3>{group.title}</h3>
-              <ul>
-                {group.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
+            <Card className="portfolio-stack-group" key={group.title}>
+              <CardHeader className="p-0">
+                <CardTitle asChild>
+                  <h3>{group.title}</h3>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="p-0">
+                <ul>
+                  {group.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>
     </section>
   )
 }
+import { Badge } from '@/components/ui/badge'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'

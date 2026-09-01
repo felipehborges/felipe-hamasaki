@@ -1,5 +1,6 @@
 import { Link } from '@/i18n/navigation'
 import { siteConfig } from '@/lib/site-config'
+import { ArrowUpRight } from 'lucide-react'
 import { useTranslations } from 'next-intl'
 
 export function ContactSection() {
@@ -8,34 +9,44 @@ export function ContactSection() {
   return (
     <section className="portfolio-contact portfolio-section" id="contact">
       <div className="portfolio-container portfolio-contact-inner">
-        <span className="portfolio-kicker">{t('kicker')}</span>
+        <Badge variant="ghost" className="portfolio-kicker p-0">
+          {t('kicker')}
+        </Badge>
         <h2>
           {t('titleLine1')}
           <br />
           <em>{t('titleLine2')}</em>
         </h2>
 
-        <a className="portfolio-email" href={`mailto:${siteConfig.email}`}>
-          {siteConfig.email} <span aria-hidden="true">↗</span>
-        </a>
+        <Button asChild variant="link" className="portfolio-email h-auto p-0">
+          <a href={`mailto:${siteConfig.email}`}>
+            {siteConfig.email} <ArrowUpRight aria-hidden="true" />
+          </a>
+        </Button>
 
         <div className="portfolio-socials">
-          <Link
-            href={siteConfig.links.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            LinkedIn <span aria-hidden="true">↗</span>
-          </Link>
-          <Link
-            href={siteConfig.links.github}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            GitHub <span aria-hidden="true">↗</span>
-          </Link>
+          <Button asChild variant="ghost">
+            <Link
+              href={siteConfig.links.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LinkedIn <ArrowUpRight aria-hidden="true" />
+            </Link>
+          </Button>
+          <Button asChild variant="ghost">
+            <Link
+              href={siteConfig.links.github}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub <ArrowUpRight aria-hidden="true" />
+            </Link>
+          </Button>
         </div>
       </div>
     </section>
   )
 }
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'

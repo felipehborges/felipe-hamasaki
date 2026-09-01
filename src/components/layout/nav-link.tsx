@@ -16,15 +16,18 @@ export function NavLink({
   const isActive = pathname === href
 
   return (
-    <Link
-      href={href}
-      aria-current={isActive ? 'page' : undefined}
+    <Button
+      asChild
+      variant="ghost"
       className={cn(
-        'text-sm transition-colors duration-fast ease-standard hover:text-foreground',
+        'hover:text-foreground',
         isActive ? 'text-foreground' : 'text-muted-foreground'
       )}
     >
-      {children}
-    </Link>
+      <Link href={href} aria-current={isActive ? 'page' : undefined}>
+        {children}
+      </Link>
+    </Button>
   )
 }
+import { Button } from '@/components/ui/button'

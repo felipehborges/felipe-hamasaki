@@ -1,7 +1,13 @@
 'use client'
 
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue
+} from '@/components/ui/select'
 import { type AppLocale, routing } from '@/i18n/routing'
-import type { ChangeEvent } from 'react'
 
 const localeNames: Record<AppLocale, string> = {
   en: 'English',
@@ -24,8 +30,9 @@ export function LanguageSwitcher({
   label: string
   locale: AppLocale
 }) {
-  function changeLocale(event: ChangeEvent<HTMLSelectElement>) {
-    const nextLocale = event.target.value as AppLocale
+  function changeLocale(value: string) {
+    if (!routing.locales.includes(value as AppLocale)) return
+    const nextLocale = value as AppLocale
     const currentPrefix = localePrefixes[locale]
     const logicalPath =
       currentPrefix && window.location.pathname.startsWith(currentPrefix)
@@ -40,15 +47,17 @@ export function LanguageSwitcher({
   }
 
   return (
-    <label className="portfolio-language-switcher">
-      <span className="sr-only">{label}</span>
-      <select aria-label={label} value={locale} onChange={changeLocale}>
+    <Select value={locale} onValueChange={changeLocale}>
+      <SelectTrigger className="portfolio-language-switcher" aria-label={label}>
+        <SelectValue />
+      </SelectTrigger>
+      <SelectContent>
         {routing.locales.map((item) => (
-          <option key={item} value={item}>
+          <SelectItem key={item} value={item}>
             {localeNames[item]}
-          </option>
+          </SelectItem>
         ))}
-      </select>
-    </label>
+      </SelectContent>
+    </Select>
   )
 }

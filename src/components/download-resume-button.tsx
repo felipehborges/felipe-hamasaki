@@ -4,10 +4,10 @@ import {
   Dialog,
   DialogContent,
   DialogHeader,
-  DialogTitle
+  DialogTitle,
+  DialogTrigger
 } from '@/components/ui/dialog'
 import { siteConfig } from '@/lib/site-config'
-import { DialogTrigger } from '@radix-ui/react-dialog'
 import { Download } from 'lucide-react'
 import { Button } from './ui/button'
 
@@ -38,24 +38,30 @@ export default function DownloadResumeButton({
           <DialogTitle>{labels.selectLanguage}</DialogTitle>
         </DialogHeader>
 
-        <div className="flex w-full items-center justify-center gap-4 py-4">
-          <a href={siteConfig.resume.en} download="eng-resume.pdf">
-            <Button
-              variant="secondary"
-              size="lg"
-              className="flex w-40 items-center text-base"
-            >
+        <div className="flex w-full flex-wrap items-center justify-center gap-4 py-4">
+          <Button
+            asChild
+            variant="secondary"
+            size="lg"
+            className="w-40 text-base"
+          >
+            <a href={siteConfig.resume.en} download="eng-resume.pdf">
               <Download />
               {labels.english}
-            </Button>
-          </a>
+            </a>
+          </Button>
 
-          <a href={siteConfig.resume.pt} download="ptbr-resume.pdf">
-            <Button variant="secondary" size="lg" className="w-40 text-base">
+          <Button
+            asChild
+            variant="secondary"
+            size="lg"
+            className="w-40 text-base"
+          >
+            <a href={siteConfig.resume.pt} download="ptbr-resume.pdf">
               <Download />
               {labels.portuguese}
-            </Button>
-          </a>
+            </a>
+          </Button>
         </div>
       </DialogContent>
     </Dialog>

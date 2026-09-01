@@ -201,7 +201,7 @@
   gap: 16px;
 }
 
-.portfolio-language-switcher select {
+.portfolio-language-switcher {
   max-width: 132px;
   min-height: 44px;
   padding: 8px 28px 8px 10px;
@@ -213,8 +213,8 @@
   cursor: pointer;
 }
 
-.portfolio-language-switcher select:hover,
-.portfolio-language-switcher select:focus-visible {
+.portfolio-language-switcher:hover,
+.portfolio-language-switcher:focus-visible {
   border-color: var(--accent);
 }
 

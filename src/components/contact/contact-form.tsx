@@ -1,9 +1,15 @@
 'use client'
 
 import { sendContact } from '@/actions/send-contact'
+import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
+import {
+  Field,
+  FieldError,
+  FieldGroup,
+  FieldLabel
+} from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import type { AppLocale } from '@/i18n/routing'
 import { type ContactFormValues, createContactFormSchema } from '@/lib/schemas'
@@ -81,47 +87,47 @@ export function ContactForm({
     <form
       onSubmit={handleSubmit(onSubmit)}
       noValidate
+      aria-busy={isPending}
       className="mt-10 flex max-w-[65ch] flex-col gap-4"
     >
-      <div className="grid gap-4 sm:grid-cols-2">
-        <div className="grid gap-2">
-          <Label htmlFor="contact-name">{labels.name}</Label>
+      <FieldGroup className="grid gap-4 sm:grid-cols-2">
+        <Field data-invalid={!!errors.name}>
+          <FieldLabel htmlFor="contact-name">{labels.name}</FieldLabel>
           <Input
             id="contact-name"
             aria-invalid={!!errors.name}
+            aria-describedby={errors.name ? 'contact-name-error' : undefined}
             {...register('name')}
           />
-          {errors.name ? (
-            <p className="text-destructive text-sm">{errors.name.message}</p>
-          ) : null}
-        </div>
+          <FieldError id="contact-name-error" errors={[errors.name]} />
+        </Field>
 
-        <div className="grid gap-2">
-          <Label htmlFor="contact-email">{labels.email}</Label>
+        <Field data-invalid={!!errors.email}>
+          <FieldLabel htmlFor="contact-email">{labels.email}</FieldLabel>
           <Input
             id="contact-email"
             type="email"
             aria-invalid={!!errors.email}
+            aria-describedby={errors.email ? 'contact-email-error' : undefined}
             {...register('email')}
           />
-          {errors.email ? (
-            <p className="text-destructive text-sm">{errors.email.message}</p>
-          ) : null}
-        </div>
-      </div>
+          <FieldError id="contact-email-error" errors={[errors.email]} />
+        </Field>
+      </FieldGroup>
 
-      <div className="grid gap-2">
-        <Label htmlFor="contact-message">{labels.message}</Label>
+      <Field data-invalid={!!errors.message}>
+        <FieldLabel htmlFor="contact-message">{labels.message}</FieldLabel>
         <Textarea
           id="contact-message"
           rows={5}
           aria-invalid={!!errors.message}
+          aria-describedby={
+            errors.message ? 'contact-message-error' : undefined
+          }
           {...register('message')}
         />
-        {errors.message ? (
-          <p className="text-destructive text-sm">{errors.message.message}</p>
-        ) : null}
-      </div>
+        <FieldError id="contact-message-error" errors={[errors.message]} />
+      </Field>
 
       <div className="hidden" aria-hidden="true">
         <label htmlFor="contact-company">{labels.company}</label>
@@ -133,20 +139,21 @@ export function ContactForm({
         />
       </div>
 
-      <div>
+      <Field>
         <Button type="submit" disabled={isPending}>
           {isPending ? labels.sending : labels.send}
         </Button>
 
-        <output aria-live="polite" className="mt-2 block text-sm">
-          {status === 'error' ? (
-            <span className="text-destructive">{errorMessage}</span>
-          ) : null}
-          {status === 'success' ? (
-            <span className="text-muted-foreground">{labels.success}</span>
-          ) : null}
-        </output>
-      </div>
+        {status !== 'idle' ? (
+          <Alert variant={status === 'error' ? 'destructive' : 'default'}>
+            <AlertDescription>
+              <output aria-live="polite">
+                {status === 'error' ? errorMessage : labels.success}
+              </output>
+            </AlertDescription>
+          </Alert>
+        ) : null}
+      </Field>
     </form>
   )
 }

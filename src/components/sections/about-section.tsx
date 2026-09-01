@@ -9,7 +9,9 @@ export function AboutSection() {
       id="about"
     >
       <div>
-        <span className="portfolio-kicker">{t('kicker')}</span>
+        <Badge variant="ghost" className="portfolio-kicker p-0">
+          {t('kicker')}
+        </Badge>
         <h2>
           {t('titleLine1')}
           <br />
@@ -25,3 +27,4 @@ export function AboutSection() {
     </section>
   )
 }
+import { Badge } from '@/components/ui/badge'

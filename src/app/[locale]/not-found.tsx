@@ -1,4 +1,5 @@
 import { H1 } from '@/components/typography'
+import { Button } from '@/components/ui/button'
 import { Link } from '@/i18n/navigation'
 import type { AppLocale } from '@/i18n/routing'
 import { hasWork } from '@/lib/content'
@@ -18,17 +19,17 @@ export default async function NotFound() {
       <p className="mt-4 text-muted-foreground">{t('message')}</p>
 
       <div className="mt-8 flex justify-center gap-6">
-        <Link href="/" className="text-sm hover:underline">
-          {t('home')}
-        </Link>
+        <Button asChild variant="outline">
+          <Link href="/">{t('home')}</Link>
+        </Button>
         {showWork ? (
-          <Link href="/work" className="text-sm hover:underline">
-            {t('work')}
-          </Link>
+          <Button asChild>
+            <Link href="/work">{t('work')}</Link>
+          </Button>
         ) : (
-          <Link href="/about" className="text-sm hover:underline">
-            {t('about')}
-          </Link>
+          <Button asChild>
+            <Link href="/about">{t('about')}</Link>
+          </Button>
         )}
       </div>
     </section>

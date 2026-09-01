@@ -1,7 +1,9 @@
 import { LanguageSwitcher } from '@/components/layout/language-switcher'
+import { Button } from '@/components/ui/button'
 import type { AppLocale } from '@/i18n/routing'
 import { localizePath } from '@/i18n/urls'
 import { siteConfig } from '@/lib/site-config'
+import { ArrowUpRight } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 
 export function SiteHeader() {
@@ -14,26 +16,35 @@ export function SiteHeader() {
         className="portfolio-container portfolio-nav"
         aria-label={t('primaryNavigation')}
       >
-        <a
-          className="portfolio-wordmark"
-          href={localizePath('/#top', locale)}
-          aria-label={t('home')}
+        <Button
+          asChild
+          variant="ghost"
+          className="portfolio-wordmark h-auto p-0 hover:bg-transparent"
         >
-          FH<span>.</span>
-        </a>
+          <a href={localizePath('/#top', locale)} aria-label={t('home')}>
+            FH<span>.</span>
+          </a>
+        </Button>
         <div className="portfolio-nav-links">
-          <a href={localizePath('/#work', locale)}>{t('work')}</a>
-          <a href={localizePath('/#about', locale)}>{t('about')}</a>
-          <a href={localizePath('/#experience', locale)}>{t('experience')}</a>
+          <Button asChild variant="ghost" size="sm">
+            <a href={localizePath('/#work', locale)}>{t('work')}</a>
+          </Button>
+          <Button asChild variant="ghost" size="sm">
+            <a href={localizePath('/#about', locale)}>{t('about')}</a>
+          </Button>
+          <Button asChild variant="ghost" size="sm">
+            <a href={localizePath('/#experience', locale)}>{t('experience')}</a>
+          </Button>
         </div>
         <div className="portfolio-nav-actions">
           <LanguageSwitcher label={t('language')} locale={locale} />
-          <a
-            className="portfolio-nav-cta"
-            href={`mailto:${siteConfig.email}?subject=${encodeURIComponent(t('emailSubject'))}`}
-          >
-            {t('talk')} <span aria-hidden="true">↗</span>
-          </a>
+          <Button asChild className="portfolio-nav-cta">
+            <a
+              href={`mailto:${siteConfig.email}?subject=${encodeURIComponent(t('emailSubject'))}`}
+            >
+              {t('talk')} <ArrowUpRight aria-hidden="true" />
+            </a>
+          </Button>
         </div>
       </nav>
     </header>

@@ -2,11 +2,15 @@ import { mdxComponents, mdxOptions } from '@/components/content/mdx-components'
 import { Prose } from '@/components/content/prose'
 import { ContactSection } from '@/components/sections/contact-section'
 import { H1 } from '@/components/typography'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Separator } from '@/components/ui/separator'
 import { Link } from '@/i18n/navigation'
 import { type AppLocale, routing } from '@/i18n/routing'
 import { absoluteLocalizedUrl, languageAlternates } from '@/i18n/urls'
 import { getAllWork, getWorkBySlug } from '@/lib/content'
 import { siteConfig } from '@/lib/site-config'
+import { ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react'
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { MDXRemote } from 'next-mdx-remote/rsc'
@@ -92,30 +96,34 @@ export default async function WorkCaseStudyPage({
         <H1>{entry.frontmatter.title}</H1>
 
         <div className="mt-4 flex flex-wrap items-center gap-4 text-muted-foreground text-sm">
-          <span>{entry.frontmatter.year}</span>
-          <span>{entry.frontmatter.role}</span>
-          <span className="font-mono text-xs">
-            {entry.frontmatter.stack.join(' · ')}
-          </span>
+          <Badge variant="outline">{entry.frontmatter.year}</Badge>
+          <Badge variant="secondary">{entry.frontmatter.role}</Badge>
+          {entry.frontmatter.stack.map((technology) => (
+            <Badge variant="secondary" key={technology}>
+              {technology}
+            </Badge>
+          ))}
           {entry.frontmatter.repo ? (
-            <a
-              href={entry.frontmatter.repo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline"
-            >
-              {t('repository')}
-            </a>
+            <Button asChild variant="outline" size="sm">
+              <a
+                href={entry.frontmatter.repo}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t('repository')} <ExternalLink aria-hidden="true" />
+              </a>
+            </Button>
           ) : null}
           {entry.frontmatter.demo ? (
-            <a
-              href={entry.frontmatter.demo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:underline"
-            >
-              {t('liveDemo')}
-            </a>
+            <Button asChild size="sm">
+              <a
+                href={entry.frontmatter.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {t('liveDemo')} <ExternalLink aria-hidden="true" />
+              </a>
+            </Button>
           ) : null}
         </div>
 
@@ -133,19 +141,24 @@ export default async function WorkCaseStudyPage({
           </Prose>
         </div>
 
-        <nav className="mt-16 flex items-center justify-between gap-4 border-t pt-6 text-sm">
+        <Separator className="mt-16" />
+        <nav className="flex items-center justify-between gap-4 pt-6 text-sm">
           {previous ? (
-            <Link href={`/work/${previous.slug}`} className="hover:underline">
-              ← {previous.frontmatter.title}
-            </Link>
+            <Button asChild variant="ghost">
+              <Link href={`/work/${previous.slug}`}>
+                <ArrowLeft aria-hidden="true" /> {previous.frontmatter.title}
+              </Link>
+            </Button>
           ) : (
             <span />
           )}
 
           {next ? (
-            <Link href={`/work/${next.slug}`} className="hover:underline">
-              {next.frontmatter.title} →
-            </Link>
+            <Button asChild variant="ghost">
+              <Link href={`/work/${next.slug}`}>
+                {next.frontmatter.title} <ArrowRight aria-hidden="true" />
+              </Link>
+            </Button>
           ) : (
             <span />
           )}

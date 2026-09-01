@@ -6,6 +6,7 @@ export function SiteFooter() {
 
   return (
     <footer className="portfolio-footer">
+      <Separator />
       <div className="portfolio-container portfolio-footer-note">
         <span>{t('location')}</span>
         <span>
@@ -15,3 +16,4 @@ export function SiteFooter() {
     </footer>
   )
 }
+import { Separator } from '@/components/ui/separator'
