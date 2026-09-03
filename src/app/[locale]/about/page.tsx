@@ -80,7 +80,7 @@ export default function AboutPage() {
 
   return (
     <>
-      <section className="mx-auto max-w-6xl px-6 py-24 md:px-8 md:py-32">
+      <section className="portfolio-page portfolio-about-page mx-auto max-w-6xl px-6 py-24 md:px-8 md:py-32">
         <H1>{t('title')}</H1>
 
         <p className="mt-4 max-w-[65ch] text-lg">{t('intro')}</p>
@@ -94,7 +94,7 @@ export default function AboutPage() {
             <P>{t('story5')}</P>
           </div>
 
-          <Card asChild>
+          <Card asChild className="portfolio-photo-card">
             <figure>
               <CardContent className="flex flex-col gap-3">
                 <Image
@@ -102,7 +102,7 @@ export default function AboutPage() {
                   alt={t('photoAlt')}
                   width={400}
                   height={400}
-                  className="rounded-md"
+                  className="border-2 border-border"
                 />
                 <figcaption className="text-muted-foreground text-sm">
                   {t('photoCaption')}

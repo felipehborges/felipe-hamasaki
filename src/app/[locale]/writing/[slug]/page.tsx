@@ -89,7 +89,7 @@ export default async function ArticlePage({
         // biome-ignore lint/security/noDangerouslySetInnerHtml: static, internally-defined JSON-LD, no user input
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingJsonLd) }}
       />
-      <article className="mx-auto max-w-6xl px-6 py-24 md:px-8 md:py-32">
+      <article className="portfolio-page portfolio-detail-page mx-auto max-w-6xl px-6 py-24 md:px-8 md:py-32">
         <H1>{entry.frontmatter.title}</H1>
 
         <div className="mt-4 flex flex-wrap items-center gap-4 text-muted-foreground text-sm">

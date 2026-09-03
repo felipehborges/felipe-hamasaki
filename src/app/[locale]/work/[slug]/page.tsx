@@ -92,7 +92,7 @@ export default async function WorkCaseStudyPage({
           __html: JSON.stringify(creativeWorkJsonLd)
         }}
       />
-      <article className="mx-auto max-w-6xl px-6 py-24 md:px-8 md:py-32">
+      <article className="portfolio-page portfolio-detail-page mx-auto max-w-6xl px-6 py-24 md:px-8 md:py-32">
         <H1>{entry.frontmatter.title}</H1>
 
         <div className="mt-4 flex flex-wrap items-center gap-4 text-muted-foreground text-sm">

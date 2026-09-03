@@ -48,7 +48,7 @@ export default async function WritingPage({
   ])
 
   return (
-    <section className="mx-auto max-w-6xl px-6 py-24 md:px-8 md:py-32">
+    <section className="portfolio-page portfolio-list-page mx-auto max-w-6xl px-6 py-24 md:px-8 md:py-32">
       <H1>{t('title')}</H1>
 
       <p className="mt-4 max-w-[65ch] text-muted-foreground">{t('intro')}</p>
@@ -56,7 +56,10 @@ export default async function WritingPage({
       <ol className="mt-12 flex flex-col gap-10">
         {articles.map((entry) => (
           <li key={entry.slug}>
-            <Card asChild className="transition-colors hover:border-primary/50">
+            <Card
+              asChild
+              className="portfolio-list-card transition-colors hover:border-primary/50"
+            >
               <Link
                 href={`/writing/${entry.slug}`}
                 className="group flex flex-col gap-3 p-6"

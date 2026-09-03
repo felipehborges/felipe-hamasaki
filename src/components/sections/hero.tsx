@@ -61,8 +61,13 @@ export function Hero() {
       </div>
 
       <div className="portfolio-hero-art" aria-hidden="true">
+        <div className="portfolio-art-grid" />
         <div className="portfolio-orbit portfolio-orbit-one" />
         <div className="portfolio-orbit portfolio-orbit-two" />
+        <div className="portfolio-sticker portfolio-sticker-ui">UI</div>
+        <div className="portfolio-sticker portfolio-sticker-code">
+          &lt;/&gt;
+        </div>
         <Card className="portfolio-code-card">
           <CardContent className="p-0">
             <div className="portfolio-code-dots">
@@ -85,6 +90,27 @@ export function Hero() {
           <b>24/7</b>
           <span>{t('operations')}</span>
         </Badge>
+      </div>
+
+      <div className="portfolio-marquee" aria-hidden="true">
+        <div className="portfolio-marquee-track">
+          <span>FULL STACK</span>
+          <i>✦</i>
+          <span>DESIGN SYSTEMS</span>
+          <i>✦</i>
+          <span>PRODUCT THINKING</span>
+          <i>✦</i>
+          <span>INTERACTION</span>
+          <i>✦</i>
+          <span>FULL STACK</span>
+          <i>✦</i>
+          <span>DESIGN SYSTEMS</span>
+          <i>✦</i>
+          <span>PRODUCT THINKING</span>
+          <i>✦</i>
+          <span>INTERACTION</span>
+          <i>✦</i>
+        </div>
       </div>
     </section>
   )
