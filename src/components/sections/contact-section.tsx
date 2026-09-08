@@ -1,52 +1,61 @@
-import { Link } from '@/i18n/navigation'
 import { siteConfig } from '@/lib/site-config'
-import { ArrowUpRight } from 'lucide-react'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 
 export function ContactSection() {
-  const t = useTranslations('Home.contact')
-
+  const t = useTranslations('Studio')
+  const hero = useTranslations('Home.hero')
+  const locale = useLocale()
+  const resume =
+    locale === 'pt-BR' ? siteConfig.resume.pt : siteConfig.resume.en
   return (
-    <section className="portfolio-contact portfolio-section" id="contact">
-      <div className="portfolio-container portfolio-contact-inner">
-        <Badge variant="ghost" className="portfolio-kicker p-0">
-          {t('kicker')}
-        </Badge>
-        <h2>
-          {t('titleLine1')}
-          <br />
-          <em>{t('titleLine2')}</em>
-        </h2>
-
-        <Button asChild variant="link" className="portfolio-email h-auto p-0">
-          <a href={`mailto:${siteConfig.email}`}>
-            {siteConfig.email} <ArrowUpRight aria-hidden="true" />
-          </a>
-        </Button>
-
-        <div className="portfolio-socials">
-          <Button asChild variant="ghost">
-            <Link
-              href={siteConfig.links.linkedin}
+    <div className="cc">
+      <section className="studio-contact" id="contact" data-scroll>
+        <div className="cc-inner">
+          <div className="cc-meta">
+            <span>{t('contactSide')}</span>
+            <span>UTC−3 / C2 ENGLISH</span>
+          </div>
+          <h2>
+            {t('contactLine')}
+            <br />
+            <em>{t('contactEmphasis')}</em>
+          </h2>
+          <p>{t('contactNote')}</p>
+          <div className="studio-contact-actions">
+            <a className="studio-email" href={`mailto:${siteConfig.email}`}>
+              {siteConfig.email} <span aria-hidden="true">↗</span>
+            </a>
+            <a
+              className="cc-hard-button"
+              href={resume}
               target="_blank"
               rel="noopener noreferrer"
             >
-              LinkedIn <ArrowUpRight aria-hidden="true" />
-            </Link>
-          </Button>
-          <Button asChild variant="ghost">
-            <Link
-              href={siteConfig.links.github}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub <ArrowUpRight aria-hidden="true" />
-            </Link>
-          </Button>
+              {hero('resume')} <span aria-hidden="true">↓</span>
+            </a>
+          </div>
+          <div className="studio-socials">
+            <div>
+              <a
+                href={siteConfig.links.github}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub ↗
+              </a>
+              <a
+                href={siteConfig.links.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn ↗
+              </a>
+            </div>
+            <a href="#main-content">{t('top')} ↑</a>
+          </div>
         </div>
-      </div>
-    </section>
+        <div className="studio-signoff">{t('humor')}</div>
+      </section>
+    </div>
   )
 }
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
