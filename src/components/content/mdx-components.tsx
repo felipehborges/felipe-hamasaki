@@ -32,7 +32,7 @@ export const mdxComponents: MDXRemoteProps['components'] = {
   h2: ({ className, ...props }: ComponentProps<'h2'>) => (
     <h2
       className={cn(
-        'mt-6 border-border border-b-4 pb-3 font-black font-sans text-h2 uppercase tracking-[-.04em]',
+        'mt-4 border-b font-serif text-h2 tracking-tight',
         className
       )}
       {...props}
@@ -62,7 +62,7 @@ export const mdxComponents: MDXRemoteProps['components'] = {
   img: ({ src, alt }: ComponentProps<'img'>) => {
     if (typeof src !== 'string') return null
     return (
-      <span className="relative block aspect-video w-full overflow-hidden border-3 border-border shadow-[8px_8px_0_var(--brutal-ink)]">
+      <span className="relative block aspect-video w-full overflow-hidden rounded-md border border-border">
         <Image
           src={src}
           alt={alt ?? ''}

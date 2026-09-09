@@ -12,7 +12,9 @@
     "writingDescription": "Notes pratiques sur la création et la maintenance de logiciels, issues du travail en production.",
     "location": "État de São Paulo, Brésil"
   },
-  "Layout": { "skipToContent": "Aller au contenu" },
+  "Layout": {
+    "skipToContent": "Aller au contenu"
+  },
   "Header": {
     "primaryNavigation": "Navigation principale",
     "home": "Accueil",
@@ -29,8 +31,8 @@
   "Home": {
     "hero": {
       "status": "OUVERT AUX POSTES À DISTANCE",
-      "headline": "Je transforme les systèmes complexes en",
-      "headlineEmphasis": "produits clairs.",
+      "headline": "Je crée des logiciels opérationnels fiables pendant",
+      "headlineEmphasis": "toute une journée de travail.",
       "lede": "Je suis Felipe Hamasaki, développeur full stack au Brésil. Je transforme des processus complexes de renseignement, de suivi et de prévention de la fraude en produits clairs et fiables.",
       "bookCall": "Planifier un échange",
       "resume": "CV en PDF",
@@ -212,5 +214,62 @@
     "emailInvalid": "Saisissez une adresse e-mail valide",
     "messageShort": "Le message est trop court"
   },
-  "OpenGraph": { "caseStudy": "Étude de cas", "writing": "Articles" }
+  "OpenGraph": {
+    "caseStudy": "Étude de cas",
+    "writing": "Articles"
+  },
+  "Studio": {
+    "codeSide": "01 / CÔTÉ CODE",
+    "heroLine": "Du code sérieux.",
+    "heroEmphasis": "Des interfaces de caractère.",
+    "heroNote": "Développeur Full Stack TypeScript. Des données côté serveur au détail qui rend une interface évidente.",
+    "scroll": "Voir l’autre côté",
+    "fileComment": "// fiable pendant toute la journée",
+    "codeStatus": "moins de friction, plus de contexte",
+    "workSide": "02 / CÔTÉ INTERFACE",
+    "workLine": "Ça fonctionne.",
+    "workEmphasis": "Et ça se ressent.",
+    "workNote": "Systèmes privés. Problèmes réels. Ma contribution, sans faux tableau de bord pour impressionner.",
+    "details": "Voir le raisonnement",
+    "closeDetails": "Fermer le raisonnement",
+    "tape": "DU CODE SOIGNÉ. DES INTERFACES PENSÉES.",
+    "stackSide": "03 / SOUS LE CAPOT",
+    "stackLine": "De la méthode",
+    "stackEmphasis": "dans le détail.",
+    "stackNote": "TypeScript des deux côtés. Des conventions dans le dépôt. Et une bonne raison pour chaque dépendance.",
+    "terminalLabel": "Terminal interactif",
+    "commandPlaceholder": "help",
+    "commandRun": "Exécuter la commande",
+    "commandReady": "Prêt. Tapez help. Pas besoin de sudo, promis.",
+    "commandHelp": "whoami → à propos | stack → outils | work → projets | contact → contact | clear → effacer",
+    "commandUnknown": "Commande inconnue. Même un terminal a ses limites. Essayez help.",
+    "commandClear": "Terminal effacé. Le parcours professionnel reste ci-dessous.",
+    "commandWho": "Felipe Hamasaki. Développeur Full Stack TypeScript. São Paulo, UTC−3. Anglais C2. Exploration du Design Engineering.",
+    "commandHire": "Permission accordée pour une bonne conversation. Utilisez contact pour commencer.",
+    "aboutSide": "04 / CÔTÉ HUMAIN",
+    "aboutLine": "Avant, je déboguais",
+    "aboutEmphasis": "la paie.",
+    "aboutNote": "Avant de gérer des états React, je travaillais avec de vraies personnes. C’est toujours le cas.",
+    "evolution": "Je suis développeur Full Stack. J’approfondis mon travail en UI, motion et interaction, en avançant vers le Design Engineering, un détail à la fois.",
+    "fullStory": "Toute l’histoire",
+    "cardCode": "SYSTÈMES FIABLES",
+    "cardDesign": "INTERFACES CLAIRES",
+    "cardPeople": "VRAIES PERSONNES",
+    "careerSide": "05 / HISTORIQUE DES VERSIONS",
+    "careerLine": "Sans effacer",
+    "careerEmphasis": "l’historique.",
+    "careerNote": "Anglais → RH → frontend → full stack. Les titres ont changé. L’envie de rendre le travail plus clair, non.",
+    "contactSide": "06 / PROCHAIN COMMIT",
+    "contactLine": "Sortons une bonne",
+    "contactEmphasis": "idée du backlog.",
+    "contactNote": "Ouvert aux postes à distance. Anglais C2, UTC−3, et toujours partant pour parler produit, code et détails.",
+    "flip": "Voir le côté code",
+    "flipBack": "Revenir au résultat",
+    "proofLabel": "BIBLIOTHÈQUE PRIVÉE / IMPACT RÉEL",
+    "proofCaption": "Composants partagés entre produits",
+    "proofCodeNote": "Représentation conceptuelle. Le code privé reste privé.",
+    "top": "Retour en haut",
+    "status": "en production",
+    "humor": "Ça marche sur ma machine. Et toute la journée."
+  }
 }

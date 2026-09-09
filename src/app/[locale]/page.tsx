@@ -1,9 +1,4 @@
-import { AboutSection } from '@/components/sections/about-section'
-import { ContactSection } from '@/components/sections/contact-section'
-import { ExperienceTimeline } from '@/components/sections/experience-timeline'
-import { Hero } from '@/components/sections/hero'
-import { SelectedWork } from '@/components/sections/selected-work'
-import { StackSection } from '@/components/sections/stack-section'
+import { CodeColorHome } from '@/components/studio/code-color-home'
 import { routing } from '@/i18n/routing'
 import { absoluteLocalizedUrl, languageAlternates } from '@/i18n/urls'
 import { siteConfig } from '@/lib/site-config'
@@ -70,12 +65,7 @@ export default async function Home({
         // biome-ignore lint/security/noDangerouslySetInnerHtml: static, internally-defined JSON-LD, no user input
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
       />
-      <Hero />
-      <SelectedWork />
-      <StackSection />
-      <AboutSection />
-      <ExperienceTimeline />
-      <ContactSection />
+      <CodeColorHome />
     </>
   )
 }

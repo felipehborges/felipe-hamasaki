@@ -10,7 +10,7 @@ export function H1({ children, className }: TypographyProps) {
   return (
     <h1
       className={cn(
-        'text-balance font-black font-sans text-display uppercase leading-[.95] tracking-[-.06em]',
+        'text-balance font-serif text-display tracking-tight',
         className
       )}
     >
@@ -23,7 +23,7 @@ export function H2({ children, className }: TypographyProps) {
   return (
     <h2
       className={cn(
-        'text-balance border-border border-b-4 pb-3 font-black font-sans text-h2 uppercase tracking-[-.04em] first:mt-0',
+        'text-balance border-b font-serif text-h2 tracking-tight first:mt-0',
         className
       )}
     >
@@ -63,12 +63,7 @@ export function P({ children, className }: TypographyProps) {
 
 export function Blockquote({ children, className }: TypographyProps) {
   return (
-    <blockquote
-      className={cn(
-        'border-primary border-l-8 bg-[var(--brutal-yellow)] p-6 font-bold text-[var(--brutal-ink)] text-lg not-italic shadow-[4px_4px_0_var(--brutal-ink)]',
-        className
-      )}
-    >
+    <blockquote className={cn('border-l-2 pl-6 text-lg italic', className)}>
       {children}
     </blockquote>
   )
