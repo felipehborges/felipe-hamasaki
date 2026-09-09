@@ -1,8 +1,8 @@
+const configuredSiteUrl = process.env.NEXT_PUBLIC_SITE_URL?.trim()
+
 export const siteConfig = {
   name: 'Felipe Hamasaki',
-  url:
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    'https://felipe-hamasaki.fehamasaki.chatgpt.site',
+  url: configuredSiteUrl || 'https://hamasaki.dev',
   email: 'felipehama@gmail.com',
   links: {
     github: 'https://github.com/felipehborges',
