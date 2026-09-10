@@ -7,6 +7,10 @@
 
 @custom-variant dark (&:is(.dark *));
 
+.prisma-hero .noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23fff' filter='url(%23noise)' d='M0 0h180v180H0z'/%3E%3C/svg%3E");
+}
+
 :root {
   --bg: #080d09;
   --bg-subtle: #101b13;

@@ -1,41 +1,14 @@
 import { ContactSection } from '@/components/sections/contact-section'
-import { Sculpture } from '@/components/studio/sculpture'
+import { PrismaHero } from '@/components/ui/prisma-hero'
 import { useTranslations } from 'next-intl'
 
 export function CodeColorHome() {
   const t = useTranslations('Portfolio')
   return (
     <div className="folio">
-      <section className="folio-hero folio-container" id="top">
-        <div className="hero-topline">
-          <span>FELIPE HAMASAKI</span>
-          <span>{t('availability')}</span>
-        </div>
-        <div className="hero-composition">
-          <div className="hero-copy">
-            <p className="hero-role">{t('role')}</p>
-            <h1>
-              {t('headline')}
-              <br />
-              <em>{t('headlineAccent')}</em>
-              <span className="terminal-caret" aria-hidden="true">
-                _
-              </span>
-            </h1>
-            <p className="hero-description">{t('intro')}</p>
-            <a href="#work" className="folio-link">
-              {t('seeWork')} <span aria-hidden="true">↘</span>
-            </a>
-          </div>
-          <Sculpture labels={{ pause: t('pause'), play: t('play') }} />
-        </div>
-        <div className="hero-baseline">
-          <span>React · TypeScript · Next.js</span>
-          <span>
-            São Paulo, BR <span aria-hidden="true">↗</span>
-          </span>
-        </div>
-      </section>
+      <div id="top">
+        <PrismaHero />
+      </div>
       <section className="folio-work folio-container" id="work">
         <div className="section-heading">
           <h2>{t('projects')}</h2>
