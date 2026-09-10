@@ -331,3 +331,15 @@ uma revelação sutil na primeira dobra. Todo movimento respeita `prefers-reduce
 - Conteúdo imediatamente legível ao rolar.
 - `motion` continua no projeto para micro-interações. Reavaliar na F5: se restar pouco
   uso, substituir por transições CSS e remover a dependência.
+
+## ADR-012 · Portfólio conciso com três direções para comparação
+
+**Status:** Implementado para avaliação · 2026-09-09
+
+**Contexto.** O proprietário pediu menos texto, foco em frontend e evolução para Design Engineering, atendendo tanto empresas quanto clientes. Segurança, antifraude e operação 24/7 deixam de definir o posicionamento. O proprietário está aprendendo design; o site não deve apresentá-lo como designer consolidado.
+
+**Decisão.** Uma home curta com apresentação, projetos em andamento, bio e contato. Seletor na navbar alterna Terminal, Colorido e Essencial (padrão inicial), mantendo conteúdo idêntico e salvando a preferência localmente. Cada direção tem tipografia, composição e acabamento próprios. Cena geométrica 3D em Three.js, carregada separadamente, com pausa, respeito a movimento reduzido e alternativa estática quando WebGL não está disponível. Nenhuma troca de domínio de carreira deve ser inferida a partir do empregador.
+
+**Substitui.** ADR-005 (direção única), ADR-008 (proibição de 3D) e a limitação de movimento da ADR-010 para esta comparação. O movimento decorativo não bloqueia leitura. A afirmação antiga de autoria de cerca de 50 componentes foi corrigida conforme hamasaki-career. A trajetória extensa permanece no currículo; /about também foi simplificada. Os quatro idiomas existentes foram preservados.
+
+**Pendente.** Escolha visual definitiva após avaliação do proprietário; projetos reais serão adicionados quando ele os selecionar. A comparação foi preparada localmente; esta solicitação não incluiu publicação.

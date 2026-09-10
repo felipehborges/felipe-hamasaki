@@ -1,11 +1,11 @@
 {
   "Metadata": {
-    "role": "Desenvolvedor Full Stack",
-    "siteTitle": "Felipe Hamasaki — Desenvolvedor Full Stack",
-    "description": "Desenvolvedor full stack que cria software operacional confiável para inteligência corporativa e prevenção a fraudes. Aberto a vagas remotas.",
-    "socialDescription": "Software operacional para inteligência, prevenção a fraudes e times distribuídos.",
+    "role": "Frontend & Full Stack Developer",
+    "siteTitle": "Felipe Hamasaki — Frontend & Full Stack Developer",
+    "description": "Felipe Hamasaki. Desenvolvedor focado em frontend, com experiência full stack e em evolução para Design Engineering. Aberto a vagas e projetos.",
+    "socialDescription": "Felipe Hamasaki. Desenvolvedor focado em frontend, com experiência full stack e em evolução para Design Engineering. Aberto a vagas e projetos.",
     "aboutTitle": "Sobre",
-    "aboutDescription": "Desenvolvedor full stack com forte experiência em frontend, passagem por RH e ensino de inglês e quatro anos criando software operacional.",
+    "aboutDescription": "Sou Felipe, desenvolvedor com base em frontend e experiência full stack. Hoje estudo design e evoluo para Design Engineering.",
     "workTitle": "Projetos",
     "workDescription": "Estudos de caso de projetos reais, suas restrições, as decisões por trás deles e o que mudou.",
     "writingTitle": "Artigos",
@@ -26,7 +26,7 @@
     "language": "Escolher idioma"
   },
   "Footer": {
-    "location": "Estado de São Paulo, Brasil · Trabalho para o mundo todo"
+    "location": "São Paulo, Brasil · Inglês profissional"
   },
   "Home": {
     "hero": {
@@ -73,8 +73,8 @@
         "three": {
           "title": "Uma biblioteca de componentes compartilhada entre produtos",
           "problem": "As interfaces repetiam as mesmas decisões e perdiam consistência conforme a plataforma crescia.",
-          "solution": "Construí e mantive um pacote React privado e introduzi convenções de ferramentas, nomenclatura, releases e documentação.",
-          "result": "≈50 componentes React"
+          "solution": "Contribuí com componentes React para a biblioteca interna e introduzi convenções de ferramentas e documentação.",
+          "result": "Componentes compartilhados"
         }
       }
     },
@@ -114,7 +114,7 @@
           "period": "MAI 2023 — FEV 2025",
           "role": "Desenvolvedor Front-end",
           "company": "ODEEN — Intelligence for Security",
-          "impact": "Construí e mantive um pacote privado com cerca de 50 componentes React e introduzi convenções adotadas por um time de cinco desenvolvedores."
+          "impact": "Contribuí com componentes React para a biblioteca interna e introduzi convenções de ferramentas e documentação."
         },
         "junior": {
           "period": "JAN 2022 — ABR 2023",
@@ -150,7 +150,7 @@
   },
   "About": {
     "title": "Sobre",
-    "intro": "Construo e modernizo software operacional para inteligência corporativa e prevenção a fraudes. Cheguei até aqui passando por recursos humanos e uma sala de aula de inglês — e isso importa mais do que pode parecer.",
+    "intro": "Sou Felipe, desenvolvedor com base em frontend e experiência full stack. Hoje estudo design e evoluo para Design Engineering.",
     "story1": "Cresci perto de computadores, em grande parte porque meu pai era web designer e jornalista. Sempre gostei de jogos e PCs, mas levei tempo para enxergar software como trabalho, e não apenas como hobby.",
     "story2": "Ensinei inglês por dois anos e depois passei seis anos em recursos humanos em uma multinacional automotiva americana. Comecei como estagiário e me tornei analista de administração de pessoal, trabalhando com folha, ponto, admissões, rescisões e relatórios gerenciais.",
     "story3": "A parte de que eu mais gostava era construir relatórios. Passei anos cruzando dados no Excel, entendendo o que cada número significava e apresentando a informação para que outra pessoa pudesse agir. Em 2020, comecei a estudar Python e JavaScript à noite com o objetivo específico de mudar de carreira.",
@@ -271,5 +271,28 @@
     "top": "Voltar ao início",
     "status": "em produção",
     "humor": "Funciona na minha máquina. E no turno inteiro."
+  },
+  "Portfolio": {
+    "styleLabel": "Estilo visual",
+    "terminal": "Terminal",
+    "color": "Colorido",
+    "minimal": "Essencial",
+    "availability": "Aberto a vagas e projetos",
+    "role": "Frontend & Full Stack Developer",
+    "headline": "Código preciso.",
+    "headlineAccent": "Olhar criativo.",
+    "intro": "Construo interfaces para a web. Estou aprofundando meu trabalho em design, movimento e interação.",
+    "seeWork": "Explorar projetos",
+    "projects": "Projetos",
+    "inProgress": "Em andamento",
+    "projectNote": "Uma seleção de projetos está tomando forma.",
+    "about": "Um pouco sobre mim",
+    "bio": "Sou Felipe, desenvolvedor com base em frontend e experiência full stack. Hoje estudo design e evoluo para Design Engineering.",
+    "personal": "Antes do código, ensinei inglês. Continuo gostando de tornar as coisas mais claras.",
+    "contact": "Contato",
+    "letsTalk": "Vamos criar algo?",
+    "resume": "Currículo",
+    "pause": "Pausar movimento",
+    "play": "Retomar movimento"
   }
 }

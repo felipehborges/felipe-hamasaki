@@ -1,13 +1,13 @@
 import { LanguageSwitcher } from '@/components/layout/language-switcher'
+import { StyleSwitcher } from '@/components/studio/portfolio-style'
 import { Button } from '@/components/ui/button'
 import type { AppLocale } from '@/i18n/routing'
 import { localizePath } from '@/i18n/urls'
-import { siteConfig } from '@/lib/site-config'
-import { ArrowUpRight } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
 
 export function SiteHeader() {
   const t = useTranslations('Header')
+  const style = useTranslations('Portfolio')
   const locale = useLocale() as AppLocale
 
   return (
@@ -33,18 +33,19 @@ export function SiteHeader() {
             <a href={localizePath('/#about', locale)}>{t('about')}</a>
           </Button>
           <Button asChild variant="ghost" size="sm">
-            <a href={localizePath('/#experience', locale)}>{t('experience')}</a>
+            <a href={localizePath('/#contact', locale)}>{t('talk')}</a>
           </Button>
         </div>
         <div className="portfolio-nav-actions">
+          <StyleSwitcher
+            labels={{
+              styleLabel: style('styleLabel'),
+              terminal: style('terminal'),
+              color: style('color'),
+              minimal: style('minimal')
+            }}
+          />
           <LanguageSwitcher label={t('language')} locale={locale} />
-          <Button asChild className="portfolio-nav-cta">
-            <a
-              href={`mailto:${siteConfig.email}?subject=${encodeURIComponent(t('emailSubject'))}`}
-            >
-              {t('talk')} <ArrowUpRight aria-hidden="true" />
-            </a>
-          </Button>
         </div>
       </nav>
     </header>

@@ -1,11 +1,11 @@
 {
   "Metadata": {
-    "role": "Développeur Full Stack",
-    "siteTitle": "Felipe Hamasaki — Développeur Full Stack",
-    "description": "Développeur full stack créant des logiciels opérationnels fiables pour le renseignement d’entreprise et la prévention de la fraude. Ouvert au télétravail.",
-    "socialDescription": "Logiciels opérationnels pour le renseignement, la prévention de la fraude et les équipes distribuées.",
+    "role": "Frontend & Full Stack Developer",
+    "siteTitle": "Felipe Hamasaki — Frontend & Full Stack Developer",
+    "description": "Felipe Hamasaki. Développeur orienté frontend avec une expérience full stack, en évolution vers le Design Engineering. Ouvert aux postes et projets.",
+    "socialDescription": "Felipe Hamasaki. Développeur orienté frontend avec une expérience full stack, en évolution vers le Design Engineering. Ouvert aux postes et projets.",
     "aboutTitle": "À propos",
-    "aboutDescription": "Développeur full stack avec une solide expérience frontend, un parcours en RH et dans l’enseignement de l’anglais, et quatre ans dans le logiciel opérationnel.",
+    "aboutDescription": "Je suis Felipe, développeur orienté frontend avec une expérience full stack. J’étudie le design et évolue vers le Design Engineering.",
     "workTitle": "Projets",
     "workDescription": "Études de cas de projets réels, de leurs contraintes, des décisions prises et de ce qui a changé.",
     "writingTitle": "Articles",
@@ -26,7 +26,7 @@
     "language": "Choisir la langue"
   },
   "Footer": {
-    "location": "État de São Paulo, Brésil · Collaboration dans le monde entier"
+    "location": "São Paulo, Brésil · Anglais professionnel"
   },
   "Home": {
     "hero": {
@@ -73,8 +73,8 @@
         "three": {
           "title": "Une bibliothèque de composants partagée entre les produits",
           "problem": "Les interfaces répétaient les mêmes décisions et perdaient en cohérence à mesure que la plateforme grandissait.",
-          "solution": "J’ai créé et maintenu un package React privé et introduit des conventions communes pour les outils, les noms, les versions et la documentation.",
-          "result": "≈50 composants React"
+          "solution": "J’ai contribué des composants React à la bibliothèque interne et introduit des conventions d’outillage et de documentation.",
+          "result": "Composants partagés"
         }
       }
     },
@@ -114,7 +114,7 @@
           "period": "MAI 2023 — FÉV. 2025",
           "role": "Développeur Frontend",
           "company": "ODEEN — Intelligence for Security",
-          "impact": "Création et maintenance d’un package privé d’environ 50 composants React et mise en place de conventions adoptées par une équipe de cinq développeurs."
+          "impact": "J’ai contribué des composants React à la bibliothèque interne et introduit des conventions d’outillage et de documentation."
         },
         "junior": {
           "period": "JANV. 2022 — AVR. 2023",
@@ -150,7 +150,7 @@
   },
   "About": {
     "title": "À propos",
-    "intro": "Je crée et modernise des logiciels opérationnels pour le renseignement d’entreprise et la prévention de la fraude. J’y suis arrivé en passant par les ressources humaines et une salle de classe d’anglais, ce qui compte plus qu’il n’y paraît.",
+    "intro": "Je suis Felipe, développeur orienté frontend avec une expérience full stack. J’étudie le design et évolue vers le Design Engineering.",
     "story1": "J’ai grandi entouré d’ordinateurs, en grande partie parce que mon père était web designer et journaliste. Les jeux et les PC m’ont toujours attiré, mais il m’a fallu du temps pour voir le logiciel comme un métier plutôt que comme un simple loisir.",
     "story2": "J’ai enseigné l’anglais pendant deux ans, puis travaillé six ans dans les ressources humaines d’une multinationale automobile américaine. J’ai commencé comme stagiaire avant de devenir analyste en administration du personnel, chargé de la paie, des temps, des arrivées, des départs et des rapports de gestion.",
     "story3": "Ce que je préférais dans ce travail, c’était créer les rapports. J’ai passé des années à croiser des données dans Excel, à comprendre ce qu’un chiffre signifiait et à le présenter pour permettre à quelqu’un d’agir. En 2020, j’ai commencé à étudier Python et JavaScript le soir avec l’objectif précis de changer de métier.",
@@ -271,5 +271,28 @@
     "top": "Retour en haut",
     "status": "en production",
     "humor": "Ça marche sur ma machine. Et toute la journée."
+  },
+  "Portfolio": {
+    "styleLabel": "Style visuel",
+    "terminal": "Terminal",
+    "color": "Couleur",
+    "minimal": "Essentiel",
+    "availability": "Ouvert aux postes et projets",
+    "role": "Frontend & Full Stack Developer",
+    "headline": "Code précis.",
+    "headlineAccent": "Regard créatif.",
+    "intro": "Je crée des interfaces pour le web. J’approfondis mon travail en design, en mouvement et en interaction.",
+    "seeWork": "Voir les projets",
+    "projects": "Projets",
+    "inProgress": "En cours",
+    "projectNote": "Une sélection de projets prend forme.",
+    "about": "Quelques mots sur moi",
+    "bio": "Je suis Felipe, développeur orienté frontend avec une expérience full stack. J’étudie le design et évolue vers le Design Engineering.",
+    "personal": "Avant le code, j’enseignais l’anglais. J’aime toujours rendre les choses plus claires.",
+    "contact": "Contact",
+    "letsTalk": "Créons quelque chose.",
+    "resume": "CV",
+    "pause": "Suspendre le mouvement",
+    "play": "Reprendre le mouvement"
   }
 }

@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "./code-color.css";
 @import "./studio.css";
+@import "./portfolio.css";
 
 @plugin "tailwindcss-animate";
 
