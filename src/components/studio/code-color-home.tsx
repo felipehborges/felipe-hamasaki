@@ -1,70 +1,109 @@
-import { ContactSection } from '@/components/sections/contact-section'
-import { Sculpture } from '@/components/studio/sculpture'
+import {
+  LocalTime,
+  Playground,
+  TiltCard
+} from '@/components/studio/minimal-interactions'
+import { siteConfig } from '@/lib/site-config'
 import { useTranslations } from 'next-intl'
 
+const projectKeys = ['one', 'two', 'three'] as const
+const experienceKeys = ['fullstack', 'frontend', 'junior'] as const
+const projectTools = [
+  'TypeScript · React · Next.js · Node',
+  'React · WebSocket · Real time',
+  'TypeScript · React · UI · Docs'
+] as const
+
 export function CodeColorHome() {
-  const t = useTranslations('Portfolio')
+  const home = useTranslations('Home')
+  const portfolio = useTranslations('Portfolio')
+  const design = useTranslations('Design')
+  const headlineAccent = portfolio('headlineAccent').replace(/[.!?]+$/, '')
+
   return (
-    <div className="folio">
-      <section className="folio-hero folio-container" id="top">
-        <div className="hero-topline">
-          <span>FELIPE HAMASAKI</span>
-          <span>{t('availability')}</span>
-        </div>
-        <div className="hero-composition">
-          <div className="hero-copy">
-            <p className="hero-role">{t('role')}</p>
-            <h1>
-              {t('headline')}
-              <br />
-              <em>{t('headlineAccent')}</em>
-              <span className="terminal-caret" aria-hidden="true">
-                _
-              </span>
-            </h1>
-            <p className="hero-description">{t('intro')}</p>
-            <a href="#work" className="folio-link">
-              {t('seeWork')} <span aria-hidden="true">↘</span>
+    <div className="minimal-site">
+      <div className="minimal-container">
+        <section className="minimal-hero" id="top">
+          <h1>
+            Felipe Hamasaki — {portfolio('headline')} {headlineAccent}
+            <span className="minimal-period">.</span>
+            <span className="minimal-caret" aria-hidden="true" />
+          </h1>
+          <p>{portfolio('intro')}</p>
+          <div className="minimal-links">
+            <a className="minimal-email" href={`mailto:${siteConfig.email}`}>
+              {siteConfig.email} <span aria-hidden="true">↗</span>
+            </a>
+            <a href={siteConfig.links.github} target="_blank" rel="noreferrer">
+              GitHub
+            </a>
+            <a
+              href={siteConfig.links.linkedin}
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn
             </a>
           </div>
-          <Sculpture labels={{ pause: t('pause'), play: t('play') }} />
-        </div>
-        <div className="hero-baseline">
-          <span>React · TypeScript · Next.js</span>
-          <span>
-            São Paulo, BR <span aria-hidden="true">↗</span>
-          </span>
-        </div>
-      </section>
-      <section className="folio-work folio-container" id="work">
-        <div className="section-heading">
-          <h2>{t('projects')}</h2>
-          <span>01</span>
-        </div>
-        <div className="project-placeholder">
-          <div className="project-mark" aria-hidden="true">
-            ↗
+        </section>
+
+        <section className="minimal-section" id="work">
+          <div className="minimal-label">{home('work.kicker')}</div>
+          <div className="minimal-projects">
+            {projectKeys.map((key, index) => (
+              <article className="minimal-project" key={key}>
+                <TiltCard label={design('screenshot')}>
+                  <span>{home(`work.projects.${key}.result`)}</span>
+                </TiltCard>
+                <div className="minimal-project-copy">
+                  <h2>{home(`work.projects.${key}.title`)}</h2>
+                  <p>{home(`work.projects.${key}.solution`)}</p>
+                </div>
+                <p className="minimal-project-tools">{projectTools[index]}</p>
+              </article>
+            ))}
           </div>
-          <div>
-            <h3>{t('inProgress')}</h3>
-            <p>{t('projectNote')}</p>
+        </section>
+
+        <section className="minimal-section" id="about">
+          <div className="minimal-label">{home('about.kicker')}</div>
+          <p className="minimal-about-copy">{home('about.paragraph1')}</p>
+          <div className="minimal-experience">
+            {experienceKeys.map((key) => (
+              <article key={key}>
+                <strong>{home(`experience.entries.${key}.role`)}</strong>
+                <span>{home(`experience.entries.${key}.company`)}</span>
+                <time>{home(`experience.entries.${key}.period`)}</time>
+              </article>
+            ))}
           </div>
-          <span className="project-index" aria-hidden="true">
-            (—)
+        </section>
+
+        <section className="minimal-section" id="playground">
+          <div className="minimal-label minimal-label-split">
+            <span>{design('playground')}</span>
+            <span>{design('live')}</span>
+          </div>
+          <Playground
+            labels={{
+              magnetic: design('magnetic'),
+              pull: design('pull'),
+              springSwitch: design('springSwitch'),
+              elasticTabs: design('elasticTabs'),
+              design: design('design'),
+              build: design('build'),
+              ship: design('ship')
+            }}
+          />
+        </section>
+
+        <footer className="minimal-inline-footer">
+          <span>© {new Date().getFullYear()} Felipe Hamasaki</span>
+          <span className="minimal-location">
+            <i /> São Paulo <LocalTime />
           </span>
-        </div>
-      </section>
-      <section className="folio-about folio-container" id="about">
-        <div className="section-heading">
-          <h2>{t('about')}</h2>
-          <span>02</span>
-        </div>
-        <div className="about-copy">
-          <p>{t('bio')}</p>
-          <span>{t('personal')}</span>
-        </div>
-      </section>
-      <ContactSection />
+        </footer>
+      </div>
     </div>
   )
 }

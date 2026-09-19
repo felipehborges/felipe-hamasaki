@@ -218,6 +218,20 @@
     "caseStudy": "Case study",
     "writing": "Writing"
   },
+  "Design": {
+    "play": "Play",
+    "email": "Email",
+    "screenshot": "project",
+    "playground": "Playground",
+    "live": "live",
+    "magnetic": "Magnetic",
+    "pull": "Pull me",
+    "springSwitch": "Spring switch",
+    "elasticTabs": "Elastic tabs",
+    "design": "Design",
+    "build": "Build",
+    "ship": "Ship"
+  },
   "Studio": {
     "codeSide": "01 / CODE SIDE",
     "heroLine": "Serious code.",

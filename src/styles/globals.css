@@ -2,6 +2,7 @@
 @import "./code-color.css";
 @import "./studio.css";
 @import "./portfolio.css";
+@import "./claude-design.css";
 
 @plugin "tailwindcss-animate";
 

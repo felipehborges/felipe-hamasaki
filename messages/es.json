@@ -218,6 +218,20 @@
     "caseStudy": "Caso de estudio",
     "writing": "Artículos"
   },
+  "Design": {
+    "play": "Interacciones",
+    "email": "Email",
+    "screenshot": "proyecto",
+    "playground": "Interacciones",
+    "live": "en vivo",
+    "magnetic": "Magnético",
+    "pull": "Atráeme",
+    "springSwitch": "Interruptor elástico",
+    "elasticTabs": "Pestañas elásticas",
+    "design": "Diseño",
+    "build": "Código",
+    "ship": "Entrega"
+  },
   "Studio": {
     "codeSide": "01 / LADO CÓDIGO",
     "heroLine": "Código serio.",
