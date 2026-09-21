@@ -230,7 +230,9 @@
     "elasticTabs": "Elastic tabs",
     "design": "Design",
     "build": "Build",
-    "ship": "Ship"
+    "ship": "Ship",
+    "terminalMode": "Turn on terminal mode",
+    "lightMode": "Turn on light mode"
   },
   "Studio": {
     "codeSide": "01 / CODE SIDE",

@@ -230,7 +230,9 @@
     "elasticTabs": "Abas elásticas",
     "design": "Design",
     "build": "Código",
-    "ship": "Entrega"
+    "ship": "Entrega",
+    "terminalMode": "Ativar modo terminal",
+    "lightMode": "Ativar modo claro"
   },
   "Studio": {
     "codeSide": "01 / LADO CÓDIGO",

@@ -230,7 +230,9 @@
     "elasticTabs": "Onglets élastiques",
     "design": "Design",
     "build": "Code",
-    "ship": "Livraison"
+    "ship": "Livraison",
+    "terminalMode": "Activer le mode terminal",
+    "lightMode": "Activer le mode clair"
   },
   "Studio": {
     "codeSide": "01 / CÔTÉ CODE",

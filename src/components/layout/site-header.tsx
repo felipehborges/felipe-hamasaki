@@ -1,4 +1,5 @@
 import { LanguageSwitcher } from '@/components/layout/language-switcher'
+import { ThemeToggle } from '@/components/layout/theme-toggle'
 import type { AppLocale } from '@/i18n/routing'
 import { localizePath } from '@/i18n/urls'
 import { siteConfig } from '@/lib/site-config'
@@ -23,6 +24,10 @@ export function SiteHeader() {
           <a href={localizePath('/#about', locale)}>{t('about')}</a>
           <a href={localizePath('/#playground', locale)}>{design('play')}</a>
           <a href={`mailto:${siteConfig.email}`}>{design('email')}</a>
+          <ThemeToggle
+            lightLabel={design('lightMode')}
+            terminalLabel={design('terminalMode')}
+          />
           <LanguageSwitcher label={t('language')} locale={locale} compact />
         </div>
       </nav>

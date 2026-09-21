@@ -1,22 +1,49 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
-import { Moon, Sun } from 'lucide-react'
-import { useTheme } from 'next-themes'
+import { Sun, Terminal } from 'lucide-react'
+import { useEffect, useState } from 'react'
 
-export function ThemeToggle(props: { className?: string }) {
-  const { setTheme } = useTheme()
+const STORAGE_KEY = 'fh-theme'
+
+type Theme = 'light' | 'terminal'
+
+export function ThemeToggle({
+  lightLabel,
+  terminalLabel
+}: {
+  lightLabel: string
+  terminalLabel: string
+}) {
+  const [theme, setTheme] = useState<Theme>('light')
+
+  useEffect(() => {
+    setTheme(
+      document.documentElement.dataset.theme === 'terminal'
+        ? 'terminal'
+        : 'light'
+    )
+  }, [])
+
+  function toggleTheme() {
+    const nextTheme = theme === 'terminal' ? 'light' : 'terminal'
+    document.documentElement.dataset.theme = nextTheme
+    localStorage.setItem(STORAGE_KEY, nextTheme)
+    setTheme(nextTheme)
+  }
+
+  const isTerminal = theme === 'terminal'
+  const label = isTerminal ? lightLabel : terminalLabel
 
   return (
-    <Button
-      className={props.className}
-      variant="ghost"
-      size="icon"
-      onClick={() => setTheme((theme) => (theme === 'dark' ? 'light' : 'dark'))}
+    <button
+      type="button"
+      className="minimal-theme-toggle"
+      onClick={toggleTheme}
+      aria-label={label}
+      title={label}
+      aria-pressed={isTerminal}
     >
-      <Sun className="dark:-rotate-90 h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:scale-0" />
-      <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-      <span className="sr-only">Toggle theme</span>
-    </Button>
+      {isTerminal ? <Sun aria-hidden="true" /> : <Terminal aria-hidden="true" />}
+    </button>
   )
 }

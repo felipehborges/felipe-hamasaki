@@ -107,9 +107,18 @@ export default async function RootLayout({
     <html
       lang={locale}
       data-style="minimal"
+      data-theme="light"
       suppressHydrationWarning
       className={`${inter.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{var t=localStorage.getItem('fh-theme');if(t==='terminal')document.documentElement.dataset.theme='terminal'}catch(e){}"
+          }}
+        />
+      </head>
       <body className="overflow-x-hidden antialiased">
         <Button
           asChild
