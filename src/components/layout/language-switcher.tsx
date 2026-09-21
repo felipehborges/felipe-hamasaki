@@ -50,7 +50,11 @@ export function LanguageSwitcher({
 
   return (
     <Select value={locale} onValueChange={changeLocale}>
-      <SelectTrigger className="portfolio-language-switcher" aria-label={label}>
+      <SelectTrigger
+        className="portfolio-language-switcher"
+        aria-label={label}
+        size="sm"
+      >
         {compact ? (
           <span aria-hidden="true">
             {locale === 'pt-BR' ? 'PT' : locale.toUpperCase()}
@@ -59,9 +63,18 @@ export function LanguageSwitcher({
           <SelectValue />
         )}
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent
+        className="minimal-language-menu"
+        position="popper"
+        align="end"
+        sideOffset={8}
+      >
         {routing.locales.map((item) => (
-          <SelectItem key={item} value={item}>
+          <SelectItem
+            key={item}
+            value={item}
+            className="minimal-language-option"
+          >
             {localeNames[item]}
           </SelectItem>
         ))}
