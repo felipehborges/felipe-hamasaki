@@ -22,7 +22,6 @@ export function SiteHeader() {
         <div className="minimal-nav-links">
           <a href={localizePath('/#work', locale)}>{t('work')}</a>
           <a href={localizePath('/#about', locale)}>{t('about')}</a>
-          <a href={localizePath('/#playground', locale)}>{design('play')}</a>
           <a href={`mailto:${siteConfig.email}`}>{design('email')}</a>
           <ThemeToggle
             lightLabel={design('lightMode')}

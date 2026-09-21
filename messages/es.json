@@ -75,6 +75,12 @@
           "problem": "Las interfaces repetían las mismas decisiones y perdían coherencia a medida que crecía la plataforma.",
           "solution": "Contribuí con componentes React a la biblioteca interna e introduje convenciones de herramientas y documentación.",
           "result": "Componentes compartidos"
+        },
+        "four": {
+          "title": "Medivi Shop — comercio de fantasía",
+          "problem": "Una tienda ficticia que pone a prueba los flujos de compra y la gestión cotidiana.",
+          "solution": "Proyecto de portafolio con catálogo, carrito, pago de prueba y panel de administración para productos y pedidos.",
+          "result": "Proyecto de portafolio · pagos de prueba"
         }
       }
     },
@@ -221,6 +227,7 @@
   "Design": {
     "play": "Interacciones",
     "email": "Email",
+    "source": "Ver código en GitHub",
     "screenshot": "proyecto",
     "playground": "Interacciones",
     "live": "en vivo",

@@ -75,6 +75,12 @@
           "problem": "Product interfaces were repeating the same decisions and drifting as the platform grew.",
           "solution": "Contributed React components to the internal library and introduced tooling and documentation conventions.",
           "result": "Shared components"
+        },
+        "four": {
+          "title": "Medivi Shop — fantasy e-commerce",
+          "problem": "A fictional storefront that exercises both shopping and day-to-day store operations.",
+          "solution": "Portfolio project with a catalog, cart, test checkout, and admin tools for products and orders.",
+          "result": "Portfolio project · test payments"
         }
       }
     },
@@ -221,6 +227,7 @@
   "Design": {
     "play": "Play",
     "email": "Email",
+    "source": "View code on GitHub",
     "screenshot": "project",
     "playground": "Playground",
     "live": "live",

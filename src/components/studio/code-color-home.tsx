@@ -1,17 +1,14 @@
-import {
-  LocalTime,
-  Playground,
-  TiltCard
-} from '@/components/studio/minimal-interactions'
+import { LocalTime } from '@/components/studio/local-time'
 import { siteConfig } from '@/lib/site-config'
 import { useTranslations } from 'next-intl'
 
-const projectKeys = ['one', 'two', 'three'] as const
+const projectKeys = ['one', 'two', 'three', 'four'] as const
 const experienceKeys = ['fullstack', 'frontend', 'junior'] as const
 const projectTools = [
   'TypeScript · React · Next.js · Node',
   'React · WebSocket · Real time',
-  'TypeScript · React · UI · Docs'
+  'TypeScript · React · UI · Docs',
+  'Next.js · TypeScript · PostgreSQL · Drizzle'
 ] as const
 
 export function CodeColorHome() {
@@ -52,14 +49,24 @@ export function CodeColorHome() {
           <div className="minimal-projects">
             {projectKeys.map((key, index) => (
               <article className="minimal-project" key={key}>
-                <TiltCard label={design('screenshot')}>
+                <div className="minimal-project-visual">
                   <span>{home(`work.projects.${key}.result`)}</span>
-                </TiltCard>
+                </div>
                 <div className="minimal-project-copy">
                   <h2>{home(`work.projects.${key}.title`)}</h2>
                   <p>{home(`work.projects.${key}.solution`)}</p>
                 </div>
                 <p className="minimal-project-tools">{projectTools[index]}</p>
+                {key === 'four' && (
+                  <a
+                    className="minimal-project-source"
+                    href="https://github.com/felipehborges/medivi-shop"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {design('source')} <span aria-hidden="true">↗</span>
+                  </a>
+                )}
               </article>
             ))}
           </div>
@@ -77,24 +84,6 @@ export function CodeColorHome() {
               </article>
             ))}
           </div>
-        </section>
-
-        <section className="minimal-section" id="playground">
-          <div className="minimal-label minimal-label-split">
-            <span>{design('playground')}</span>
-            <span>{design('live')}</span>
-          </div>
-          <Playground
-            labels={{
-              magnetic: design('magnetic'),
-              pull: design('pull'),
-              springSwitch: design('springSwitch'),
-              elasticTabs: design('elasticTabs'),
-              design: design('design'),
-              build: design('build'),
-              ship: design('ship')
-            }}
-          />
         </section>
 
         <footer className="minimal-inline-footer">
