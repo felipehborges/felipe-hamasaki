@@ -2,14 +2,19 @@ import { LocalTime } from '@/components/studio/local-time'
 import { siteConfig } from '@/lib/site-config'
 import { useTranslations } from 'next-intl'
 
-const projectKeys = ['one', 'two', 'three', 'four'] as const
-const experienceKeys = ['fullstack', 'frontend', 'junior'] as const
-const projectTools = [
-  'TypeScript · React · Next.js · Node',
-  'React · WebSocket · Real time',
-  'TypeScript · React · UI · Docs',
-  'Next.js · TypeScript · PostgreSQL · Drizzle'
+const projectKeys = [
+  // 'one',
+  // 'two',
+  // 'three',
+  'four'
 ] as const
+const experienceKeys = ['fullstack', 'frontend', 'junior'] as const
+const projectTools = {
+  one: 'TypeScript · React · Next.js · Node',
+  two: 'React · WebSocket · Real time',
+  three: 'TypeScript · React · UI · Docs',
+  four: 'Next.js · TypeScript · PostgreSQL · Drizzle'
+} as const
 
 export function CodeColorHome() {
   const home = useTranslations('Home')
@@ -47,7 +52,7 @@ export function CodeColorHome() {
         <section className="minimal-section" id="work">
           <div className="minimal-label">{home('work.kicker')}</div>
           <div className="minimal-projects">
-            {projectKeys.map((key, index) => (
+            {projectKeys.map((key) => (
               <article className="minimal-project" key={key}>
                 <div className="minimal-project-visual">
                   <span>{home(`work.projects.${key}.result`)}</span>
@@ -56,7 +61,7 @@ export function CodeColorHome() {
                   <h2>{home(`work.projects.${key}.title`)}</h2>
                   <p>{home(`work.projects.${key}.solution`)}</p>
                 </div>
-                <p className="minimal-project-tools">{projectTools[index]}</p>
+                <p className="minimal-project-tools">{projectTools[key]}</p>
                 {key === 'four' && (
                   <a
                     className="minimal-project-source"
