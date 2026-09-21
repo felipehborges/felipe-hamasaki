@@ -102,7 +102,7 @@
       "kicker": "SOBRE",
       "titleLine1": "Software claro.",
       "titleLine2": "Trabalho em equipe franco.",
-      "paragraph1": "Sou desenvolvedor full stack no estado de São Paulo. Construo e modernizo software operacional para inteligência corporativa e prevenção a fraudes, onde a confiabilidade importa porque as pessoas usam o produto o dia todo.",
+      "paragraph1": "Sou desenvolvedor com base em frontend e experiência full stack. Gosto de transformar problemas complexos em interfaces claras e úteis, unindo atenção aos detalhes visuais com soluções bem construídas por trás da tela.",
       "paragraph2": "Comecei no frontend e hoje trabalho nas duas pontas. Gosto de participar das decisões de produto, deixar os trade-offs explícitos e melhorar as convenções que ajudam um time pequeno a avançar junto.",
       "paragraph3": "Antes do software, ensinei inglês por dois anos e trabalhei seis anos em RH. A folha de pagamento me ensinou que alguns bugs afetam pessoas de verdade; a sala de aula, a explicar coisas complexas sem me esconder atrás de jargão."
     },
@@ -118,7 +118,7 @@
         },
         "frontend": {
           "period": "MAI 2023 — FEV 2025",
-          "role": "Desenvolvedor Front-end",
+          "role": "Desenvolvedor Front-end Pleno",
           "company": "ODEEN — Intelligence for Security",
           "impact": "Contribuí com componentes React para a biblioteca interna e introduzi convenções de ferramentas e documentação."
         },
