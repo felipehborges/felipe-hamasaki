@@ -17,7 +17,7 @@ const projects = {
   five: {
     image: '/projects/psico-gabriela.png',
     art: null,
-    demo: null,
+    demo: 'https://psico-gabriela.vercel.app/',
     source: 'https://github.com/felipehborges/psico-gabriela'
   },
   six: { image: null, art: 'orbit', demo: null, source: null },
