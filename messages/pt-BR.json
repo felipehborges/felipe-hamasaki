@@ -57,6 +57,8 @@
       "problem": "Problema",
       "solution": "Contribuição",
       "result": "RESULTADO",
+      "demo": "Ver projeto",
+      "source": "Código-fonte",
       "projects": {
         "one": {
           "title": "Plataforma de inteligência para operações 24/7",
@@ -79,8 +81,16 @@
         "four": {
           "title": "Medivi Shop — e-commerce de fantasia",
           "problem": "Uma loja fictícia que exercita os fluxos de compra e operação de um e-commerce.",
-          "solution": "Projeto de portfólio com catálogo, carrinho, checkout de teste e painel administrativo para produtos e pedidos.",
-          "result": "Projeto de portfólio · pagamentos de teste"
+          "solution": "Loja interativa com catálogo, favoritos, carrinho, checkout simulado e painel administrativo de demonstração.",
+          "result": "Projeto de portfólio · pagamentos de teste",
+          "imageAlt": "Captura da página inicial da loja Medivi Shop"
+        },
+        "five": {
+          "title": "Gabriela Almeida — site de psicologia",
+          "problem": "Uma psicóloga clínica precisa apresentar sua abordagem e facilitar o contato com novos pacientes.",
+          "solution": "Site responsivo com apresentação profissional, informações sobre atendimento e caminhos claros para agendamento.",
+          "result": "Site profissional",
+          "imageAlt": "Captura da página inicial do site da psicóloga Gabriela Almeida"
         }
       }
     },

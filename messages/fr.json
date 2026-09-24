@@ -57,6 +57,8 @@
       "problem": "Problème",
       "solution": "Contribution",
       "result": "RÉSULTAT",
+      "demo": "Voir le projet",
+      "source": "Code source",
       "projects": {
         "one": {
           "title": "Plateforme de renseignement pour des opérations 24 h/24",
@@ -79,8 +81,16 @@
         "four": {
           "title": "Medivi Shop — boutique fantasy",
           "problem": "Une boutique fictive qui couvre les parcours d’achat et la gestion quotidienne.",
-          "solution": "Projet de portfolio avec catalogue, panier, paiement de test et outils d’administration des produits et commandes.",
-          "result": "Projet de portfolio · paiements de test"
+          "solution": "Boutique interactive avec catalogue, favoris, panier, paiement simulé et panneau d'administration de démonstration.",
+          "result": "Projet de portfolio · paiements de test",
+          "imageAlt": "Capture d'écran de la page d'accueil de Medivi Shop"
+        },
+        "five": {
+          "title": "Gabriela Almeida — site de psychologie",
+          "problem": "Une psychologue clinicienne doit présenter son approche et faciliter le contact avec de nouveaux patients.",
+          "solution": "Site adaptatif avec présentation professionnelle, informations sur les consultations et accès clair à la prise de rendez-vous.",
+          "result": "Site professionnel",
+          "imageAlt": "Capture d'écran de la page d'accueil du site de la psychologue Gabriela Almeida"
         }
       }
     },

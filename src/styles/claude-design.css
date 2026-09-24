@@ -284,31 +284,28 @@ html[data-style] body {
 }
 
 .minimal-project-visual {
-  min-height: clamp(180px, 26vw, 260px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   overflow: hidden;
   border: 1px solid #dcdee3;
   border-radius: 10px;
-  background: repeating-linear-gradient(
-    135deg,
-    #e8eaee 0 11px,
-    #eef0f3 11px 22px
-  );
+  background: #e8eaee;
 }
 
-.minimal-project-visual > span {
-  max-width: calc(100% - 32px);
-  padding: 6px 11px;
-  border: 1px solid #dcdee3;
-  border-radius: 999px;
-  background: #f1f2f4;
-  color: #5a606b;
-  font: 10px var(--font-jetbrains-mono), monospace;
-  letter-spacing: .12em;
-  text-align: center;
-  text-transform: uppercase;
+.minimal-project-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform .25s ease;
+}
+
+.minimal-project-visual:hover img {
+  transform: scale(1.015);
+}
+
+.minimal-project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 22px;
 }
 
 .minimal-project-copy {
