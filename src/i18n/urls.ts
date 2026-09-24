@@ -4,9 +4,7 @@ import { siteConfig } from '@/lib/site-config'
 
 const localePrefixes: Record<AppLocale, string> = {
   en: '',
-  'pt-BR': '/pt-br',
-  es: '/es',
-  fr: '/fr'
+  'pt-BR': '/pt-br'
 }
 
 export function localizePath(pathname: string, locale: AppLocale) {

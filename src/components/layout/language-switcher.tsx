@@ -1,84 +1,34 @@
 'use client'
 
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue
-} from '@/components/ui/select'
-import { type AppLocale, routing } from '@/i18n/routing'
-
-const localeNames: Record<AppLocale, string> = {
-  en: 'English',
-  'pt-BR': 'Português (BR)',
-  es: 'Español',
-  fr: 'Français'
-}
-
-const localePrefixes: Record<AppLocale, string> = {
-  en: '',
-  'pt-BR': '/pt-br',
-  es: '/es',
-  fr: '/fr'
-}
+import type { AppLocale } from '@/i18n/routing'
+import { localizePath } from '@/i18n/urls'
 
 export function LanguageSwitcher({
   label,
-  locale,
-  compact = false
-}: {
-  label: string
-  locale: AppLocale
-  compact?: boolean
-}) {
-  function changeLocale(value: string) {
-    if (!routing.locales.includes(value as AppLocale)) return
-    const nextLocale = value as AppLocale
-    const currentPrefix = localePrefixes[locale]
-    const logicalPath =
-      currentPrefix && window.location.pathname.startsWith(currentPrefix)
-        ? window.location.pathname.slice(currentPrefix.length) || '/'
-        : window.location.pathname
-    const nextPath = `${localePrefixes[nextLocale]}${logicalPath}` || '/'
+  locale
+}: { label: string; locale: AppLocale }) {
+  const nextLocale = locale === 'en' ? 'pt-BR' : 'en'
+  const nextLabel = nextLocale === 'en' ? 'EN' : 'PT-BR'
 
-    document.cookie = `NEXT_LOCALE=${encodeURIComponent(nextLocale)}; Path=/; Max-Age=31536000; SameSite=Lax`
+  function changeLocale() {
+    const path = window.location.pathname
+    const logicalPath =
+      locale === 'pt-BR' ? path.replace(/^\/pt-br(?=\/|$)/i, '') || '/' : path
+    document.cookie = `NEXT_LOCALE=${nextLocale}; Path=/; Max-Age=31536000; SameSite=Lax`
     window.location.assign(
-      `${nextPath}${window.location.search}${window.location.hash}`
+      `${localizePath(logicalPath, nextLocale)}${window.location.search}${window.location.hash}`
     )
   }
 
   return (
-    <Select value={locale} onValueChange={changeLocale}>
-      <SelectTrigger
-        className="portfolio-language-switcher"
-        aria-label={label}
-        size="sm"
-      >
-        {compact ? (
-          <span aria-hidden="true">
-            {locale === 'pt-BR' ? 'PT' : locale.toUpperCase()}
-          </span>
-        ) : (
-          <SelectValue />
-        )}
-      </SelectTrigger>
-      <SelectContent
-        className="minimal-language-menu"
-        position="popper"
-        align="end"
-        sideOffset={8}
-      >
-        {routing.locales.map((item) => (
-          <SelectItem
-            key={item}
-            value={item}
-            className="minimal-language-option"
-          >
-            {localeNames[item]}
-          </SelectItem>
-        ))}
-      </SelectContent>
-    </Select>
+    <button
+      type="button"
+      className="portfolio-language-switcher"
+      onClick={changeLocale}
+      aria-label={`${label}: ${nextLabel}`}
+      title={nextLocale === 'en' ? 'Switch to English' : 'Mudar para português'}
+    >
+      {nextLabel}
+    </button>
   )
 }

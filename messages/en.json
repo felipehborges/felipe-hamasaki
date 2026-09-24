@@ -1,11 +1,11 @@
 {
   "Metadata": {
-    "role": "Frontend & Full Stack Developer",
-    "siteTitle": "Felipe Hamasaki — Frontend & Full Stack Developer",
-    "description": "Felipe Hamasaki. Frontend-focused developer with full stack experience, growing into Design Engineering. Open to roles and projects.",
-    "socialDescription": "Felipe Hamasaki. Frontend-focused developer with full stack experience, growing into Design Engineering. Open to roles and projects.",
+    "role": "Frontend & Full Stack Engineer",
+    "siteTitle": "Felipe Hamasaki — Frontend & Full Stack Engineer",
+    "description": "Felipe Hamasaki. Frontend-focused engineer with full stack experience, growing into Design Engineering. Open to roles and projects.",
+    "socialDescription": "Felipe Hamasaki. Frontend-focused engineer with full stack experience, growing into Design Engineering. Open to roles and projects.",
     "aboutTitle": "About",
-    "aboutDescription": "I’m Felipe, a frontend-focused developer with full stack experience. I’m studying design and growing into Design Engineering.",
+    "aboutDescription": "I’m Felipe, a frontend-focused engineer with full stack experience. I’m studying design and growing into Design Engineering.",
     "workTitle": "Work",
     "workDescription": "Case studies about real software projects, their constraints, the decisions behind them, and what changed.",
     "writingTitle": "Writing",
@@ -33,7 +33,7 @@
       "status": "OPEN TO REMOTE ROLES",
       "headline": "I build operational software people can rely on for",
       "headlineEmphasis": "the whole shift.",
-      "lede": "I’m Felipe Hamasaki, a full stack developer in Brazil. I turn complex intelligence, tracking, and fraud-prevention workflows into clear, dependable products.",
+      "lede": "I’m Felipe Hamasaki, a full stack engineer in Brazil. I turn complex intelligence, tracking, and fraud-prevention workflows into clear, dependable products.",
       "bookCall": "Book a call",
       "resume": "PDF resume",
       "remoteDetails": "Remote work details",
@@ -59,6 +59,7 @@
       "result": "RESULT",
       "demo": "View project",
       "source": "Source code",
+      "study": "Visual study · demo block",
       "projects": {
         "one": {
           "title": "Intelligence platform for 24/7 operations",
@@ -91,6 +92,14 @@
           "solution": "Responsive website with a professional introduction, therapy information, and clear paths to book an appointment.",
           "result": "Professional website",
           "imageAlt": "Screenshot of psychologist Gabriela Almeida's website home page"
+        },
+        "six": {
+          "title": "Forma — composition study",
+          "solution": "Geometry, typography, and whitespace. An experimental block exploring the rhythm of the gallery."
+        },
+        "seven": {
+          "title": "Signal — motion study",
+          "solution": "Color and contrasting shapes. A second visual experiment for testing transitions between projects."
         }
       }
     },
@@ -112,7 +121,7 @@
       "kicker": "ABOUT",
       "titleLine1": "Clear software.",
       "titleLine2": "Candid teamwork.",
-      "paragraph1": "I’m a developer with a frontend foundation and full stack experience. I enjoy turning complex problems into clear, useful interfaces, combining attention to visual detail with well-built solutions behind the screen.",
+      "paragraph1": "I’m an engineer with a frontend foundation and full stack experience. I enjoy turning complex problems into clear, useful interfaces, combining attention to visual detail with well-built solutions behind the screen.",
       "paragraph2": "I started on the frontend and now work across the stack. I like being close to product decisions, making trade-offs explicit, and improving the conventions that help a small team move together.",
       "paragraph3": "Before software, I taught English for two years and spent six years in HR. Payroll taught me that some bugs are personal; the classroom taught me to explain complicated things without hiding behind jargon."
     },
@@ -122,19 +131,19 @@
       "entries": {
         "fullstack": {
           "period": "MAR 2025 — NOW",
-          "role": "Full Stack Developer",
+          "role": "Full Stack Engineer",
           "company": "ODEEN — Intelligence for Security",
           "impact": "Building intelligence and fraud-prevention products used around the clock by approximately 100 analysts."
         },
         "frontend": {
           "period": "MAY 2023 — FEB 2025",
-          "role": "Mid-level Front End Developer",
+          "role": "Mid-level Front End Engineer",
           "company": "ODEEN — Intelligence for Security",
           "impact": "Contributed React components to the internal library and introduced tooling and documentation conventions."
         },
         "junior": {
           "period": "JAN 2022 — APR 2023",
-          "role": "Junior Front End Developer",
+          "role": "Junior Front End Engineer",
           "company": "ODEEN — Intelligence for Security",
           "impact": "Built responsive operator interfaces with React, TypeScript, and Tailwind CSS."
         },
@@ -160,18 +169,18 @@
     },
     "contact": {
       "kicker": "LET’S BUILD SOMETHING SOLID",
-      "titleLine1": "Need a developer who understands",
+      "titleLine1": "Need an engineer who understands",
       "titleLine2": "product and production?"
     }
   },
   "About": {
     "title": "About",
-    "intro": "I’m Felipe, a frontend-focused developer with full stack experience. I’m studying design and growing into Design Engineering.",
+    "intro": "I’m Felipe, a frontend-focused engineer with full stack experience. I’m studying design and growing into Design Engineering.",
     "story1": "I grew up around computers, largely because my father was a web designer and journalist. I was always drawn to games and PCs, but it took time to see software as work rather than only a hobby.",
     "story2": "I taught English for two years, then spent six years in human resources at an American automotive multinational. I started as an intern and became a personnel administration analyst, working with payroll, time-and-attendance systems, onboarding, offboarding, and management reporting.",
     "story3": "The part of that job I enjoyed most was building reports. I spent years cross-referencing data in Excel, understanding what a number meant, and presenting it so someone else could act on it. In 2020 I began studying Python and JavaScript in the evenings with the specific goal of changing careers.",
-    "story4": "I joined ODEEN in January 2022 as a junior frontend developer. I progressed to frontend developer and then to full stack developer, working with React and Next.js on the interface and Node.js, Express, and MySQL behind it. I completed a degree in Systems Analysis and Development while working full-time.",
-    "story5": "The HR years are the least obvious part of my CV and the part I would defend hardest. Six years of payroll teaches you that some mistakes are not recoverable, that the person facing a bad interface is having a worse day than its developer, and that documentation only works when it is easy to use. I build operator tools now. It is the same responsibility with different inputs.",
+    "story4": "I joined ODEEN in January 2022 as a junior frontend engineer. I progressed to frontend engineer and then to full stack engineer, working with React and Next.js on the interface and Node.js, Express, and MySQL behind it. I completed a degree in Systems Analysis and Development while working full-time.",
+    "story5": "The HR years are the least obvious part of my CV and the part I would defend hardest. Six years of payroll teaches you that some mistakes are not recoverable, that the person facing a bad interface is having a worse day than its engineer, and that documentation only works when it is easy to use. I build operator tools now. It is the same responsibility with different inputs.",
     "photoAlt": "Felipe Hamasaki as a child",
     "photoCaption": "Around the time computers became interesting.",
     "howIWork": "How I work",
@@ -255,7 +264,7 @@
     "codeSide": "01 / CODE SIDE",
     "heroLine": "Serious code.",
     "heroEmphasis": "Interfaces with character.",
-    "heroNote": "Full Stack TypeScript Developer. From backend data to the small detail that makes the frontend feel obvious.",
+    "heroNote": "Full Stack TypeScript Engineer. From backend data to the small detail that makes the frontend feel obvious.",
     "scroll": "See the other side",
     "fileComment": "// reliable throughout the whole shift",
     "codeStatus": "less friction, more context",
@@ -277,13 +286,13 @@
     "commandHelp": "whoami → about | stack → tools | work → projects | contact → contact | clear → clear",
     "commandUnknown": "Command not found. Even a terminal needs boundaries. Try help.",
     "commandClear": "Terminal cleared. Career history is still below.",
-    "commandWho": "Felipe Hamasaki. Full Stack TypeScript Developer. São Paulo, UTC−3. C2 English. Exploring Design Engineering.",
+    "commandWho": "Felipe Hamasaki. Full Stack TypeScript Engineer. São Paulo, UTC−3. C2 English. Exploring Design Engineering.",
     "commandHire": "Permission granted for a good conversation. Use contact to start.",
     "aboutSide": "04 / HUMAN SIDE",
     "aboutLine": "I used to debug",
     "aboutEmphasis": "payroll.",
     "aboutNote": "Before managing React state, I worked with real people. I still do.",
-    "evolution": "I am a Full Stack Developer, deepening my work in UI, motion and interaction — building toward Design Engineering, one detail at a time.",
+    "evolution": "I am a Full Stack Engineer, deepening my work in UI, motion and interaction — building toward Design Engineering, one detail at a time.",
     "fullStory": "The full story",
     "cardCode": "RELIABLE SYSTEMS",
     "cardDesign": "CLEAR INTERFACES",
@@ -311,16 +320,16 @@
     "color": "Color",
     "minimal": "Essential",
     "availability": "Open to roles & projects",
-    "role": "Frontend & Full Stack Developer",
+    "role": "Frontend & Full Stack Engineer",
     "headline": "Precise code.",
     "headlineAccent": "Creative eye.",
-    "intro": "I build interfaces for the web. Exploring design, motion and interaction through the things I make.",
+    "intro": "I build interfaces for the web.<br></br>Exploring design, motion and interaction through the things I make.",
     "seeWork": "Explore projects",
     "projects": "Projects",
     "inProgress": "In progress",
     "projectNote": "A selection of projects is taking shape.",
     "about": "A little about me",
-    "bio": "I’m Felipe, a frontend-focused developer with full stack experience. I’m studying design and growing into Design Engineering.",
+    "bio": "I’m Felipe, a frontend-focused engineer with full stack experience. I’m studying design and growing into Design Engineering.",
     "personal": "Before writing code, I taught English. I still enjoy making things easier to understand.",
     "contact": "Contact",
     "letsTalk": "Let’s make something.",

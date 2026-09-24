@@ -92,9 +92,7 @@ export function PortfolioTerminal({ labels }: { labels: TerminalLabels }) {
         <p className="studio-terminal-name">
           Felipe Hamasaki<span>_</span>
         </p>
-        <p className="studio-terminal-role">
-          Full Stack Developer / TypeScript
-        </p>
+        <p className="studio-terminal-role">Full Stack Engineer / TypeScript</p>
         <form
           onSubmit={(event) => {
             event.preventDefault()

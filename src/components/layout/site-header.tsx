@@ -23,11 +23,13 @@ export function SiteHeader() {
           <a href={localizePath('/#work', locale)}>{t('work')}</a>
           <a href={localizePath('/#about', locale)}>{t('about')}</a>
           <a href={`mailto:${siteConfig.email}`}>{design('email')}</a>
+        </div>
+        <div className="minimal-nav-controls">
           <ThemeToggle
             lightLabel={design('lightMode')}
             terminalLabel={design('terminalMode')}
           />
-          <LanguageSwitcher label={t('language')} locale={locale} compact />
+          <LanguageSwitcher label={t('language')} locale={locale} />
         </div>
       </nav>
     </header>
