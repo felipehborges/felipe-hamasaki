@@ -57,6 +57,8 @@
       "problem": "Problema",
       "solution": "Contribuição",
       "result": "RESULTADO",
+      "demo": "Ver projeto",
+      "source": "Código-fonte",
       "projects": {
         "one": {
           "title": "Plataforma de inteligência para operações 24/7",
@@ -75,6 +77,20 @@
           "problem": "As interfaces repetiam as mesmas decisões e perdiam consistência conforme a plataforma crescia.",
           "solution": "Contribuí com componentes React para a biblioteca interna e introduzi convenções de ferramentas e documentação.",
           "result": "Componentes compartilhados"
+        },
+        "four": {
+          "title": "Medivi Shop — e-commerce de fantasia",
+          "problem": "Uma loja fictícia que exercita os fluxos de compra e operação de um e-commerce.",
+          "solution": "Loja interativa com catálogo, favoritos, carrinho, checkout simulado e painel administrativo de demonstração.",
+          "result": "Projeto de portfólio · pagamentos de teste",
+          "imageAlt": "Captura da página inicial da loja Medivi Shop"
+        },
+        "five": {
+          "title": "Gabriela Almeida — site de psicologia",
+          "problem": "Uma psicóloga clínica precisa apresentar sua abordagem e facilitar o contato com novos pacientes.",
+          "solution": "Site responsivo com apresentação profissional, informações sobre atendimento e caminhos claros para agendamento.",
+          "result": "Site profissional",
+          "imageAlt": "Captura da página inicial do site da psicóloga Gabriela Almeida"
         }
       }
     },
@@ -96,7 +112,7 @@
       "kicker": "SOBRE",
       "titleLine1": "Software claro.",
       "titleLine2": "Trabalho em equipe franco.",
-      "paragraph1": "Sou desenvolvedor full stack no estado de São Paulo. Construo e modernizo software operacional para inteligência corporativa e prevenção a fraudes, onde a confiabilidade importa porque as pessoas usam o produto o dia todo.",
+      "paragraph1": "Sou desenvolvedor com base em frontend e experiência full stack. Gosto de transformar problemas complexos em interfaces claras e úteis, unindo atenção aos detalhes visuais com soluções bem construídas por trás da tela.",
       "paragraph2": "Comecei no frontend e hoje trabalho nas duas pontas. Gosto de participar das decisões de produto, deixar os trade-offs explícitos e melhorar as convenções que ajudam um time pequeno a avançar junto.",
       "paragraph3": "Antes do software, ensinei inglês por dois anos e trabalhei seis anos em RH. A folha de pagamento me ensinou que alguns bugs afetam pessoas de verdade; a sala de aula, a explicar coisas complexas sem me esconder atrás de jargão."
     },
@@ -112,7 +128,7 @@
         },
         "frontend": {
           "period": "MAI 2023 — FEV 2025",
-          "role": "Desenvolvedor Front-end",
+          "role": "Desenvolvedor Front-end Pleno",
           "company": "ODEEN — Intelligence for Security",
           "impact": "Contribuí com componentes React para a biblioteca interna e introduzi convenções de ferramentas e documentação."
         },
@@ -217,6 +233,23 @@
   "OpenGraph": {
     "caseStudy": "Estudo de caso",
     "writing": "Artigos"
+  },
+  "Design": {
+    "play": "Interações",
+    "email": "E-mail",
+    "source": "Ver código no GitHub",
+    "screenshot": "projeto",
+    "playground": "Interações",
+    "live": "ao vivo",
+    "magnetic": "Magnético",
+    "pull": "Puxe-me",
+    "springSwitch": "Interruptor elástico",
+    "elasticTabs": "Abas elásticas",
+    "design": "Design",
+    "build": "Código",
+    "ship": "Entrega",
+    "terminalMode": "Ativar modo terminal",
+    "lightMode": "Ativar modo claro"
   },
   "Studio": {
     "codeSide": "01 / LADO CÓDIGO",

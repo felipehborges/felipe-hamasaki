@@ -27,6 +27,7 @@ export function Sculpture({
       const { RoomEnvironment } = await import(
         'three/addons/environments/RoomEnvironment.js'
       )
+      const { createCodeDesignModel } = await import('./code-design-model')
       if (cancelled || !container) return
       const renderer = new THREE.WebGLRenderer({
         alpha: true,
@@ -36,41 +37,26 @@ export function Sculpture({
       renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75))
       renderer.setClearColor(0, 0)
       renderer.toneMapping = THREE.ACESFilmicToneMapping
+      renderer.toneMappingExposure = 0.9
       const scene = new THREE.Scene()
       const camera = new THREE.PerspectiveCamera(35, 1, 0.1, 40)
-      const geometry = new THREE.TorusKnotGeometry(
-        1.2,
-        0.38,
-        style === 'terminal' ? 96 : 180,
-        style === 'terminal' ? 12 : 28
-      )
-      const material = new THREE.MeshPhysicalMaterial({
-        color:
-          style === 'terminal'
-            ? '#9cf6b0'
-            : style === 'color'
-              ? '#6a35f0'
-              : '#c5c2d8',
-        metalness: style === 'minimal' ? 0.92 : 0.25,
-        roughness: style === 'minimal' ? 0.21 : 0.32,
-        wireframe: style === 'terminal',
-        clearcoat: 1
-      })
-      const mesh = new THREE.Mesh(geometry, material)
-      mesh.rotation.set(0.4, -0.4, -0.4)
+      const sculpture = createCodeDesignModel(style)
+      const mesh = sculpture.model
+      mesh.rotation.set(0.12, -0.24, -0.06)
       scene.add(mesh)
       const environment = new RoomEnvironment()
       const pmrem = new THREE.PMREMGenerator(renderer)
       const environmentMap = pmrem.fromScene(environment)
       scene.environment = environmentMap.texture
+      scene.environmentIntensity = 0.65
       environment.dispose()
       pmrem.dispose()
-      const key = new THREE.DirectionalLight(0xffffff, 4)
+      const key = new THREE.DirectionalLight(0xffefdf, 2.7)
       key.position.set(3, 4, 4)
-      scene.add(key, new THREE.AmbientLight(0xffffff, 1.2))
+      scene.add(key, new THREE.AmbientLight(0xffffff, 0.8))
       const fill = new THREE.PointLight(
-        style === 'color' ? 0xffa958 : 0x927bff,
-        16
+        style === 'color' ? 0xffd5a8 : 0xd9e3ff,
+        9
       )
       fill.position.set(-3, -1, 3)
       scene.add(fill)
@@ -80,7 +66,7 @@ export function Sculpture({
       let previous = 0
       let x = 0
       let y = 0
-      let angle = -0.4
+      let angle = 0
       function render() {
         if (!lost) renderer.render(scene, camera)
       }
@@ -133,8 +119,9 @@ export function Sculpture({
         )
           return
         angle += delta * 0.13
-        mesh.rotation.y = angle + x
-        mesh.rotation.x += (0.4 + y - mesh.rotation.x) * 0.05
+        mesh.rotation.y +=
+          (-0.24 + Math.sin(angle) * 0.18 + x - mesh.rotation.y) * 0.05
+        mesh.rotation.x += (0.12 + y - mesh.rotation.x) * 0.05
         render()
       })
       dispose = () => {
@@ -144,8 +131,7 @@ export function Sculpture({
         container.removeEventListener('pointermove', pointer)
         container.removeEventListener('pointerleave', leave)
         renderer.domElement.removeEventListener('webglcontextlost', contextLost)
-        geometry.dispose()
-        material.dispose()
+        sculpture.dispose()
         environmentMap.dispose()
         renderer.dispose()
         renderer.domElement.remove()
@@ -175,7 +161,7 @@ export function Sculpture({
         )}
       </div>
       <div className="sculpture-caption">
-        <span>FORM / FUNCTION</span>
+        <span>CODE / DESIGN</span>
         {ready && (
           <Button
             variant="ghost"

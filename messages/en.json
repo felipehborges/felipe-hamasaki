@@ -57,6 +57,8 @@
       "problem": "Problem",
       "solution": "Contribution",
       "result": "RESULT",
+      "demo": "View project",
+      "source": "Source code",
       "projects": {
         "one": {
           "title": "Intelligence platform for 24/7 operations",
@@ -75,6 +77,20 @@
           "problem": "Product interfaces were repeating the same decisions and drifting as the platform grew.",
           "solution": "Contributed React components to the internal library and introduced tooling and documentation conventions.",
           "result": "Shared components"
+        },
+        "four": {
+          "title": "Medivi Shop — fantasy e-commerce",
+          "problem": "A fictional storefront that exercises both shopping and day-to-day store operations.",
+          "solution": "Interactive shop with a catalog, favorites, cart, simulated checkout, and demo admin panel.",
+          "result": "Portfolio project · test payments",
+          "imageAlt": "Screenshot of the Medivi Shop home page"
+        },
+        "five": {
+          "title": "Gabriela Almeida — psychology website",
+          "problem": "A clinical psychologist needs to present her approach and make it easy for new clients to get in touch.",
+          "solution": "Responsive website with a professional introduction, therapy information, and clear paths to book an appointment.",
+          "result": "Professional website",
+          "imageAlt": "Screenshot of psychologist Gabriela Almeida's website home page"
         }
       }
     },
@@ -96,7 +112,7 @@
       "kicker": "ABOUT",
       "titleLine1": "Clear software.",
       "titleLine2": "Candid teamwork.",
-      "paragraph1": "I’m a full stack developer based in São Paulo state. I build and modernise operational software for corporate intelligence and fraud prevention, where reliability matters because people use the product all day.",
+      "paragraph1": "I’m a developer with a frontend foundation and full stack experience. I enjoy turning complex problems into clear, useful interfaces, combining attention to visual detail with well-built solutions behind the screen.",
       "paragraph2": "I started on the frontend and now work across the stack. I like being close to product decisions, making trade-offs explicit, and improving the conventions that help a small team move together.",
       "paragraph3": "Before software, I taught English for two years and spent six years in HR. Payroll taught me that some bugs are personal; the classroom taught me to explain complicated things without hiding behind jargon."
     },
@@ -112,7 +128,7 @@
         },
         "frontend": {
           "period": "MAY 2023 — FEB 2025",
-          "role": "Front End Developer",
+          "role": "Mid-level Front End Developer",
           "company": "ODEEN — Intelligence for Security",
           "impact": "Contributed React components to the internal library and introduced tooling and documentation conventions."
         },
@@ -217,6 +233,23 @@
   "OpenGraph": {
     "caseStudy": "Case study",
     "writing": "Writing"
+  },
+  "Design": {
+    "play": "Play",
+    "email": "Email",
+    "source": "View code on GitHub",
+    "screenshot": "project",
+    "playground": "Playground",
+    "live": "live",
+    "magnetic": "Magnetic",
+    "pull": "Pull me",
+    "springSwitch": "Spring switch",
+    "elasticTabs": "Elastic tabs",
+    "design": "Design",
+    "build": "Build",
+    "ship": "Ship",
+    "terminalMode": "Turn on terminal mode",
+    "lightMode": "Turn on light mode"
   },
   "Studio": {
     "codeSide": "01 / CODE SIDE",

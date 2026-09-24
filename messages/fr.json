@@ -57,6 +57,8 @@
       "problem": "Problème",
       "solution": "Contribution",
       "result": "RÉSULTAT",
+      "demo": "Voir le projet",
+      "source": "Code source",
       "projects": {
         "one": {
           "title": "Plateforme de renseignement pour des opérations 24 h/24",
@@ -75,6 +77,20 @@
           "problem": "Les interfaces répétaient les mêmes décisions et perdaient en cohérence à mesure que la plateforme grandissait.",
           "solution": "J’ai contribué des composants React à la bibliothèque interne et introduit des conventions d’outillage et de documentation.",
           "result": "Composants partagés"
+        },
+        "four": {
+          "title": "Medivi Shop — boutique fantasy",
+          "problem": "Une boutique fictive qui couvre les parcours d’achat et la gestion quotidienne.",
+          "solution": "Boutique interactive avec catalogue, favoris, panier, paiement simulé et panneau d'administration de démonstration.",
+          "result": "Projet de portfolio · paiements de test",
+          "imageAlt": "Capture d'écran de la page d'accueil de Medivi Shop"
+        },
+        "five": {
+          "title": "Gabriela Almeida — site de psychologie",
+          "problem": "Une psychologue clinicienne doit présenter son approche et faciliter le contact avec de nouveaux patients.",
+          "solution": "Site adaptatif avec présentation professionnelle, informations sur les consultations et accès clair à la prise de rendez-vous.",
+          "result": "Site professionnel",
+          "imageAlt": "Capture d'écran de la page d'accueil du site de la psychologue Gabriela Almeida"
         }
       }
     },
@@ -96,7 +112,7 @@
       "kicker": "À PROPOS",
       "titleLine1": "Des logiciels clairs.",
       "titleLine2": "Un travail d’équipe franc.",
-      "paragraph1": "Je suis développeur full stack dans l’État de São Paulo. Je crée et modernise des logiciels opérationnels pour le renseignement d’entreprise et la prévention de la fraude, où la fiabilité compte parce que les équipes utilisent le produit toute la journée.",
+      "paragraph1": "Je suis développeur avec une base en frontend et une expérience full stack. J’aime transformer des problèmes complexes en interfaces claires et utiles, en alliant le souci du détail visuel à des solutions solides en coulisses.",
       "paragraph2": "J’ai commencé par le frontend et je travaille maintenant sur l’ensemble de la stack. J’aime participer aux décisions produit, rendre les compromis explicites et améliorer les conventions qui permettent à une petite équipe d’avancer ensemble.",
       "paragraph3": "Avant le logiciel, j’ai enseigné l’anglais pendant deux ans et travaillé six ans dans les RH. La paie m’a appris que certains bugs touchent directement les personnes ; la salle de classe, à expliquer des sujets complexes sans me cacher derrière le jargon."
     },
@@ -112,7 +128,7 @@
         },
         "frontend": {
           "period": "MAI 2023 — FÉV. 2025",
-          "role": "Développeur Frontend",
+          "role": "Développeur Frontend intermédiaire",
           "company": "ODEEN — Intelligence for Security",
           "impact": "J’ai contribué des composants React à la bibliothèque interne et introduit des conventions d’outillage et de documentation."
         },
@@ -217,6 +233,23 @@
   "OpenGraph": {
     "caseStudy": "Étude de cas",
     "writing": "Articles"
+  },
+  "Design": {
+    "play": "Interactions",
+    "email": "E-mail",
+    "source": "Voir le code sur GitHub",
+    "screenshot": "projet",
+    "playground": "Interactions",
+    "live": "en direct",
+    "magnetic": "Magnétique",
+    "pull": "Attirez-moi",
+    "springSwitch": "Interrupteur élastique",
+    "elasticTabs": "Onglets élastiques",
+    "design": "Design",
+    "build": "Code",
+    "ship": "Livraison",
+    "terminalMode": "Activer le mode terminal",
+    "lightMode": "Activer le mode clair"
   },
   "Studio": {
     "codeSide": "01 / CÔTÉ CODE",

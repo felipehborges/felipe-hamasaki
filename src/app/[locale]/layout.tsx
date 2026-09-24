@@ -1,6 +1,4 @@
-import { SiteFooter } from '@/components/layout/site-footer'
 import { SiteHeader } from '@/components/layout/site-header'
-import { PortfolioStyleProvider } from '@/components/studio/portfolio-style'
 import { Button } from '@/components/ui/button'
 import { routing } from '@/i18n/routing'
 import { absoluteLocalizedUrl, languageAlternates } from '@/i18n/urls'
@@ -109,9 +107,18 @@ export default async function RootLayout({
     <html
       lang={locale}
       data-style="minimal"
+      data-theme="light"
       suppressHydrationWarning
-      className={`${inter.variable} ${newsreader.variable} ${jetbrainsMono.variable} dark`}
+      className={`${inter.variable} ${newsreader.variable} ${jetbrainsMono.variable}`}
     >
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{var t=localStorage.getItem('fh-theme');if(t==='terminal')document.documentElement.dataset.theme='terminal'}catch(e){}"
+          }}
+        />
+      </head>
       <body className="overflow-x-hidden antialiased">
         <Button
           asChild
@@ -119,11 +126,8 @@ export default async function RootLayout({
         >
           <a href="#main-content">{t('skipToContent')}</a>
         </Button>
-        <PortfolioStyleProvider>
-          <SiteHeader />
-          <main id="main-content">{children}</main>
-          <SiteFooter />
-        </PortfolioStyleProvider>
+        <SiteHeader />
+        <main id="main-content">{children}</main>
       </body>
     </html>
   )
