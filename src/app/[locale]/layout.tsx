@@ -57,6 +57,13 @@ export async function generateMetadata({
       default: title
     },
     description,
+    icons: {
+      icon: [
+        { url: '/favicon.ico?v=kanji-2', sizes: '16x16 32x32 48x48', type: 'image/x-icon' },
+        { url: '/hamasaki-mark.svg?v=kanji-2', sizes: 'any', type: 'image/svg+xml' }
+      ],
+      apple: '/apple-touch-icon.png?v=kanji-2'
+    },
     alternates: {
       canonical: absoluteLocalizedUrl('/', locale),
       languages: languageAlternates('/'),

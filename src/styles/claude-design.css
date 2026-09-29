@@ -50,7 +50,7 @@ html[data-style] body {
   display: flex;
   flex: none;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
   color: #16181d;
   font-size: 14px;
   font-weight: 520;
@@ -61,12 +61,17 @@ html[data-style] body {
   color: #16181d;
 }
 
-.minimal-wordmark i {
-  width: 7px;
-  height: 7px;
+.minimal-brand-mark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   flex: none;
-  border-radius: 2px;
-  background: #1f8a58;
+  color: #000;
+  font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: 0;
 }
 
 .minimal-nav-links {
@@ -626,6 +631,12 @@ html[data-theme="terminal"] .minimal-site {
   font-family: var(--font-jetbrains-mono), monospace;
 }
 
+html[data-theme="terminal"] .minimal-hero h1,
+html[data-theme="terminal"] .minimal-project-copy h2,
+html[data-theme="terminal"] .minimal-experience strong {
+  letter-spacing: -.035em;
+}
+
 html[data-theme="terminal"] ::selection {
   background: #225b2c;
   color: #effff1;
@@ -645,13 +656,8 @@ html[data-theme="terminal"] .minimal-experience strong {
   color: var(--text);
 }
 
-html[data-theme="terminal"] .minimal-wordmark::before {
-  content: ">";
+html[data-theme="terminal"] .minimal-brand-mark {
   color: var(--accent);
-}
-
-html[data-theme="terminal"] .minimal-wordmark i {
-  display: none;
 }
 
 html[data-theme="terminal"] .minimal-nav-links > a,
@@ -672,7 +678,6 @@ html[data-theme="terminal"] .minimal-location i {
   color: var(--accent);
 }
 
-html[data-theme="terminal"] .minimal-wordmark i,
 html[data-theme="terminal"] .minimal-caret,
 html[data-theme="terminal"] .minimal-location i {
   background: var(--accent);
@@ -842,7 +847,7 @@ html[data-theme="terminal"] .portfolio-language-switcher {
   }
 
   .minimal-wordmark {
-    gap: 6px;
+    gap: 10px;
     font-size: 12px;
   }
 
