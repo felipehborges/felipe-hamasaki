@@ -9,13 +9,13 @@ const projectKeys = ['four', 'five', 'six', 'seven'] as const
 const experienceKeys = ['fullstack', 'frontend', 'junior'] as const
 const projects = {
   four: {
-    image: '/projects/medivi-shop.png',
+    image: '/projects/medivi-shop.webp',
     art: null,
     demo: 'https://medivi-shop.vercel.app',
     source: 'https://github.com/felipehborges/medivi-shop'
   },
   five: {
-    image: '/projects/psico-gabriela.png',
+    image: '/projects/psico-gabriela.webp',
     art: null,
     demo: 'https://psico-gabriela.vercel.app/',
     source: 'https://github.com/felipehborges/psico-gabriela'
@@ -78,11 +78,7 @@ export function CodeColorHome() {
                     {projects[key].image ? (
                       <a
                         className="minimal-project-visual"
-                        href={
-                          projects[key].demo ??
-                          projects[key].source ??
-                          undefined
-                        }
+                        href={projects[key].demo ?? undefined}
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`${home(projects[key].demo ? 'work.demo' : 'work.source')}: ${home(`work.projects.${key}.title`)}`}
@@ -90,9 +86,10 @@ export function CodeColorHome() {
                         <Image
                           src={projects[key].image ?? ''}
                           alt={home(`work.projects.${key}.imageAlt`)}
-                          width={1440}
-                          height={900}
+                          width={2880}
+                          height={1800}
                           sizes="(max-width: 800px) 100vw, 760px"
+                          unoptimized
                         />
                       </a>
                     ) : (
