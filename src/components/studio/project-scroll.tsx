@@ -7,12 +7,7 @@ const fade = (value: number) => {
   const progress = clamp(value)
   return progress * progress * (3 - 2 * progress)
 }
-const imageOffsets = [
-  [-32, 0],
-  [32, 0],
-  [0, 28],
-  [0, -28]
-] as const
+const imageOffsetY = 28
 
 export function ProjectScroll({ children }: { children: ReactNode }) {
   const root = useRef<HTMLDivElement>(null)
@@ -48,10 +43,9 @@ export function ProjectScroll({ children }: { children: ReactNode }) {
           : clamp((headerHeight - positions[index]) / stageHeight)
         const stacked = gallery?.dataset.projectStack === 'true'
         const exiting = stacked && index < steps.length - 1 ? leaving : 0
-        const [offsetX, offsetY] = imageOffsets[index % imageOffsets.length]
         frame.style.setProperty('--project-leave', String(leaving))
         // Compensate for the wrapper's travel so the text stays stationary.
-        // Only the image receives a small directional offset.
+        // Every image enters from below as the page scrolls down.
         frame.style.setProperty(
           '--project-lift',
           `${stacked ? -entering * stageHeight : 0}px`
@@ -65,8 +59,7 @@ export function ProjectScroll({ children }: { children: ReactNode }) {
           '--project-text-opacity',
           String(fade((0.5 - entering) / 0.5) * (1 - fade(exiting / 0.4)))
         )
-        frame.style.setProperty('--project-image-x', `${offsetX * entering}px`)
-        frame.style.setProperty('--project-image-y', `${offsetY * entering}px`)
+        frame.style.setProperty('--project-image-y', `${imageOffsetY * entering}px`)
         frame.style.pointerEvents =
           entering > 0.35 || exiting > 0.35 ? 'none' : ''
       }
