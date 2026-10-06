@@ -59,10 +59,10 @@ export async function generateMetadata({
     description,
     icons: {
       icon: [
-        { url: '/favicon.ico?v=kanji-2', sizes: '16x16 32x32 48x48', type: 'image/x-icon' },
-        { url: '/hamasaki-mark.svg?v=kanji-2', sizes: 'any', type: 'image/svg+xml' }
+        { url: '/favicon.ico?v=hama-green-1', sizes: '16x16 32x32 48x48', type: 'image/x-icon' },
+        { url: '/hamasaki-mark.svg?v=hama-green-1', sizes: 'any', type: 'image/svg+xml' }
       ],
-      apple: '/apple-touch-icon.png?v=kanji-2'
+      apple: '/apple-touch-icon.png?v=hama-green-1'
     },
     alternates: {
       canonical: absoluteLocalizedUrl('/', locale),

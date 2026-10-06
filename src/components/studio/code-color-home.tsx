@@ -17,7 +17,7 @@ const projects = {
   five: {
     image: '/projects/psico-gabriela.webp',
     art: null,
-    demo: 'https://psico-gabriela.vercel.app/',
+    demo: 'https://www.psialmeidagabriela.com.br/',
     source: 'https://github.com/felipehborges/psico-gabriela'
   },
   six: { image: null, art: 'orbit', demo: null, source: null },
@@ -60,7 +60,12 @@ export function CodeColorHome() {
         <section className="minimal-section" id="work">
           <ProjectScroll>
             {projectKeys.map((key, index) => (
-              <div className="minimal-project-step" key={key} data-scroll-block>
+              <div
+                className="minimal-project-step"
+                id={`project-${key}`}
+                key={key}
+                data-scroll-block
+              >
                 <article className="minimal-project">
                   <div className="minimal-project-frame">
                     <div className="minimal-project-folio" aria-hidden="true">

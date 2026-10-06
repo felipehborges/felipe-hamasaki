@@ -62,16 +62,15 @@ html[data-style] body {
 }
 
 .minimal-brand-mark {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: block;
   flex: none;
-  color: #000;
-  font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 1.05;
-  letter-spacing: 0;
+  width: 18px;
+  height: 18px;
+  filter: brightness(0);
+}
+
+html[data-theme="terminal"] .minimal-brand-mark {
+  filter: none;
 }
 
 .minimal-nav-links {
@@ -384,7 +383,7 @@ html[data-style] body {
 .minimal-project-visual {
   display: block;
   overflow: hidden;
-  border: 1px solid #dcdee3;
+  border: 0;
   border-radius: 10px;
   background: #e8eaee;
 }
@@ -654,10 +653,6 @@ html[data-theme="terminal"] .minimal-links .minimal-email,
 html[data-theme="terminal"] .minimal-project-copy h2,
 html[data-theme="terminal"] .minimal-experience strong {
   color: var(--text);
-}
-
-html[data-theme="terminal"] .minimal-brand-mark {
-  color: var(--accent);
 }
 
 html[data-theme="terminal"] .minimal-nav-links > a,

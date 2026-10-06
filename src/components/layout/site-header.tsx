@@ -17,10 +17,13 @@ export function SiteHeader() {
         aria-label={t('primaryNavigation')}
       >
         <a className="minimal-wordmark" href={localizePath('/#top', locale)}>
-          <span className="minimal-brand-mark" role="img" aria-label="浜崎">
-            <span aria-hidden="true">浜</span>
-            <span aria-hidden="true">崎</span>
-          </span>
+          <img
+            className="minimal-brand-mark"
+            src="/hamasaki-mark.svg?v=hama-green-1"
+            alt=""
+            width={18}
+            height={18}
+          />
           hamasaki.dev
         </a>
         <div className="minimal-nav-links">
